@@ -1,0 +1,64 @@
+{
+  "features": [
+    {
+      "title": "Dedicated Co-Working Space",
+      "description": "Optimize your productivity with 24/7 access to a creative coworking environment, equipped with ergonomic sit/stand desks, smart TVs, and ample natural light.",
+      "icon": "/img/icons/coworking-space.svg"
+    },
+    {
+      "title": "Blazing Fast Internet",
+      "description": "Stay connected with business-grade 1 Gbps symmetric fiber. Whether you're working remotely, attending virtual meetings, or streaming, our high-speed internet ensures zero downtime.",
+      "icon": "/img/icons/wifi-ethernet.svg"
+    },
+    {
+      "title": "Flexible Month-to-Month Leases",
+      "description": "Enjoy complete flexibility with month-to-month lease options, perfect for digital nomads or professionals looking for both short-term and long-term stays.",
+      "icon": "/img/icons/flexible-lease.svg"
+    },
+    {
+      "title": "Walkable Neighborhood",
+      "description": "Cafes, restaurants, bars, supermarkets, parks, and food trucks all within a 15-minute walk. Explore and socialize without needing a car.",
+      "icon": "/img/icons/neighborhood.svg"
+    },
+    {
+      "title": "Community Events & Meetups",
+      "description": "Join a thriving community of entrepreneurs, freelancers, and creatives. Regular events and meetups help you network, collaborate, and unwind.",
+      "icon": "/img/icons/community-events.svg"
+    },
+    {
+      "title": "Local Community Manager",
+      "description": "Our on-site community manager ensures you have a smooth stay, while also organizing events and meetups to help you connect with other residents and locals.",
+      "icon": "/img/icons/community-manager.svg"
+    },
+    {
+      "title": "Fully Furnished Bedrooms",
+      "description": "Spacious, fully furnished rooms provide the comfort you need, with fresh linens and towels. Choose between private or shared bathrooms based on your preferences.",
+      "icon": "/img/icons/bedrooms.svg"
+    },
+    {
+      "title": "Fully Equipped Kitchen",
+      "description": "For those who value a home-cooked meal or need the flexibility to prepare their own food, the fully equipped kitchen provides everything you need.",
+      "icon": "/img/icons/kitchen.svg"
+    },
+    {
+      "title": "Safety & Security",
+      "description": "Enjoy peace of mind with top-tier security, including exterior cameras, fenced premises, and smart locks on each bedroom.",
+      "icon": "/img/icons/security.svg"
+    },
+    {
+      "title": "Outdoor Deck & Backyard",
+      "description": "Take a break, collaborate, or relax in the shaded outdoor areas. Perfect for working in the fresh air or enjoying downtime with fellow residents.",
+      "icon": "/img/icons/outdoor-deck.svg"
+    },
+    {
+      "title": "Regular Cleaning Services",
+      "description": "Keep your focus on work or leisure while we handle the cleaning. Shared spaces are cleaned regularly for your convenience.",
+      "icon": "/img/icons/cleaning.svg"
+    },
+    {
+      "title": "Free Street Parking",
+      "description": "Convenient street parking available around the property, wrapped by two streets and an alleyway for easy access.",
+      "icon": "/img/icons/parking.svg"
+    }
+  ]
+}

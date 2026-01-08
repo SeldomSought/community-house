@@ -1,0 +1,54 @@
+{
+  "events": [
+    {
+      "id": "event-001",
+      "title": "Community Dinner & Networking",
+      "date": "2025-02-15",
+      "time": "7:00 PM",
+      "location": "Community Kitchen",
+      "description": "Join us for our monthly community dinner! Bring a dish to share or just come hungry. Great opportunity to meet new residents and reconnect with the community.",
+      "category": "social",
+      "rsvpLink": "/events/community-dinner-feb"
+    },
+    {
+      "id": "event-002",
+      "title": "Remote Work Productivity Workshop",
+      "date": "2025-02-20",
+      "time": "2:00 PM",
+      "location": "Coworking Office",
+      "description": "Learn tips and strategies for maximizing your productivity while working remotely. Led by experienced digital nomads and remote work veterans.",
+      "category": "workshop",
+      "rsvpLink": "/events/productivity-workshop"
+    },
+    {
+      "id": "event-003",
+      "title": "Founder Fireside Chat",
+      "date": "2025-02-25",
+      "time": "6:30 PM",
+      "location": "Outdoor Deck",
+      "description": "An intimate conversation with local startup founders sharing their journey, lessons learned, and advice for aspiring entrepreneurs.",
+      "category": "networking",
+      "rsvpLink": "/events/founder-chat"
+    },
+    {
+      "id": "event-004",
+      "title": "Sunday Morning Yoga",
+      "date": "2025-03-02",
+      "time": "9:00 AM",
+      "location": "Backyard Garden",
+      "description": "Start your week right with a relaxing yoga session in our backyard garden. All levels welcome. Mats provided.",
+      "category": "social",
+      "rsvpLink": "/events/sunday-yoga"
+    },
+    {
+      "id": "event-005",
+      "title": "Tech Demo Night",
+      "date": "2025-03-08",
+      "time": "7:00 PM",
+      "location": "Coworking Office",
+      "description": "Community members showcase their projects, side hustles, and latest tech experiments. Come to present or just to be inspired!",
+      "category": "networking",
+      "rsvpLink": "/events/demo-night"
+    }
+  ]
+}
