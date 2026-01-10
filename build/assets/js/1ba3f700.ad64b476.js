@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkcommunity_house=globalThis.webpackChunkcommunity_house||[]).push([[351],{8608(n){n.exports=JSON.parse('{"tags":[{"label":"announcement","permalink":"/community-house/blog/tags/announcement","count":1},{"label":"community","permalink":"/community-house/blog/tags/community","count":1}]}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkcommunity_house=globalThis.webpackChunkcommunity_house||[]).push([[721],{6112(o){o.exports=JSON.parse('{"authors":[{"name":"The Fellowship","title":"Community Team","url":"https://seldomsought.github.io/community-house","imageURL":"https://github.com/SeldomSought.png","key":"community","page":null,"count":1}]}')}}]);
