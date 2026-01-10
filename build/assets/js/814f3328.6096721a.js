@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkcommunity_house=globalThis.webpackChunkcommunity_house||[]).push([[472],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome to The Fellowship","permalink":"/community-house/blog/welcome-to-the-fellowship","unlisted":false,"date":"2025-01-15T00:00:00.000Z"}]}')}}]);

@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // Replace with your actual values
 const config: Config = {
   title: 'The Fellowship',
-  tagline: 'A Coliving Community in Travis Heights, Austin',
+  tagline: 'Three houses, one community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -78,7 +78,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/social-card.jpg',
     metadata: [
-      { name: 'keywords', content: 'coliving, coworking, community, housing' },
+      { name: 'keywords', content: 'coliving, austin, travis heights, community housing, shared living' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { property: 'og:type', content: 'website' },
     ],
@@ -133,16 +133,16 @@ const config: Config = {
           title: 'Connect',
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/yourhandle',
+              label: 'Instagram',
+              href: 'https://instagram.com/thefellowshipatx',
             },
             {
-              label: 'Instagram',
-              href: 'https://instagram.com/yourhandle',
+              label: 'Twitter',
+              href: 'https://twitter.com/thefellowshipatx',
             },
             {
               label: 'Email Us',
-              href: 'mailto:hello@communityhouse.com',
+              href: 'mailto:hello@thefellowshipatx.com',
             },
           ],
         },

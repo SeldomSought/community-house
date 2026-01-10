@@ -2,63 +2,63 @@
   "features": [
     {
       "title": "Three Houses, One Community",
-      "description": "The Fellowship spans three houses on a half-acre property, creating a village-like atmosphere with private spaces and shared amenities.",
+      "description": "Like renting a mansion with three wings. 12 bedrooms, 3 kitchens, multiple living rooms, a conservatory, loft, and more than half an acre of land.",
       "icon": "/img/icons/neighborhood.svg"
     },
     {
-      "title": "Private Gym",
-      "description": "Stay fit with our on-site gym, available 24/7 for residents. No membership fees, no crowded equipment—just show up and work out.",
-      "icon": "/img/icons/coworking-space.svg"
-    },
-    {
-      "title": "Cold Plunge & Hot Tub",
-      "description": "Recover and relax with our cold plunge and hot tub. Perfect for post-workout recovery or unwinding after a long day.",
-      "icon": "/img/icons/outdoor-deck.svg"
-    },
-    {
-      "title": "Home Movie Theatre",
-      "description": "Enjoy movie nights in our dedicated theatre room with comfortable seating and a big screen. Host watch parties or catch up on your favorites.",
-      "icon": "/img/icons/community-events.svg"
-    },
-    {
-      "title": "House Tesla",
-      "description": "Need to run errands or explore Austin? The community Tesla is available for residents to use, making car-free living easy.",
-      "icon": "/img/icons/parking.svg"
-    },
-    {
-      "title": "Backyard Chickens",
-      "description": "Fresh eggs from our backyard flock. Connect with nature and enjoy farm-fresh breakfast without leaving home.",
-      "icon": "/img/icons/kitchen.svg"
-    },
-    {
-      "title": "Half-Acre Outdoor Space",
-      "description": "Spread out across a half-acre of outdoor space. Gardens, gathering areas, and room to breathe in the heart of Travis Heights.",
-      "icon": "/img/icons/outdoor-deck.svg"
-    },
-    {
-      "title": "Steps from Lady Bird Trail",
-      "description": "Less than a mile to the Lady Bird Lake Trail. Morning runs, evening walks, and kayaking all within easy reach.",
-      "icon": "/img/icons/neighborhood.svg"
-    },
-    {
-      "title": "Flexible Month-to-Month Leases",
-      "description": "No long-term commitments required. Month-to-month leases give you the flexibility to stay as long as you need.",
-      "icon": "/img/icons/flexible-lease.svg"
-    },
-    {
-      "title": "Blazing Fast Internet",
-      "description": "Business-grade 1 Gbps symmetric fiber throughout all three houses. Work remotely without interruption.",
+      "title": "1-5 Gbps Fiber Internet",
+      "description": "Blazing fast fiber throughout all three houses. Work remotely, stream, or video call without interruption.",
       "icon": "/img/icons/wifi-ethernet.svg"
     },
     {
-      "title": "Fully Equipped Kitchens",
-      "description": "Each house has a fully stocked kitchen. Cook your own meals or join community dinners with fellow residents.",
+      "title": "The Conservatory",
+      "description": "A spacious glass-walled room perfect for gathering, working, music practice, or just enjoying the natural light.",
+      "icon": "/img/icons/coworking-space.svg"
+    },
+    {
+      "title": "Hot Tub & Cold Plunge",
+      "description": "Relax in the hot tub or invigorate yourself with a cold plunge. Recovery and wellness built into daily life.",
+      "icon": "/img/icons/outdoor-deck.svg"
+    },
+    {
+      "title": "Theatre Room",
+      "description": "Theatre-quality projector and screen for movie nights, watch parties, and karaoke sessions.",
+      "icon": "/img/icons/community-events.svg"
+    },
+    {
+      "title": "Shared Self-Driving Tesla",
+      "description": "Community Tesla available for errands, exploring Austin, or trips to the airport. Car-free living made easy.",
+      "icon": "/img/icons/parking.svg"
+    },
+    {
+      "title": "Barbell Gym",
+      "description": "Full barbell gym setup on-site. No memberships, no commute—just walk outside and lift.",
+      "icon": "/img/icons/coworking-space.svg"
+    },
+    {
+      "title": "Backyard Chickens",
+      "description": "Fresh eggs daily from our backyard flock in their mobile coop. Farm-fresh breakfast steps from your door.",
       "icon": "/img/icons/kitchen.svg"
     },
     {
-      "title": "Safety & Security",
-      "description": "Exterior cameras, fenced property, and smart locks on each bedroom. Peace of mind in a welcoming community.",
-      "icon": "/img/icons/security.svg"
+      "title": "Half Acre Outdoor Space",
+      "description": "Enormous backyard with fire pits, built-in propane grill, and space to host parties. Serene, quiet, natural surroundings.",
+      "icon": "/img/icons/outdoor-deck.svg"
+    },
+    {
+      "title": "Guest Loft",
+      "description": "Dedicated loft space for hosting visitors. Your friends and family can stay without disrupting your housemates.",
+      "icon": "/img/icons/bedrooms.svg"
+    },
+    {
+      "title": "Woodwork Shed",
+      "description": "Space and tools for woodworking projects. Build furniture, art, or whatever you can imagine.",
+      "icon": "/img/icons/coworking-space.svg"
+    },
+    {
+      "title": "Prime Location",
+      "description": "3-10 minutes to downtown, Town Lake waterfront, South Congress, and East Austin by car. Easy access by bike or scooter.",
+      "icon": "/img/icons/neighborhood.svg"
     }
   ]
 }

@@ -105,14 +105,14 @@ export default function Home(): JSX.Element {
     >
       <main>
         <Hero
-          title="The Fellowship — a coliving community in Travis Heights, Austin."
-          subtitle="Three houses on a half-acre with a gym, cold plunge, hot tub, movie theatre, backyard chickens, and a house Tesla. Less than a mile to Lady Bird Trail. Rooms from $750/month."
+          title="The Fellowship — three houses, one community in Travis Heights."
+          subtitle="Like renting a mansion together with three wings. 12 bedrooms, 3 kitchens, a conservatory, gym, hot tub, cold plunge, theatre, shared Tesla, and half an acre of land. 3-10 minutes to downtown, Town Lake, and South Congress. Rooms from $750/month."
           primaryCta={{
             label: 'View Rooms',
             to: '/membership',
           }}
           secondaryCta={{
-            label: 'Apply Now',
+            label: 'Schedule a Tour',
             to: '/apply',
           }}
         />

@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkcommunity_house=globalThis.webpackChunkcommunity_house||[]).push([[903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/community-house/blog","blogTitle":"Community Updates","authorsListPath":"/community-house/blog/authors"}')}}]);
