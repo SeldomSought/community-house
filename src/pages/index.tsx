@@ -119,7 +119,7 @@ export default function Home(): JSX.Element {
           subtitle="Join a thriving community of entrepreneurs, freelancers, and creatives. Flexible month-to-month leases, fully equipped workspaces, and curated events to help you grow."
           primaryCta={{
             label: 'Explore Spaces',
-            to: '/spaces',
+            to: '/spaces/spaces',
           }}
           secondaryCta={{
             label: 'Apply Now',
