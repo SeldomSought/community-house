@@ -2,47 +2,47 @@
   "events": [
     {
       "id": "event-001",
-      "title": "Community Dinner & Networking",
+      "title": "Community Dinner",
       "date": "2025-02-15",
       "time": "7:00 PM",
-      "location": "Community Kitchen",
-      "description": "Join us for our monthly community dinner! Bring a dish to share or just come hungry. Great opportunity to meet new residents and reconnect with the community.",
+      "location": "Main House Kitchen",
+      "description": "Monthly community dinner. Bring a dish to share or just come hungry. Great way to meet fellow residents.",
       "category": "social"
     },
     {
       "id": "event-002",
-      "title": "Remote Work Productivity Workshop",
-      "date": "2025-02-20",
-      "time": "2:00 PM",
-      "location": "Coworking Office",
-      "description": "Learn tips and strategies for maximizing your productivity while working remotely. Led by experienced digital nomads and remote work veterans.",
-      "category": "workshop"
+      "title": "Trail Run",
+      "date": "2025-02-22",
+      "time": "7:00 AM",
+      "location": "Lady Bird Trail",
+      "description": "Morning run on Lady Bird Trail. All paces welcome. Meet at the front gate.",
+      "category": "social"
     },
     {
       "id": "event-003",
-      "title": "Founder Fireside Chat",
-      "date": "2025-02-25",
-      "time": "6:30 PM",
-      "location": "Outdoor Deck",
-      "description": "An intimate conversation with local startup founders sharing their journey, lessons learned, and advice for aspiring entrepreneurs.",
-      "category": "networking"
+      "title": "Movie Night",
+      "date": "2025-02-28",
+      "time": "8:00 PM",
+      "location": "Movie Theatre",
+      "description": "Friday movie night in the theatre. Popcorn provided. Film TBD by vote.",
+      "category": "social"
     },
     {
       "id": "event-004",
-      "title": "Sunday Morning Yoga",
+      "title": "Sunday Brunch",
       "date": "2025-03-02",
-      "time": "9:00 AM",
-      "location": "Backyard Garden",
-      "description": "Start your week right with a relaxing yoga session in our backyard garden. All levels welcome. Mats provided.",
+      "time": "10:00 AM",
+      "location": "Backyard",
+      "description": "Brunch in the backyard with fresh eggs from our chickens. Weather permitting.",
       "category": "social"
     },
     {
       "id": "event-005",
-      "title": "Tech Demo Night",
+      "title": "Open House",
       "date": "2025-03-08",
-      "time": "7:00 PM",
-      "location": "Coworking Office",
-      "description": "Community members showcase their projects, side hustles, and latest tech experiments. Come to present or just to be inspired!",
+      "time": "2:00 PM",
+      "location": "The Fellowship",
+      "description": "Tour the property and meet current residents. For prospective members.",
       "category": "networking"
     }
   ]

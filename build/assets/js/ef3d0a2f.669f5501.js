@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkcommunity_house=globalThis.webpackChunkcommunity_house||[]).push([[382],{3347(e){e.exports=JSON.parse('{"metadata":{"permalink":"/community-house/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"News, events, and updates from our community","blogTitle":"Community Updates"}}')}}]);

@@ -1,0 +1,21 @@
+{
+  "id": "spaces/index",
+  "title": "Our Spaces",
+  "description": "Explore The Fellowship — three houses and shared amenities on a half-acre in Travis Heights, Austin.",
+  "source": "@site/docs/spaces/index.mdx",
+  "sourceDirName": "spaces",
+  "slug": "/spaces/",
+  "permalink": "/community-house/spaces/spaces/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/your-org/community-house/tree/main/docs/spaces/index.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Our Spaces",
+    "description": "Explore The Fellowship — three houses and shared amenities on a half-acre in Travis Heights, Austin."
+  },
+  "sidebar": "spacesSidebar"
+}
