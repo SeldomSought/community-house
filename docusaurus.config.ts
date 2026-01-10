@@ -116,7 +116,7 @@ const config: Config = {
         {
           title: 'Explore',
           items: [
-            { label: 'Spaces', to: '/spaces' },
+            { label: 'Spaces', to: '/spaces/spaces' },
             { label: 'Location', to: '/location' },
             { label: 'Membership', to: '/membership' },
           ],
@@ -141,16 +141,9 @@ const config: Config = {
               href: 'https://instagram.com/yourhandle',
             },
             {
-              label: 'Contact',
-              to: '/contact',
+              label: 'Email Us',
+              href: 'mailto:hello@communityhouse.com',
             },
-          ],
-        },
-        {
-          title: 'Legal',
-          items: [
-            { label: 'Terms of Service', to: '/terms-of-service' },
-            { label: 'Privacy Policy', to: '/privacy-policy' },
           ],
         },
       ],
