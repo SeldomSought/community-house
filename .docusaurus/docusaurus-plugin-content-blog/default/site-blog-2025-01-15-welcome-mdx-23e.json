@@ -1,0 +1,45 @@
+{
+  "permalink": "/community-house/blog/welcome-to-the-fellowship",
+  "editUrl": "https://github.com/your-org/community-house/tree/main/blog/2025-01-15-welcome.mdx",
+  "source": "@site/blog/2025-01-15-welcome.mdx",
+  "title": "Welcome to The Fellowship",
+  "description": "We're excited to introduce The Fellowship — a coliving community in Travis Heights, Austin. Three houses on a half-acre, designed for people who value community, convenience, and thoughtful living.",
+  "date": "2025-01-15T00:00:00.000Z",
+  "tags": [
+    {
+      "inline": true,
+      "label": "announcement",
+      "permalink": "/community-house/blog/tags/announcement"
+    },
+    {
+      "inline": true,
+      "label": "community",
+      "permalink": "/community-house/blog/tags/community"
+    }
+  ],
+  "readingTime": 0.83,
+  "hasTruncateMarker": true,
+  "authors": [
+    {
+      "name": "The Fellowship",
+      "title": "Community Team",
+      "url": "https://seldomsought.github.io/community-house",
+      "imageURL": "https://github.com/SeldomSought.png",
+      "key": "community",
+      "page": null
+    }
+  ],
+  "frontMatter": {
+    "slug": "welcome-to-the-fellowship",
+    "title": "Welcome to The Fellowship",
+    "authors": [
+      "community"
+    ],
+    "tags": [
+      "announcement",
+      "community"
+    ],
+    "date": "2025-01-15T00:00:00.000Z"
+  },
+  "unlisted": false
+}

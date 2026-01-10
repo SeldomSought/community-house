@@ -4,8 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // Replace with your actual values
 const config: Config = {
-  title: 'Community House',
-  tagline: 'A Modern Coliving & Coworking Experience',
+  title: 'The Fellowship',
+  tagline: 'A Coliving Community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -83,9 +83,9 @@ const config: Config = {
       { property: 'og:type', content: 'website' },
     ],
     navbar: {
-      title: 'Community House',
+      title: 'The Fellowship',
       logo: {
-        alt: 'Community House Logo',
+        alt: 'The Fellowship Logo',
         src: 'img/logo.svg',
         srcDark: 'img/logo-dark.svg',
       },
@@ -147,7 +147,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Community House. All Rights Reserved.`,
+      copyright: `Copyright © ${new Date().getFullYear()} The Fellowship. All Rights Reserved.`,
     },
     prism: {
       theme: prismThemes.github,
@@ -161,7 +161,7 @@ const config: Config = {
     announcementBar: {
       id: 'announcement',
       content:
-        '🎉 Now accepting applications for Q2 2025! <a href="/apply">Apply today</a>',
+        'Now accepting applications — rooms starting at $750/month. <a href="/apply">Apply today</a>',
       backgroundColor: '#E85D04',
       textColor: '#FFFFFF',
       isCloseable: true,
