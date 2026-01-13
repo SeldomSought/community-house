@@ -2,21 +2,18 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// Replace with your actual values
 const config: Config = {
   title: 'The Fellowship',
   tagline: 'Three houses, one community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://your-org.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/community-house/',
+  // Production URL - update when custom domain is configured
+  url: 'https://thefellowshipatx.com',
+  baseUrl: '/',
 
-  // GitHub pages deployment config.
-  organizationName: 'your-org', // Your GitHub org/user name
-  projectName: 'community-house', // Your repo name
+  // GitHub pages deployment config
+  organizationName: 'SeldomSought',
+  projectName: 'community-house',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -36,7 +33,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           path: 'docs',
           routeBasePath: 'spaces',
-          editUrl: 'https://github.com/your-org/community-house/tree/main/',
+          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -47,7 +44,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/your-org/community-house/tree/main/',
+          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
