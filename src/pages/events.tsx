@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import EventsList, { Event } from '@site/src/components/EventsList';
 import eventsData from '@site/src/data/events.json';
 
@@ -86,23 +88,23 @@ export default function EventsPage(): JSX.Element {
             Subscribe to our calendar to stay updated on all upcoming events.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-            <a 
-              href="/events.ics" 
+            <a
+              href={useBaseUrl('/events.ics')}
               className="btn btn-primary"
               download
             >
               📅 Add to Calendar
             </a>
-            <a 
-              href="/apply" 
+            <Link
+              to="/apply"
               className="btn btn-secondary"
-              style={{ 
-                color: 'white', 
-                borderColor: 'rgba(255,255,255,0.5)' 
+              style={{
+                color: 'white',
+                borderColor: 'rgba(255,255,255,0.5)'
               }}
             >
               Join Community
-            </a>
+            </Link>
           </div>
         </div>
       </main>
