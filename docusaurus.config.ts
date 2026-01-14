@@ -94,6 +94,7 @@ const config: Config = {
           position: 'left',
           label: 'Spaces',
         },
+        { to: '/property-tour', label: 'Tour', position: 'left' },
         { to: '/location', label: 'Location', position: 'left' },
         { to: '/membership', label: 'Membership', position: 'left' },
         { to: '/events', label: 'Events', position: 'left' },
@@ -114,6 +115,7 @@ const config: Config = {
           title: 'Explore',
           items: [
             { label: 'Spaces', to: '/spaces/spaces' },
+            { label: 'Property Tour', to: '/property-tour' },
             { label: 'Location', to: '/location' },
             { label: 'Membership', to: '/membership' },
           ],

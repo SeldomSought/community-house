@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3182ce"/>
+      <stop offset="100%" style="stop-color:#2c5282"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg4)"/>
+  <rect x="40" y="70" width="160" height="180" rx="8" fill="#4299e1" opacity="0.6"/>
+  <rect x="240" y="90" width="120" height="100" rx="4" fill="#2b6cb0"/>
+  <rect x="240" y="210" width="120" height="50" rx="4" fill="#2b6cb0"/>
+  <text x="200" y="40" text-anchor="middle" font-family="system-ui" font-size="24" fill="white" opacity="0.9">Bedroom B (Large)</text>
+  <text x="200" y="280" text-anchor="middle" font-family="system-ui" font-size="14" fill="white" opacity="0.6">Placeholder Image</text>
+</svg>
