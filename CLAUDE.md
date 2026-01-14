@@ -60,6 +60,8 @@ Use conventional commits:
 | Change colors/theme | `tailwind.config.js` |
 | Change site metadata | `docusaurus.config.ts` |
 | Edit CSS animations | `src/css/custom.css` |
+| Edit property tour rooms | `src/data/rooms.ts` |
+| Add property tour images | `static/property-tour/` |
 
 ## Data Formats
 
@@ -171,3 +173,79 @@ Brief description of what changed.
 - [ ] Verified MDX frontmatter is valid
 - [ ] Changes align with design system
 ```
+
+## Dollhouse Viewer (Property Tour)
+
+The interactive 3D property tour is available at `/property-tour`. It uses Three.js to render a dollhouse-style view of the property.
+
+### Adding/Editing Room Photos
+
+1. **Add images** to `/static/property-tour/`
+   - Supported formats: JPG, PNG, SVG, WebP
+   - Recommended size: 800x600px or larger
+
+2. **Update room configuration** in `src/data/rooms.ts`:
+   ```typescript
+   {
+     id: 'unique-room-id',
+     name: 'Room Display Name',
+     floor: 1 | 2,  // Which floor the room is on
+     position: { x: 0, z: 0 },  // Grid position
+     size: { w: 4, d: 5 },  // Width and depth
+     primaryImage: '/property-tour/filename.jpg',  // Thumbnail/top texture
+     images: [  // All photos for this room
+       '/property-tour/photo1.jpg',
+       '/property-tour/photo2.jpg',
+     ],
+     color: '#38a169',  // Room color in 3D view (hex)
+   }
+   ```
+
+### Room Layout Grid
+
+The dollhouse uses a simple grid system:
+- `position.x` and `position.z` are grid coordinates
+- `size.w` (width) and `size.d` (depth) define room dimensions
+- Floor 1 is at ground level, Floor 2 floats above
+
+Current layout:
+```
+Floor 1:                    Floor 2:
+┌─────────┬───────┐        ┌─────────┬────┐
+│ Living/ │       │        │Bedroom A│Hall│
+│ Dining  │Kitchen│        ├─────────┴────┤
+│         │       │        │   Bedroom B  │
+├─────────┴───────┤        │   / Flex     │
+│ Entry / Stairs  │        └──────────────┘
+└─────────────────┘
+```
+
+### Embedding Elsewhere
+
+The viewer can be embedded on other pages:
+
+```tsx
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+function MyPage() {
+  return (
+    <BrowserOnly>
+      {() => {
+        const DollhouseViewer = require('@site/src/components/DollhouseViewer').default;
+        return <DollhouseViewer />;
+      }}
+    </BrowserOnly>
+  );
+}
+```
+
+### Component Files
+
+| File | Purpose |
+|------|---------|
+| `src/components/DollhouseViewer/index.tsx` | Main Three.js viewer |
+| `src/components/DollhouseViewer/RoomModal.tsx` | Photo lightbox/carousel |
+| `src/components/DollhouseViewer/styles.module.css` | Component styles |
+| `src/data/rooms.ts` | Room configuration |
+| `static/property-tour/` | Room images |
+| `src/pages/property-tour.tsx` | Page route |
