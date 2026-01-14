@@ -12,8 +12,8 @@ const config: Config = {
   baseUrl: '/',
 
   // GitHub pages deployment config
-  organizationName: 'thefellowshipatx',
-  projectName: 'website',
+  organizationName: 'SeldomSought',
+  projectName: 'community-house',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -33,7 +33,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           path: 'docs',
           routeBasePath: 'spaces',
-          editUrl: 'https://github.com/thefellowshipatx/website/tree/main/',
+          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -44,7 +44,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/thefellowshipatx/website/tree/main/',
+          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
