@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 export interface Feature {
@@ -18,15 +19,16 @@ export default function FeatureCard({
   icon,
   index = 0,
 }: FeatureCardProps): JSX.Element {
+  const iconUrl = useBaseUrl(icon);
   return (
-    <article 
+    <article
       className={clsx('feature-card', styles.card)}
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className={styles.iconWrapper}>
-        <img 
-          src={icon} 
-          alt="" 
+        <img
+          src={iconUrl}
+          alt=""
           className={styles.icon}
           loading="lazy"
           aria-hidden="true"
