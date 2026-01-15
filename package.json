@@ -7,10 +7,12 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "build:gh": "DOCUSAURUS_URL=https://SeldomSought.github.io DOCUSAURUS_BASE_URL=/community-house/ docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "serve:gh": "DOCUSAURUS_BASE_URL=/community-house/ docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
