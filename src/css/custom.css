@@ -82,28 +82,34 @@
   --radius-2xl: 1.5rem;
 }
 
-/* Dark Mode - Warm white/beige theme */
+/* Dark Mode - Actual dark theme */
 [data-theme='dark'] {
-  --color-surface: #FAF8F5;
-  --color-surface-elevated: #FFFFFF;
-  --color-surface-muted: #F5F0E8;
-  --color-text: #2D2A26;
-  --color-text-muted: #6B6560;
-  --color-text-inverse: #FAF8F5;
+  --color-surface: #0F172A;
+  --color-surface-elevated: #1E293B;
+  --color-surface-muted: #334155;
+  --color-text: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #0F172A;
 
-  --color-accent: #2563EB;
-  --color-accent-light: #3B82F6;
-  --color-secondary: #16A34A;
-  --color-secondary-light: #22C55E;
+  --color-accent: #3B82F6;
+  --color-accent-light: #60A5FA;
+  --color-secondary: #22C55E;
+  --color-secondary-light: #4ADE80;
 
   --ifm-background-color: var(--color-surface);
   --ifm-background-surface-color: var(--color-surface-elevated);
-  --ifm-navbar-background-color: rgba(250, 248, 245, 0.95);
-  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.95);
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
 
-  --ifm-color-primary: #2563EB;
-  --ifm-color-primary-light: #3B82F6;
-  --ifm-color-primary-lighter: #60A5FA;
+  --ifm-color-primary: #3B82F6;
+  --ifm-color-primary-dark: #2563EB;
+  --ifm-color-primary-darker: #1D4ED8;
+  --ifm-color-primary-light: #60A5FA;
+  --ifm-color-primary-lighter: #93C5FD;
+
+  --ifm-footer-background-color: #1E293B;
+  --ifm-footer-color: #F8FAFC;
+  --ifm-footer-link-color: #CBD5E1;
 }
 
 /* ============================================
@@ -188,6 +194,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
+[data-theme='dark'] .hero-section::before {
+  background:
+    radial-gradient(ellipse at top right, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.12) 0%, transparent 50%);
+}
+
 .hero-title {
   font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem);
   font-weight: 700;
@@ -251,6 +263,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--color-text);
 }
 
 .feature-card__description {
@@ -277,6 +290,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
 .section-subtitle {
@@ -391,6 +405,16 @@ h1, h2, h3, h4, h5, h6 {
 .cta-section > * {
   position: relative;
   z-index: 1;
+}
+
+/* Dark mode CTA section */
+[data-theme='dark'] .cta-section {
+  background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+  color: #F8FAFC;
+}
+
+[data-theme='dark'] .cta-section .section-subtitle {
+  color: #CBD5E1;
 }
 
 /* ============================================
