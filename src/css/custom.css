@@ -189,18 +189,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+/* Desktop hero typography - 64-72px range */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: clamp(4rem, 5vw, 4.5rem);
+  }
 }
 
 .hero-subtitle {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
   color: var(--color-text-muted);
-  max-width: 600px;
-  line-height: 1.6;
+  max-width: 650px;
+  line-height: 1.7;
+}
+
+/* Desktop subtitle - 18-20px range */
+@media (min-width: 1024px) {
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
 }
 
 /* ============================================
@@ -520,15 +535,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container-narrow {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 .container-wide {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
+}
+
+/* Consistent content container */
+.container-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 /* Animation delays for staggered reveals */
