@@ -244,6 +244,42 @@ Deployment is automatic via GitHub Actions:
 2. **Create a PR** → Triggers build (preview)
 3. **Merge PR** → Triggers deploy to production
 
+### Avoiding baseUrl Issues
+
+This site uses a bulletproof configuration to prevent the dreaded "Your Docusaurus site did not load properly" error.
+
+**How it works:**
+
+The `docusaurus.config.ts` computes `url` and `baseUrl` from environment variables:
+
+| Environment | baseUrl | How it's set |
+|-------------|---------|--------------|
+| Local dev (`npm start`) | `/` | Default for local |
+| GitHub Actions | `/community-house/` | Auto-inferred from `GITHUB_REPOSITORY` |
+| Explicit override | Any value | Set `DOCUSAURUS_BASE_URL` env var |
+
+**Available npm scripts:**
+
+```bash
+npm run start        # Local dev (baseUrl="/")
+npm run build        # Respects environment (local="/", CI="/repo-name/")
+npm run build:gh     # Explicit GitHub Pages build (baseUrl="/community-house/")
+npm run serve:gh     # Serve with GitHub Pages baseUrl locally
+```
+
+**If you see the baseUrl error:**
+
+1. Check the GitHub Actions logs for the computed `url` and `baseUrl`
+2. Ensure no merge conflict has reverted the config
+3. The config auto-infers baseUrl from `GITHUB_REPOSITORY` in CI
+
+**Environment variables:**
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DOCUSAURUS_URL` | Full site URL | `https://SeldomSought.github.io` |
+| `DOCUSAURUS_BASE_URL` | Path prefix | `/` (local) or `/<repo>/` (CI) |
+
 ### Custom Domain
 
 1. Add your domain in `static/CNAME`:
@@ -251,7 +287,14 @@ Deployment is automatic via GitHub Actions:
    your-domain.com
    ```
 
-2. Configure DNS:
+2. Update environment variables in your workflow:
+   ```yaml
+   env:
+     DOCUSAURUS_URL: https://your-domain.com
+     DOCUSAURUS_BASE_URL: /
+   ```
+
+3. Configure DNS:
    ```
    A     @    185.199.108.153
    A     @    185.199.109.153
@@ -260,7 +303,7 @@ Deployment is automatic via GitHub Actions:
    CNAME www  YOUR_ORG.github.io
    ```
 
-3. Enable HTTPS in GitHub Pages settings
+4. Enable HTTPS in GitHub Pages settings
 
 ## 📄 License
 
