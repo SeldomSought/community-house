@@ -7,9 +7,9 @@ const config: Config = {
   tagline: 'Three houses, one community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
-  // Production URL - update when custom domain is configured
-  url: 'https://thefellowshipatx.com',
-  baseUrl: '/',
+  // GitHub Pages URL (update url to custom domain and baseUrl to '/' when configured)
+  url: 'https://SeldomSought.github.io',
+  baseUrl: '/community-house/',
 
   // GitHub pages deployment config
   organizationName: 'SeldomSought',
@@ -160,7 +160,7 @@ const config: Config = {
     announcementBar: {
       id: 'announcement',
       content:
-        'Now accepting applications — rooms starting at $750/month. <a href="/apply">Apply today</a>',
+        'Now accepting applications — rooms starting at $750/month. <a href="/community-house/apply">Apply today</a>',
       backgroundColor: '#E85D04',
       textColor: '#FFFFFF',
       isCloseable: true,

@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Link from '@docusaurus/Link';
 
 // Lazy load the viewer to avoid SSR issues with Three.js
 const DollhouseViewerWrapper = () => {
@@ -74,9 +75,9 @@ export default function PropertyTourPage(): JSX.Element {
             Schedule a tour to experience the property firsthand and meet our community.
           </p>
           <div style={{ marginTop: '1.5rem' }}>
-            <a href="/apply" className="btn btn-primary">
+            <Link to="/apply" className="btn btn-primary">
               Schedule a Tour
-            </a>
+            </Link>
           </div>
         </div>
       </main>
