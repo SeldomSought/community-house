@@ -233,8 +233,6 @@ const config: Config = {
         { to: '/location', label: 'Location', position: 'left' },
         { to: '/membership', label: 'Membership', position: 'left' },
         { to: '/events', label: 'Events', position: 'left' },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/about', label: 'About', position: 'left' },
         {
           to: '/apply',
           label: 'Apply Now',
@@ -244,7 +242,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Explore',
@@ -259,8 +257,7 @@ const config: Config = {
           title: 'Community',
           items: [
             { label: 'Events', to: '/events' },
-            { label: 'Blog', to: '/blog' },
-            { label: 'About', to: '/about' },
+            { label: 'Apply', to: '/apply' },
           ],
         },
         {
