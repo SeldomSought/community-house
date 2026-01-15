@@ -142,9 +142,9 @@ const config: Config = {
   tagline: 'Three houses, one community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
-  // Computed from environment variables - see getSiteUrl() and getBaseUrl() above
-  url: siteUrl,
-  baseUrl: baseUrl,
+  // GitHub Pages URL (update url to custom domain and baseUrl to '/' when configured)
+  url: 'https://SeldomSought.github.io',
+  baseUrl: '/community-house/',
 
   // GitHub pages deployment config
   organizationName: 'SeldomSought',
@@ -296,8 +296,8 @@ const config: Config = {
       id: 'announcement',
       // Use computed baseUrl for the link
       content:
-        `Now accepting applications — rooms starting at $750/month. <a href="${baseUrl}apply">Apply today</a>`,
-      backgroundColor: '#E85D04',
+        'Now accepting applications — rooms starting at $750/month. <a href="/community-house/apply">Apply today</a>',
+      backgroundColor: '#16A34A',
       textColor: '#FFFFFF',
       isCloseable: true,
     },
