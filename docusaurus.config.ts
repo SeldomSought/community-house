@@ -161,7 +161,7 @@ const config: Config = {
       id: 'announcement',
       content:
         'Now accepting applications — rooms starting at $750/month. <a href="/community-house/apply">Apply today</a>',
-      backgroundColor: '#E85D04',
+      backgroundColor: '#16A34A',
       textColor: '#FFFFFF',
       isCloseable: true,
     },

@@ -1,11 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-  <!-- Three houses representing the fellowship -->
-  <g fill="currentColor">
-    <!-- Left house -->
-    <path d="M4 20 L10 14 L16 20 L16 28 L4 28 Z" opacity="0.7"/>
-    <!-- Center house (larger) -->
-    <path d="M12 18 L20 10 L28 18 L28 28 L12 28 Z"/>
-    <!-- Right house -->
-    <path d="M24 20 L30 14 L36 20 L36 28 L24 28 Z" opacity="0.7"/>
+  <!-- Ornate F Crest for The Fellowship -->
+  <defs>
+    <linearGradient id="fGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16A34A"/>
+      <stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield/Crest shape -->
+  <path d="M20 2 L36 8 L36 22 C36 30 28 36 20 38 C12 36 4 30 4 22 L4 8 Z"
+        fill="url(#fGradient)" opacity="0.15"/>
+  <path d="M20 2 L36 8 L36 22 C36 30 28 36 20 38 C12 36 4 30 4 22 L4 8 Z"
+        fill="none" stroke="url(#fGradient)" stroke-width="1.5"/>
+  <!-- Ornate F letterform -->
+  <g fill="url(#fGradient)">
+    <!-- Main F stem -->
+    <path d="M14 10 L14 32 L18 32 L18 22 L26 22 L26 18 L18 18 L18 14 L28 14 L28 10 Z"/>
+    <!-- Decorative flourish on top -->
+    <circle cx="30" cy="10" r="2" opacity="0.6"/>
+    <!-- Leaf accent -->
+    <path d="M26 26 Q30 24 32 28 Q30 30 26 28 Z" opacity="0.7"/>
   </g>
 </svg>

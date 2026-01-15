@@ -6,6 +6,18 @@ import { FeatureGrid } from '@site/src/components/FeatureCard';
 import FloorPlan from '@site/src/components/FloorPlan';
 import featuresData from '@site/src/data/features.json';
 
+interface Pillar {
+  id: string;
+  title: string;
+  tagline: string;
+  color: string;
+  features: Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+}
+
 // Floor plan data
 const floors = [
   {
@@ -22,21 +34,98 @@ const floors = [
   },
 ];
 
+function PillarsSection(): JSX.Element {
+  const pillars = (featuresData as { pillars: Pillar[] }).pillars;
+
+  return (
+    <section className="section" id="pillars">
+      <div className="container-wide">
+        <div className="section-header">
+          <h2 className="section-title">Five Pillars of Living Well</h2>
+          <p className="section-subtitle">
+            Our community is built around what matters most: movement, recovery,
+            focus, connection, and nature.
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '1.5rem',
+        }}>
+          {pillars.map((pillar) => (
+            <div
+              key={pillar.id}
+              className="feature-card"
+              style={{
+                borderTop: `3px solid ${pillar.color}`,
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                marginBottom: '1rem',
+              }}>
+                <div style={{
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: pillar.color,
+                }} />
+                <h3 style={{
+                  margin: 0,
+                  fontSize: '1.25rem',
+                  fontWeight: 600,
+                }}>{pillar.title}</h3>
+              </div>
+              <p style={{
+                fontSize: '0.9375rem',
+                color: 'var(--color-text-muted)',
+                marginBottom: '1rem',
+                fontStyle: 'italic',
+              }}>{pillar.tagline}</p>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+              }}>
+                {pillar.features.map((feature) => (
+                  <li
+                    key={feature.title}
+                    style={{
+                      fontSize: '0.875rem',
+                      padding: '0.5rem 0',
+                      borderBottom: '1px solid rgba(128,128,128,0.1)',
+                    }}
+                  >
+                    <strong>{feature.title}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeaturesSection(): JSX.Element {
   return (
     <section className="section" id="features">
       <div className="container-wide">
         <div className="section-header">
-          <h2 className="section-title">Features & Amenities</h2>
+          <h2 className="section-title">All Amenities</h2>
           <p className="section-subtitle">
-            Everything you need for productive work and comfortable living, 
+            Everything you need for productive work and comfortable living,
             all under one roof.
           </p>
         </div>
-        
-        <FeatureGrid 
-          features={featuresData.features} 
-          columns={3} 
+
+        <FeatureGrid
+          features={featuresData.features}
+          columns={3}
         />
       </div>
     </section>
@@ -101,12 +190,12 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="Home"
-      description="A modern coliving and coworking community. Flexible leases, fully equipped workspaces, and a vibrant community."
+      description="A wellness-focused coliving community in Travis Heights, Austin. Movement, recovery, focus, community, and nature—all under one roof."
     >
       <main>
         <Hero
-          title="The Fellowship — three houses, one community in Travis Heights."
-          subtitle="Like renting a mansion together with three wings. 12 bedrooms, 3 kitchens, a conservatory, gym, hot tub, cold plunge, theatre, shared Tesla, and half an acre of land. 3-10 minutes to downtown, Town Lake, and South Congress. Rooms from $750/month."
+          title="Live with intention. Thrive together."
+          subtitle="The Fellowship is a wellness-focused coliving community in Travis Heights, Austin. Three houses, twelve rooms, half an acre of land—designed around movement, recovery, focus, community, and nature. Rooms from $750/month."
           primaryCta={{
             label: 'View Rooms',
             to: '/membership',
@@ -116,7 +205,8 @@ export default function Home(): JSX.Element {
             to: '/apply',
           }}
         />
-        
+
+        <PillarsSection />
         <FeaturesSection />
         <FloorPlanSection />
         <RoadmapSection />

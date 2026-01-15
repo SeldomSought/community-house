@@ -1,4 +1,106 @@
 {
+  "pillars": [
+    {
+      "id": "movement",
+      "title": "Movement",
+      "tagline": "Strength and vitality in daily life",
+      "color": "#16A34A",
+      "features": [
+        {
+          "title": "Barbell Gym",
+          "description": "Full barbell gym setup on-site. No memberships, no commute—just walk outside and lift.",
+          "icon": "/img/icons/coworking-space.svg"
+        },
+        {
+          "title": "Shared Self-Driving Tesla",
+          "description": "Community Tesla available for errands, exploring Austin, or trips to the airport. Car-free living made easy.",
+          "icon": "/img/icons/parking.svg"
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Recovery",
+      "tagline": "Rest, restore, rejuvenate",
+      "color": "#2563EB",
+      "features": [
+        {
+          "title": "Hot Tub & Cold Plunge",
+          "description": "Relax in the hot tub or invigorate yourself with a cold plunge. Recovery and wellness built into daily life.",
+          "icon": "/img/icons/outdoor-deck.svg"
+        },
+        {
+          "title": "Guest Loft",
+          "description": "Dedicated loft space for hosting visitors. Your friends and family can stay without disrupting your housemates.",
+          "icon": "/img/icons/bedrooms.svg"
+        }
+      ]
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "tagline": "Deep work and creative flow",
+      "color": "#0EA5E9",
+      "features": [
+        {
+          "title": "1-5 Gbps Fiber Internet",
+          "description": "Blazing fast fiber throughout all three houses. Work remotely, stream, or video call without interruption.",
+          "icon": "/img/icons/wifi-ethernet.svg"
+        },
+        {
+          "title": "The Conservatory",
+          "description": "A spacious glass-walled room perfect for gathering, working, music practice, or just enjoying the natural light.",
+          "icon": "/img/icons/coworking-space.svg"
+        },
+        {
+          "title": "Woodwork Shed",
+          "description": "Space and tools for woodworking projects. Build furniture, art, or whatever you can imagine.",
+          "icon": "/img/icons/coworking-space.svg"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "title": "Community",
+      "tagline": "Connection and belonging",
+      "color": "#8B5CF6",
+      "features": [
+        {
+          "title": "Three Houses, One Community",
+          "description": "Like renting a mansion with three wings. 12 bedrooms, 3 kitchens, multiple living rooms, a conservatory, loft, and more than half an acre of land.",
+          "icon": "/img/icons/neighborhood.svg"
+        },
+        {
+          "title": "Theatre Room",
+          "description": "Theatre-quality projector and screen for movie nights, watch parties, and karaoke sessions.",
+          "icon": "/img/icons/community-events.svg"
+        },
+        {
+          "title": "Prime Location",
+          "description": "3-10 minutes to downtown, Town Lake waterfront, South Congress, and East Austin by car. Easy access by bike or scooter.",
+          "icon": "/img/icons/neighborhood.svg"
+        }
+      ]
+    },
+    {
+      "id": "nature",
+      "title": "Nature",
+      "tagline": "Grounded in the natural world",
+      "color": "#22C55E",
+      "features": [
+        {
+          "title": "Half Acre Outdoor Space",
+          "description": "Enormous backyard with fire pits, built-in propane grill, and space to host parties. Serene, quiet, natural surroundings.",
+          "icon": "/img/icons/outdoor-deck.svg"
+        },
+        {
+          "title": "Backyard Chickens",
+          "description": "Fresh eggs daily from our backyard flock in their mobile coop. Farm-fresh breakfast steps from your door.",
+          "icon": "/img/icons/kitchen.svg"
+        }
+      ]
+    }
+  ],
   "features": [
     {
       "title": "Three Houses, One Community",

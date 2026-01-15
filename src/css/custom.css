@@ -8,64 +8,72 @@
 
 /* CSS Custom Properties (Design Tokens) */
 :root {
-  /* Primary Colors */
-  --color-primary: #0A0A0A;
-  --color-primary-light: #1A1A1A;
-  
-  /* Accent Colors */
-  --color-accent: #E85D04;
-  --color-accent-light: #F48C06;
-  --color-accent-dark: #D45A00;
-  
+  /* Primary Colors - Deep, grounding tones */
+  --color-primary: #0F172A;
+  --color-primary-light: #1E293B;
+
+  /* Accent Colors - Blue (Sky/Breath) */
+  --color-accent: #2563EB;
+  --color-accent-light: #3B82F6;
+  --color-accent-dark: #1D4ED8;
+  --color-accent-muted: #60A5FA;
+
+  /* Secondary Colors - Green (Nature/Growth) */
+  --color-secondary: #16A34A;
+  --color-secondary-light: #22C55E;
+  --color-secondary-dark: #15803D;
+  --color-secondary-muted: #86EFAC;
+
   /* Surface Colors */
-  --color-surface: #FAFAFA;
+  --color-surface: #F8FAFC;
   --color-surface-elevated: #FFFFFF;
-  
+  --color-surface-muted: #F1F5F9;
+
   /* Text Colors */
-  --color-text: #1A1A1A;
-  --color-text-muted: #6B7280;
-  --color-text-inverse: #FAFAFA;
-  
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #F8FAFC;
+
   /* Semantic Colors */
-  --color-success: #059669;
-  --color-warning: #D97706;
+  --color-success: #16A34A;
+  --color-warning: #CA8A04;
   --color-error: #DC2626;
-  
+
   /* Fonts */
   --font-heading: 'Clash Display', 'Archivo Black', system-ui, sans-serif;
   --font-body: 'Satoshi', 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  
-  /* Docusaurus overrides */
-  --ifm-color-primary: #E85D04;
-  --ifm-color-primary-dark: #D45A00;
-  --ifm-color-primary-darker: #C25200;
-  --ifm-color-primary-darkest: #A04300;
-  --ifm-color-primary-light: #F48C06;
-  --ifm-color-primary-lighter: #F9A825;
-  --ifm-color-primary-lightest: #FFB74D;
-  
+
+  /* Docusaurus overrides - Blue primary */
+  --ifm-color-primary: #2563EB;
+  --ifm-color-primary-dark: #1D4ED8;
+  --ifm-color-primary-darker: #1E40AF;
+  --ifm-color-primary-darkest: #1E3A8A;
+  --ifm-color-primary-light: #3B82F6;
+  --ifm-color-primary-lighter: #60A5FA;
+  --ifm-color-primary-lightest: #93C5FD;
+
   --ifm-font-family-base: var(--font-body);
   --ifm-heading-font-family: var(--font-heading);
   --ifm-font-family-monospace: var(--font-mono);
-  
+
   --ifm-code-font-size: 95%;
   --ifm-heading-font-weight: 600;
-  
+
   --ifm-background-color: var(--color-surface);
   --ifm-background-surface-color: var(--color-surface-elevated);
-  
-  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
-  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+
+  --ifm-navbar-background-color: rgba(248, 250, 252, 0.95);
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   --ifm-navbar-height: 4rem;
-  
+
   --ifm-footer-background-color: var(--color-primary);
   --ifm-footer-color: var(--color-text-inverse);
   --ifm-footer-link-color: var(--color-text-inverse);
-  
+
   /* Spacing */
   --section-padding: clamp(3rem, 8vw, 6rem);
-  
+
   /* Border radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
@@ -76,18 +84,26 @@
 
 /* Dark Mode */
 [data-theme='dark'] {
-  --color-surface: #0A0A0A;
-  --color-surface-elevated: #1A1A1A;
-  --color-text: #FAFAFA;
-  --color-text-muted: #9CA3AF;
-  --color-text-inverse: #1A1A1A;
-  
+  --color-surface: #0F172A;
+  --color-surface-elevated: #1E293B;
+  --color-surface-muted: #334155;
+  --color-text: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #0F172A;
+
+  --color-accent: #3B82F6;
+  --color-accent-light: #60A5FA;
+  --color-secondary: #22C55E;
+  --color-secondary-light: #4ADE80;
+
   --ifm-background-color: var(--color-surface);
   --ifm-background-surface-color: var(--color-surface-elevated);
-  --ifm-navbar-background-color: rgba(10, 10, 10, 0.95);
-  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-  
-  --ifm-color-primary: #F48C06;
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.95);
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+
+  --ifm-color-primary: #3B82F6;
+  --ifm-color-primary-light: #60A5FA;
+  --ifm-color-primary-lighter: #93C5FD;
 }
 
 /* ============================================
@@ -132,18 +148,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-cta-button {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
   color: white !important;
   padding: 0.5rem 1.25rem !important;
   border-radius: var(--radius-lg);
   font-weight: 600;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(232, 93, 4, 0.3);
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
 }
 
 .navbar-cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 93, 4, 0.4);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
   color: white !important;
   text-decoration: none;
 }
@@ -166,9 +182,9 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(ellipse at top right, rgba(232, 93, 4, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(244, 140, 6, 0.1) 0%, transparent 50%);
+  background:
+    radial-gradient(ellipse at top right, rgba(34, 197, 94, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
   z-index: 0;
 }
 
@@ -274,14 +290,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(232, 93, 4, 0.3);
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 93, 4, 0.4);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
   color: white;
   text-decoration: none;
 }
@@ -351,8 +367,9 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(ellipse at top right, rgba(232, 93, 4, 0.3) 0%, transparent 50%);
+  background:
+    radial-gradient(ellipse at top right, rgba(34, 197, 94, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
   z-index: 0;
 }
 
@@ -482,7 +499,21 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 
 .text-gradient {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-blue {
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
