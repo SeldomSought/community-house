@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Hero from '@site/src/components/Hero';
 import { FeatureGrid } from '@site/src/components/FeatureCard';
-import FloorPlan from '@site/src/components/FloorPlan';
+import ModelViewer from '@site/src/components/ModelViewer';
 import featuresData from '@site/src/data/features.json';
 
 interface Pillar {
@@ -17,22 +17,6 @@ interface Pillar {
     icon: string;
   }>;
 }
-
-// Floor plan data
-const floors = [
-  {
-    id: 'ground-floor',
-    label: 'Ground Floor',
-    image: '/img/floor-plans/ground-floor.svg',
-    alt: 'Ground floor plan showing common areas, kitchen, and outdoor deck',
-  },
-  {
-    id: 'first-floor',
-    label: 'First Floor',
-    image: '/img/floor-plans/first-floor.svg',
-    alt: 'First floor plan showing private bedrooms and coworking office',
-  },
-];
 
 function PillarsSection(): JSX.Element {
   const pillars = (featuresData as { pillars: Pillar[] }).pillars;
@@ -132,14 +116,17 @@ function FeaturesSection(): JSX.Element {
   );
 }
 
-function FloorPlanSection(): JSX.Element {
+function ExploreSpaceSection(): JSX.Element {
   return (
-    <section className="section" id="floor-plan">
+    <section className="section" id="explore-space">
       <div className="container-wide">
-        <FloorPlan 
-          floors={floors} 
-          title="Explore Our Space"
-        />
+        <div className="section-header">
+          <h2 className="section-title">Explore Our Space</h2>
+          <p className="section-subtitle">
+            Take an interactive 3D tour of the property. Drag to rotate, scroll to zoom.
+          </p>
+        </div>
+        <ModelViewer height="520px" />
       </div>
     </section>
   );
@@ -208,7 +195,7 @@ export default function Home(): JSX.Element {
 
         <PillarsSection />
         <FeaturesSection />
-        <FloorPlanSection />
+        <ExploreSpaceSection />
         <RoadmapSection />
         <CTASection />
       </main>
