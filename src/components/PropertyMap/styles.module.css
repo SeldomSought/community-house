@@ -1,0 +1,194 @@
+.wrapper {
+  width: 100%;
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.aerialImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Crop out the text at top and bottom */
+  object-fit: cover;
+  object-position: center 40%;
+  aspect-ratio: 16 / 10;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.houseZone {
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.houseZone:hover,
+.houseZone:focus-visible {
+  background: rgba(232, 93, 4, 0.15);
+  border-color: rgba(232, 93, 4, 0.5);
+}
+
+.houseZone:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.4);
+}
+
+.houseZone.active {
+  background: rgba(232, 93, 4, 0.2);
+  border-color: var(--color-brand, #E85D04);
+}
+
+.featureCard {
+  position: absolute;
+  bottom: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  min-width: 200px;
+  max-width: 260px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(232, 93, 4, 0.2);
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Arrow pointing down to the zone */
+.featureCard::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.98);
+}
+
+.houseName {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-brand, #E85D04);
+  border-bottom: 1px solid rgba(232, 93, 4, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text, #1a1a1a);
+}
+
+.featureIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hint {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .featureCard {
+    min-width: 180px;
+    max-width: 220px;
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .mapContainer {
+    border-radius: 0.75rem;
+  }
+
+  .aerialImage {
+    aspect-ratio: 4 / 3;
+    object-position: center 45%;
+  }
+
+  .houseZone {
+    /* Make touch targets more visible on mobile */
+    border: 2px dashed rgba(232, 93, 4, 0.3);
+    background: rgba(232, 93, 4, 0.05);
+  }
+
+  .featureCard {
+    position: fixed;
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 260px;
+    max-width: 90vw;
+    z-index: 1000;
+  }
+
+  .featureCard::after {
+    display: none;
+  }
+}
+
+/* Dark mode */
+[data-theme='dark'] .featureCard {
+  background: rgba(30, 41, 59, 0.98);
+  border-color: rgba(232, 93, 4, 0.3);
+}
+
+[data-theme='dark'] .featureCard::after {
+  border-top-color: rgba(30, 41, 59, 0.98);
+}
+
+[data-theme='dark'] .featureItem {
+  color: var(--color-text, #f1f5f9);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .houseZone,
+  .featureCard {
+    transition: none;
+    animation: none;
+  }
+}

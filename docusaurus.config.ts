@@ -247,7 +247,7 @@ const config: Config = {
         {
           title: 'Explore',
           items: [
-            { label: 'Spaces', to: '/spaces/spaces' },
+            { label: 'Spaces', to: '/spaces/' },
             { label: 'Property Tour', to: '/property-tour' },
             { label: 'Location', to: '/location' },
             { label: 'Membership', to: '/membership' },

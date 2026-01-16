@@ -3,100 +3,11 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Hero from '@site/src/components/Hero';
 import { FeatureGrid } from '@site/src/components/FeatureCard';
-import ModelViewer from '@site/src/components/ModelViewer';
+import PropertyMap from '@site/src/components/PropertyMap';
 import AtAGlance from '@site/src/components/AtAGlance';
 import StickyCTA from '@site/src/components/StickyCTA';
 import CommunitySection from '@site/src/components/CommunitySection';
 import featuresData from '@site/src/data/features.json';
-
-interface Pillar {
-  id: string;
-  title: string;
-  tagline: string;
-  color: string;
-  features: Array<{
-    title: string;
-    description: string;
-    icon: string;
-  }>;
-}
-
-function PillarsSection(): JSX.Element {
-  const pillars = (featuresData as { pillars: Pillar[] }).pillars;
-
-  return (
-    <section className="section" id="pillars">
-      <div className="container-wide">
-        <div className="section-header">
-          <h2 className="section-title">Five Pillars of Living Well</h2>
-          <p className="section-subtitle">
-            Our community is built around what matters most: movement, recovery,
-            focus, connection, and nature.
-          </p>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1.5rem',
-        }}>
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.id}
-              className="feature-card"
-              style={{
-                borderTop: `3px solid ${pillar.color}`,
-              }}
-            >
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.75rem',
-                marginBottom: '1rem',
-              }}>
-                <div style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: pillar.color,
-                }} />
-                <h3 style={{
-                  margin: 0,
-                  fontSize: '1.25rem',
-                  fontWeight: 600,
-                }}>{pillar.title}</h3>
-              </div>
-              <p style={{
-                fontSize: '0.9375rem',
-                color: 'var(--color-text-muted)',
-                marginBottom: '1rem',
-                fontStyle: 'italic',
-              }}>{pillar.tagline}</p>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-              }}>
-                {pillar.features.map((feature) => (
-                  <li
-                    key={feature.title}
-                    style={{
-                      fontSize: '0.875rem',
-                      padding: '0.5rem 0',
-                      borderBottom: '1px solid rgba(128,128,128,0.1)',
-                    }}
-                  >
-                    <strong>{feature.title}</strong>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FeaturesSection(): JSX.Element {
   return (
@@ -126,10 +37,10 @@ function ExploreSpaceSection(): JSX.Element {
         <div className="section-header">
           <h2 className="section-title">Explore Our Space</h2>
           <p className="section-subtitle">
-            Take an interactive 3D tour of the property. Drag to rotate, scroll to zoom.
+            Three houses on half an acre in Travis Heights. Each house has its own character and amenities.
           </p>
         </div>
-        <ModelViewer height="520px" />
+        <PropertyMap />
       </div>
     </section>
   );
@@ -197,7 +108,6 @@ export default function Home(): JSX.Element {
         />
 
         <AtAGlance />
-        <PillarsSection />
         <FeaturesSection />
         <ExploreSpaceSection />
         <CommunitySection />

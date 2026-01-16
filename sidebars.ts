@@ -4,8 +4,30 @@ const sidebars: SidebarsConfig = {
   spacesSidebar: [
     {
       type: 'doc',
-      id: 'spaces/index',
-      label: 'Our Spaces',
+      id: 'index',
+      label: 'Overview',
+    },
+    {
+      type: 'category',
+      label: 'The Houses',
+      collapsed: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'west-house',
+          label: 'West House',
+        },
+        {
+          type: 'doc',
+          id: 'main-house',
+          label: 'Main House',
+        },
+        {
+          type: 'doc',
+          id: 'east-house',
+          label: 'East House',
+        },
+      ],
     },
   ],
 };
