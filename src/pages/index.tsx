@@ -4,6 +4,9 @@ import Layout from '@theme/Layout';
 import Hero from '@site/src/components/Hero';
 import { FeatureGrid } from '@site/src/components/FeatureCard';
 import ModelViewer from '@site/src/components/ModelViewer';
+import AtAGlance from '@site/src/components/AtAGlance';
+import StickyCTA from '@site/src/components/StickyCTA';
+import CommunitySection from '@site/src/components/CommunitySection';
 import featuresData from '@site/src/data/features.json';
 
 interface Pillar {
@@ -193,11 +196,14 @@ export default function Home(): JSX.Element {
           }}
         />
 
+        <AtAGlance />
         <PillarsSection />
         <FeaturesSection />
         <ExploreSpaceSection />
+        <CommunitySection />
         <RoadmapSection />
         <CTASection />
+        <StickyCTA />
       </main>
     </Layout>
   );
