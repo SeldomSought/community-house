@@ -95,7 +95,7 @@ export default function Home(): JSX.Element {
     >
       <main>
         <Hero
-          title="Live with intention. Thrive together."
+          title="Live with intention."
           subtitle="The Fellowship is a wellness-focused coliving community in Travis Heights, Austin. Three houses, twelve rooms, half an acre of land—designed around movement, recovery, focus, community, and nature. Rooms from $750/month."
           primaryCta={{
             label: 'View Rooms',
