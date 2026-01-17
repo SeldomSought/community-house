@@ -1,13 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
-
-// Lazy load the viewer to avoid SSR issues with Three.js
-const DollhouseViewerWrapper = () => {
-  const DollhouseViewer = require('@site/src/components/DollhouseViewer').default;
-  return <DollhouseViewer />;
-};
+import House1708Viewer from '@site/src/components/House1708';
 
 export default function PropertyTourPage(): JSX.Element {
   return (
@@ -25,10 +19,8 @@ export default function PropertyTourPage(): JSX.Element {
           </p>
         </div>
 
-        {/* Dollhouse Viewer */}
-        <BrowserOnly fallback={<LoadingFallback />}>
-          {() => <DollhouseViewerWrapper />}
-        </BrowserOnly>
+        {/* House 1708 3D Floor Plan Viewer */}
+        <House1708Viewer height="600px" />
 
         {/* Room Legend */}
         <div style={{ marginTop: '2rem' }}>
@@ -39,19 +31,28 @@ export default function PropertyTourPage(): JSX.Element {
             gap: '1rem'
           }}>
             <FloorSection
-              title="Floor 1"
+              title="Floor 1 (Ground)"
               rooms={[
-                { name: 'Living / Dining', color: '#38a169' },
-                { name: 'Kitchen', color: '#dd6b20' },
-                { name: 'Entry / Stairs', color: '#805ad5' },
+                { name: 'Dining Room', color: '#f4e4c9' },
+                { name: 'Kitchen', color: '#e8dcc6' },
+                { name: 'Bedroom 1', color: '#d6c7b7' },
+                { name: 'Bathroom 1', color: '#c4d4e6' },
               ]}
             />
             <FloorSection
               title="Floor 2"
               rooms={[
-                { name: 'Bedroom A', color: '#4a5568' },
-                { name: 'Hall / Bath Entry', color: '#319795' },
-                { name: 'Bedroom B / Flex', color: '#3182ce' },
+                { name: 'Conservatory', color: '#e6f3e6' },
+                { name: 'Bedroom 2', color: '#d6c7b7' },
+                { name: 'Bedroom 3', color: '#d6c7b7' },
+                { name: 'Bathroom 2', color: '#c4d4e6' },
+              ]}
+            />
+            <FloorSection
+              title="Floor 3 & Amenities"
+              rooms={[
+                { name: 'Guest Loft', color: '#f0e6d2' },
+                { name: 'Sun Room + Hot Tub', color: '#e0f7fa' },
               ]}
             />
           </div>
@@ -82,43 +83,6 @@ export default function PropertyTourPage(): JSX.Element {
         </div>
       </main>
     </Layout>
-  );
-}
-
-function LoadingFallback() {
-  return (
-    <div
-      style={{
-        width: '100%',
-        height: '600px',
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-        borderRadius: '12px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'rgba(255, 255, 255, 0.8)',
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        <div
-          style={{
-            width: '40px',
-            height: '40px',
-            border: '3px solid rgba(255, 255, 255, 0.2)',
-            borderTopColor: '#E85D04',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite',
-            margin: '0 auto 1rem',
-          }}
-        />
-        <span>Loading 3D viewer...</span>
-      </div>
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </div>
   );
 }
 

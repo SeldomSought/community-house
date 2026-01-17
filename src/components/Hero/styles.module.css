@@ -11,8 +11,16 @@
 /* Hero with background image */
 .withBackground {
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   background-repeat: no-repeat;
+}
+
+/* Mobile: adjust to show all 3 houses */
+@media (max-width: 767px) {
+  .withBackground {
+    background-position: center 35%;
+    background-size: cover;
+  }
 }
 
 /* Dark overlay for text readability */
