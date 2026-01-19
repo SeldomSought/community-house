@@ -1,9 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import Layout from '@theme/Layout';
 
-// Configure your Formspree form ID here
-// Get one at https://formspree.io - it looks like: xrgvkpzn
-const FORMSPREE_FORM_ID = 'YOUR_FORM_ID';
+// Formspree form ID for application submissions
+const FORMSPREE_FORM_ID = 'mzddgwra';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
