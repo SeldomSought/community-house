@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
@@ -71,7 +71,12 @@ const houses: HouseData[] = [
 export default function PropertyMap(): JSX.Element {
   const [activeHouse, setActiveHouse] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const imageUrl = useBaseUrl('/img/home/aerial-view.png');
+  const [customImage, setCustomImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const defaultImageUrl = useBaseUrl('/img/home/aerial-view.png');
+
+  // Use custom image if uploaded, otherwise default
+  const imageUrl = customImage || defaultImageUrl;
 
   // Detect mobile on mount
   React.useEffect(() => {
@@ -106,6 +111,32 @@ export default function PropertyMap(): JSX.Element {
       setActiveHouse(prev => prev === houseId ? null : houseId);
     }
   }, []);
+
+  const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      // Revoke previous object URL to prevent memory leaks
+      if (customImage) {
+        URL.revokeObjectURL(customImage);
+      }
+      const previewUrl = URL.createObjectURL(file);
+      setCustomImage(previewUrl);
+    }
+  }, [customImage]);
+
+  const handleUploadClick = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
+  const handleResetImage = useCallback(() => {
+    if (customImage) {
+      URL.revokeObjectURL(customImage);
+    }
+    setCustomImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  }, [customImage]);
 
   return (
     <div className={styles.wrapper}>
@@ -166,6 +197,34 @@ export default function PropertyMap(): JSX.Element {
       <p className={styles.hint}>
         {isMobile ? 'Tap a house to see its features' : 'Hover over a house to see its features'}
       </p>
+
+      {/* Image upload controls */}
+      <div className={styles.uploadControls}>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className={styles.fileInput}
+          aria-label="Upload custom aerial image"
+        />
+        <button
+          type="button"
+          onClick={handleUploadClick}
+          className={styles.uploadButton}
+        >
+          Upload Custom Image
+        </button>
+        {customImage && (
+          <button
+            type="button"
+            onClick={handleResetImage}
+            className={styles.resetButton}
+          >
+            Reset to Default
+          </button>
+        )}
+      </div>
     </div>
   );
 }
