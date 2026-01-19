@@ -141,6 +141,12 @@
    Typography
    ============================================ */
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -152,6 +158,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-text);
   line-height: 1.6;
+}
+
+/* Normalize document height chain - Chrome/Safari consistency */
+#__docusaurus,
+.main-wrapper {
+  min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -262,29 +274,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section {
   position: relative;
-  min-height: calc(100vh - var(--ifm-navbar-height));
+  min-height: 100vh; /* fallback */
+  min-height: 100svh; /* Chrome/Safari stable viewport */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--section-padding);
   overflow: hidden;
 }
 
-/* Hero Typography - Smooth responsive scaling with clamp() */
+/* Hero inner content - fluid spacing replaces hard breakpoints */
+.hero-section .container,
+.heroInner {
+  padding-block: clamp(48px, 8vh, 96px);
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Hero Typography - Stabilized for cross-browser consistency */
 .hero-title {
-  /* Scales smoothly: 2rem (320px) → 3rem (768px) → 4.5rem (1400px+) */
-  font-size: clamp(2rem, 3.5vw + 0.875rem, 4.5rem);
+  font-size: clamp(44px, 5vw, 84px);
   font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  font-family: inherit;
 }
 
 .hero-subtitle {
-  /* Scales smoothly: 1rem (320px) → 1.125rem (768px) → 1.375rem (1400px+) */
-  font-size: clamp(1rem, 0.75vw + 0.85rem, 1.375rem);
-  max-width: clamp(280px, 50vw + 100px, 640px);
-  line-height: 1.65;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.35;
+  margin-top: 14px;
+  max-width: 60ch;
+  font-family: inherit;
 }
 
 /* ============================================
@@ -923,7 +945,7 @@ textarea:focus-visible {
   }
 
   .hero-subtitle {
-    margin: 0 auto;
+    margin-inline: auto;
   }
 }
 
@@ -952,6 +974,6 @@ textarea:focus-visible {
 
   .hero-section {
     min-height: auto;
-    padding: 2rem 0;
+    padding-block: 2rem;
   }
 }
