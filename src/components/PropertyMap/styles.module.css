@@ -117,6 +117,52 @@
   color: var(--color-text-muted);
 }
 
+/* Image upload controls */
+.uploadControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadButton,
+.resetButton {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadButton {
+  background: var(--color-brand, #E85D04);
+  color: white;
+  border: none;
+}
+
+.uploadButton:hover {
+  background: var(--color-brand-dark, #c44d03);
+  transform: translateY(-1px);
+}
+
+.resetButton {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border, #e2e8f0);
+}
+
+.resetButton:hover {
+  background: var(--color-bg-subtle, #f8fafc);
+  border-color: var(--color-text-muted);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
