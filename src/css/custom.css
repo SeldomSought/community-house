@@ -290,22 +290,25 @@ h1, h2, h3, h4, h5, h6 {
   margin-inline: auto;
 }
 
-/* Hero Typography - Stabilized for cross-browser consistency */
+/* Hero Typography - Large, confident, editorial scale on desktop */
 .hero-title {
-  font-size: clamp(44px, 5vw, 84px);
+  /* Scales: 44px (mobile) → ~120px (large desktop) */
+  font-size: clamp(2.75rem, 6vw + 1rem, 7.5rem);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
   margin: 0;
-  margin-bottom: clamp(12px, 2vw, 20px);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
   font-family: inherit;
+  word-spacing: 0.05em;
 }
 
 .hero-subtitle {
-  font-size: clamp(16px, 1.6vw, 22px);
-  line-height: 1.35;
-  margin-top: 14px;
-  max-width: 60ch;
+  /* Proportionally scaled - secondary but clearly legible */
+  font-size: clamp(1.125rem, 1.8vw + 0.25rem, 1.75rem);
+  line-height: 1.5;
+  margin-top: 1rem;
+  max-width: 55ch;
   font-family: inherit;
 }
 
