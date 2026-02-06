@@ -73,10 +73,13 @@ export default function PropertyMap(): JSX.Element {
   const [isMobile, setIsMobile] = useState(false);
   const [customImage, setCustomImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const defaultImageUrl = useBaseUrl('/img/home/aerial-view.png');
+
+  // Image paths for optimized loading
+  const webpImageUrl = useBaseUrl('/img/home/aerial-view.webp');
+  const pngImageUrl = useBaseUrl('/img/home/aerial-view.png');
 
   // Use custom image if uploaded, otherwise default
-  const imageUrl = customImage || defaultImageUrl;
+  const useCustomImage = !!customImage;
 
   // Detect mobile on mount
   React.useEffect(() => {
@@ -141,12 +144,25 @@ export default function PropertyMap(): JSX.Element {
   return (
     <div className={styles.wrapper}>
       <div className={styles.mapContainer}>
-        <img
-          src={imageUrl}
-          alt="Aerial view of The Fellowship property showing three houses"
-          className={styles.aerialImage}
-          loading="lazy"
-        />
+        {useCustomImage ? (
+          <img
+            src={customImage}
+            alt="Aerial view of The Fellowship property showing three houses"
+            className={styles.aerialImage}
+            loading="lazy"
+          />
+        ) : (
+          <picture>
+            <source srcSet={webpImageUrl} type="image/webp" />
+            <source srcSet={pngImageUrl} type="image/png" />
+            <img
+              src={pngImageUrl}
+              alt="Aerial view of The Fellowship property showing three houses"
+              className={styles.aerialImage}
+              loading="lazy"
+            />
+          </picture>
+        )}
 
         {/* Interactive overlay zones */}
         <div className={styles.overlay}>
