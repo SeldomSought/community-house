@@ -6,7 +6,7 @@ import { FeatureGrid } from '@site/src/components/FeatureCard';
 import PropertyMap from '@site/src/components/PropertyMap';
 import AtAGlance from '@site/src/components/AtAGlance';
 import StickyCTA from '@site/src/components/StickyCTA';
-import CommunitySection from '@site/src/components/CommunitySection';
+import Gallery from '@site/src/components/Gallery';
 import featuresData from '@site/src/data/features.json';
 
 function FeaturesSection(): JSX.Element {
@@ -108,9 +108,9 @@ export default function Home(): JSX.Element {
         />
 
         <AtAGlance />
+        <Gallery />
         <FeaturesSection />
         <ExploreSpaceSection />
-        <CommunitySection />
         <RoadmapSection />
         <CTASection />
         <StickyCTA />
