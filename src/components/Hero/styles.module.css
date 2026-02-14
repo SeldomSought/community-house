@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  min-height: 100vh; /* fallback */
-  min-height: 100svh; /* Chrome/Safari stable viewport */
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,6 @@
   background-repeat: no-repeat;
 }
 
-/* Mobile: adjust to show all 3 houses */
 @media (max-width: 767px) {
   .withBackground {
     background-position: center 35%;
@@ -24,20 +23,20 @@
   }
 }
 
-/* Dark overlay for text readability */
+/* Heritage overlay - warm chocolate tones */
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(15, 23, 42, 0.6) 50%,
-    rgba(15, 23, 42, 0.7) 100%
+    180deg,
+    rgba(44, 24, 16, 0.65) 0%,
+    rgba(44, 24, 16, 0.5) 50%,
+    rgba(44, 24, 16, 0.7) 100%
   );
   z-index: 1;
 }
 
-/* Add subtle vignette effect */
+/* Subtle vignette */
 .overlay::after {
   content: '';
   position: absolute;
@@ -45,45 +44,41 @@
   background: radial-gradient(
     ellipse at center,
     transparent 0%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(26, 20, 16, 0.25) 100%
   );
 }
 
 .container {
-  /* Fluid spacing - replaces hard breakpoint switches */
-  padding-block: clamp(48px, 8vh, 96px);
-  width: min(1100px, 92vw);
+  padding-block: clamp(64px, 10vh, 120px);
+  width: min(1000px, 88vw);
   margin-inline: auto;
   position: relative;
   z-index: 10;
 }
 
 .content {
-  max-width: 60ch;
+  max-width: 55ch;
 }
 
+/* Heritage serif title */
 .title {
-  /* Desktop: Large, confident, editorial scale */
-  font-size: clamp(2.75rem, 6vw + 1rem, 7.5rem);
-  font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 6vw + 0.5rem, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
   margin: 0;
-  margin-bottom: clamp(1rem, 3vw, 2rem);
-  font-family: inherit;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 1s ease forwards;
   color: #FFFFFF;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  /* Ensure proper word spacing */
-  word-spacing: 0.05em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .wordWrapper {
   display: inline-block;
   opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-  /* Prevent awkward wrapping */
+  animation: fadeInUp 0.8s ease forwards;
   white-space: nowrap;
 }
 
@@ -91,62 +86,65 @@
   white-space: normal;
 }
 
+/* Refined subtitle */
 .subtitle {
-  /* Proportionally scaled subtitle - clearly secondary but legible */
-  font-size: clamp(1.125rem, 1.8vw + 0.25rem, 1.75rem);
-  line-height: 1.5;
-  margin-top: 1rem;
-  max-width: 55ch;
-  font-family: inherit;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw + 0.25rem, 1.375rem);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  max-width: 50ch;
+  font-weight: 300;
+  letter-spacing: 0.02em;
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 1s ease forwards;
   animation-delay: 0.3s;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2.5rem;
+  gap: 1.25rem;
+  margin-top: 3rem;
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp 1s ease forwards;
   animation-delay: 0.5s;
 }
 
-/* CTA Buttons - 48-52px tall */
+/* Heritage CTA buttons */
 .ctaButton {
   min-height: 52px;
-  padding: 0.875rem 1.75rem;
-  font-size: 1.0625rem;
+  padding: 1rem 2rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0.125rem;
 }
 
 .ctaButtonSecondary {
   min-height: 52px;
-  padding: 0.875rem 1.75rem;
-  font-size: 1.0625rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
   color: #FFFFFF;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.75rem;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.125rem;
+  transition: all 0.3s ease;
 }
 
 .ctaButtonSecondary:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
   color: #FFFFFF;
   text-decoration: none;
-  transform: translateY(-2px);
 }
 
 /* Scroll indicator */
 .scrollIndicator {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -156,27 +154,27 @@
 }
 
 .scrollMouse {
-  width: 26px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
+  width: 24px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
   display: flex;
   justify-content: center;
-  padding-top: 6px;
+  padding-top: 8px;
 }
 
 .scrollWheel {
-  width: 4px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 2px;
+  width: 3px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5px;
   animation: scrollWheel 2s ease-in-out infinite;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -196,7 +194,7 @@
   }
   50% {
     opacity: 0.3;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 }
 
@@ -209,8 +207,12 @@
   }
 
   .container {
-    width: 92vw;
-    padding-block: clamp(32px, 6vh, 64px);
+    width: 90vw;
+    padding-block: clamp(40px, 8vh, 80px);
+  }
+
+  .content {
+    max-width: 100%;
   }
 
   .ctas {
@@ -221,7 +223,7 @@
   .ctaButton,
   .ctaButtonSecondary {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     justify-content: center;
   }
 
