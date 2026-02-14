@@ -317,6 +317,28 @@ p {
   letter-spacing: -0.01em;
 }
 
+/* Prevent navbar brand from truncating on mobile */
+.navbar__brand {
+  margin-right: auto;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+@media (max-width: 996px) {
+  .navbar__title {
+    font-size: var(--text-base);
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  /* Reduce CTA button size on mobile to give title more room */
+  .navbar-cta-button {
+    padding: var(--space-2) var(--space-3) !important;
+    font-size: var(--text-xs);
+  }
+}
+
 /* Nav links - clean, readable */
 .navbar__link {
   font-family: var(--font-body);

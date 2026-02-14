@@ -44,7 +44,7 @@ export default function Hero({
                 className={styles.wordWrapper}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                {word}{' '}
+                {word}
               </span>
             ))}
           </h1>
