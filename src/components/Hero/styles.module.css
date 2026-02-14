@@ -4,7 +4,7 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   background: var(--ifm-background-color);
 }
@@ -49,30 +49,31 @@
 }
 
 .container {
-  padding-block: clamp(4rem, 10vh, 7rem);
-  width: min(48rem, 90vw);
+  padding-block: clamp(4rem, 10vh, 8rem);
+  width: min(80rem, 92vw);
   margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
   position: relative;
   z-index: 10;
 }
 
 .content {
-  max-width: 55ch;
+  max-width: 40rem; /* ~640px content width for readability */
 }
 
 /* Serif title - editorial, clear */
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-size: clamp(2.75rem, 4vw + 1.5rem, 5rem);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   margin: 0;
-  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
   color: #FFFFFF;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 }
 
 .wordWrapper {
@@ -88,43 +89,43 @@
   margin-right: 0;
 }
 
-/* Subtitle - readable, not light */
+/* Subtitle - readable, good measure */
 .subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw + 0.25rem, 1.25rem);
-  line-height: 1.7;
-  margin-top: 1.25rem;
-  max-width: 50ch;
+  font-size: clamp(1.0625rem, 1.25vw + 0.5rem, 1.375rem);
+  line-height: 1.65;
+  margin-top: 1.5rem;
+  max-width: 52ch;
   font-weight: 400;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
   animation-delay: 0.2s;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2.5rem;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
   animation-delay: 0.4s;
 }
 
-/* CTA buttons - clean, not shouty */
+/* CTA buttons - properly sized for desktop */
 .ctaButton {
-  min-height: 48px;
-  padding: 0.875rem 1.75rem;
-  font-size: 0.9375rem;
+  min-height: 52px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 500;
   border-radius: 0.5rem;
 }
 
 .ctaButtonSecondary {
-  min-height: 48px;
-  padding: 0.875rem 1.75rem;
-  font-size: 0.9375rem;
+  min-height: 52px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 500;
   background: transparent;
   color: #FFFFFF;
@@ -197,10 +198,61 @@
   }
 }
 
+/* Desktop - larger screens get proper scaling */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 85vh;
+    min-height: 85svh;
+  }
+
+  .container {
+    padding-block: clamp(6rem, 12vh, 10rem);
+  }
+
+  .content {
+    max-width: 42rem; /* ~672px */
+  }
+
+  .title {
+    font-size: clamp(4rem, 5vw + 1rem, 5.5rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.375rem;
+    line-height: 1.7;
+    margin-top: 1.75rem;
+  }
+
+  .ctas {
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    min-height: 56px;
+    padding: 1.125rem 2.25rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1440px) {
+  .title {
+    font-size: 5.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .hero {
     text-align: center;
+    justify-content: center;
     min-height: 85vh;
     min-height: 85svh;
   }
@@ -208,6 +260,7 @@
   .container {
     width: 92vw;
     padding-block: clamp(3rem, 8vh, 5rem);
+    padding-inline: 1rem;
   }
 
   .content {
@@ -224,6 +277,9 @@
     width: 100%;
     max-width: 280px;
     justify-content: center;
+    min-height: 48px;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9375rem;
   }
 
   .scrollIndicator {
