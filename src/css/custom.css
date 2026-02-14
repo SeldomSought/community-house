@@ -3,142 +3,150 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom font imports */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
+/* Custom font imports - Heritage Fashion House Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ============================================
-   Design Tokens - Unified Color Palette
-   Incorporating warm orange with wellness greens/blues
+   Design Tokens - Heritage Fashion House Palette
+   Inspired by Hermès: Signature orange, cream,
+   chocolate brown, and refined gold accents
    ============================================ */
 :root {
-  /* Brand Colors - Warm & Welcoming */
-  --color-brand: #E85D04;
-  --color-brand-light: #F97316;
-  --color-brand-dark: #C2410C;
-  --color-brand-muted: #FDBA74;
+  /* Brand Colors - Hermès Signature Orange */
+  --color-brand: #F37021;
+  --color-brand-light: #F58942;
+  --color-brand-dark: #D45A0F;
+  --color-brand-muted: #FABE8C;
 
-  /* Primary - Deep grounding tones */
-  --color-primary: #0F172A;
-  --color-primary-light: #1E293B;
+  /* Primary - Rich Chocolate Brown */
+  --color-primary: #2C1810;
+  --color-primary-light: #3D2314;
 
-  /* Accent - Nature Green (Primary CTA) */
-  --color-accent: #16A34A;
-  --color-accent-light: #22C55E;
-  --color-accent-dark: #15803D;
-  --color-accent-muted: #86EFAC;
+  /* Accent - Refined Gold */
+  --color-accent: #C9A962;
+  --color-accent-light: #D4B978;
+  --color-accent-dark: #B8954A;
+  --color-accent-muted: #E8DCC0;
 
-  /* Secondary - Calm Blue (Links, Info) */
-  --color-secondary: #2563EB;
-  --color-secondary-light: #3B82F6;
-  --color-secondary-dark: #1D4ED8;
-  --color-secondary-muted: #60A5FA;
+  /* Secondary - Deep Espresso */
+  --color-secondary: #5C3D2E;
+  --color-secondary-light: #6D4A3A;
+  --color-secondary-dark: #4A3024;
+  --color-secondary-muted: #8B7355;
 
-  /* Wellness Pillars Colors */
-  --color-movement: #16A34A;
-  --color-recovery: #2563EB;
-  --color-focus: #0EA5E9;
-  --color-community: #8B5CF6;
-  --color-nature: #22C55E;
+  /* Heritage Accent Colors */
+  --color-movement: #C9A962;
+  --color-recovery: #5C3D2E;
+  --color-focus: #2C1810;
+  --color-community: #F37021;
+  --color-nature: #6B7B3C;
 
-  /* Surface Colors */
-  --color-surface: #FAFAF9;
+  /* Surface Colors - Warm Cream & Ivory */
+  --color-surface: #FAF7F2;
   --color-surface-elevated: #FFFFFF;
-  --color-surface-muted: #F5F5F4;
-  --color-surface-warm: #FEF7ED;
+  --color-surface-muted: #F5F0E8;
+  --color-surface-warm: #FDF8F3;
 
   /* Text Colors */
-  --color-text: #1C1917;
-  --color-text-muted: #57534E;
-  --color-text-inverse: #FAFAF9;
+  --color-text: #2C1810;
+  --color-text-muted: #6B5D52;
+  --color-text-inverse: #FAF7F2;
 
   /* Semantic Colors */
-  --color-success: #16A34A;
-  --color-warning: #E85D04;
-  --color-error: #DC2626;
+  --color-success: #6B7B3C;
+  --color-warning: #F37021;
+  --color-error: #A63D2F;
 
-  /* Fonts */
-  --font-heading: 'Clash Display', 'Archivo Black', system-ui, sans-serif;
-  --font-body: 'Satoshi', 'DM Sans', system-ui, sans-serif;
+  /* Fonts - Elegant Heritage Typography */
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Docusaurus overrides */
-  --ifm-color-primary: #16A34A;
-  --ifm-color-primary-dark: #15803D;
-  --ifm-color-primary-darker: #166534;
-  --ifm-color-primary-darkest: #14532D;
-  --ifm-color-primary-light: #22C55E;
-  --ifm-color-primary-lighter: #4ADE80;
-  --ifm-color-primary-lightest: #86EFAC;
+  /* Docusaurus overrides - Heritage Orange as Primary */
+  --ifm-color-primary: #F37021;
+  --ifm-color-primary-dark: #D45A0F;
+  --ifm-color-primary-darker: #C24F0B;
+  --ifm-color-primary-darkest: #9E4009;
+  --ifm-color-primary-light: #F58942;
+  --ifm-color-primary-lighter: #F7A063;
+  --ifm-color-primary-lightest: #FABE8C;
 
   --ifm-font-family-base: var(--font-body);
   --ifm-heading-font-family: var(--font-heading);
   --ifm-font-family-monospace: var(--font-mono);
 
   --ifm-code-font-size: 95%;
-  --ifm-heading-font-weight: 600;
+  --ifm-heading-font-weight: 500;
 
   --ifm-background-color: var(--color-surface);
   --ifm-background-surface-color: var(--color-surface-elevated);
 
-  --ifm-navbar-background-color: rgba(250, 250, 249, 0.95);
-  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  --ifm-navbar-height: 4rem;
+  --ifm-navbar-background-color: rgba(250, 247, 242, 0.98);
+  --ifm-navbar-shadow: 0 1px 0 0 rgba(44, 24, 16, 0.08);
+  --ifm-navbar-height: 4.5rem;
 
   --ifm-footer-background-color: var(--color-primary);
   --ifm-footer-color: var(--color-text-inverse);
-  --ifm-footer-link-color: rgba(250, 250, 249, 0.8);
+  --ifm-footer-link-color: rgba(250, 247, 242, 0.8);
 
-  /* Spacing */
-  --section-padding: clamp(3rem, 8vw, 6rem);
+  /* Spacing - Generous, Luxurious */
+  --section-padding: clamp(4rem, 10vw, 8rem);
   --spacing-unit: 0.5rem;
 
-  /* Border radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  /* Border radius - Refined, Minimal */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.75rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* Shadows - Subtle, Refined */
+  --shadow-sm: 0 1px 2px 0 rgba(44, 24, 16, 0.04);
+  --shadow-md: 0 4px 8px -2px rgba(44, 24, 16, 0.06);
+  --shadow-lg: 0 12px 24px -4px rgba(44, 24, 16, 0.08);
+  --shadow-xl: 0 24px 48px -8px rgba(44, 24, 16, 0.1);
+
+  /* Heritage-specific tokens */
+  --border-fine: 1px solid rgba(44, 24, 16, 0.1);
+  --border-accent: 1px solid var(--color-accent);
+  --gold-gradient: linear-gradient(135deg, #C9A962 0%, #E8DCC0 50%, #C9A962 100%);
 }
 
-/* Dark Mode */
+/* Dark Mode - Heritage Evening */
 [data-theme='dark'] {
-  --color-surface: #0F172A;
-  --color-surface-elevated: #1E293B;
-  --color-surface-muted: #334155;
-  --color-surface-warm: #1E293B;
-  --color-text: #F8FAFC;
-  --color-text-muted: #94A3B8;
-  --color-text-inverse: #0F172A;
+  --color-surface: #1A1410;
+  --color-surface-elevated: #2C1810;
+  --color-surface-muted: #3D2314;
+  --color-surface-warm: #2C1810;
+  --color-text: #FAF7F2;
+  --color-text-muted: #B8A99A;
+  --color-text-inverse: #1A1410;
 
-  --color-brand: #F97316;
-  --color-brand-light: #FB923C;
-  --color-accent: #22C55E;
-  --color-accent-light: #4ADE80;
-  --color-secondary: #3B82F6;
-  --color-secondary-light: #60A5FA;
+  --color-brand: #F58942;
+  --color-brand-light: #F7A063;
+  --color-accent: #D4B978;
+  --color-accent-light: #E8DCC0;
+  --color-secondary: #8B7355;
+  --color-secondary-light: #A68B6B;
 
   --ifm-background-color: var(--color-surface);
   --ifm-background-surface-color: var(--color-surface-elevated);
-  --ifm-navbar-background-color: rgba(15, 23, 42, 0.95);
-  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: rgba(26, 20, 16, 0.98);
+  --ifm-navbar-shadow: 0 1px 0 0 rgba(201, 169, 98, 0.2);
 
-  --ifm-color-primary: #22C55E;
-  --ifm-color-primary-dark: #16A34A;
-  --ifm-color-primary-light: #4ADE80;
+  --ifm-color-primary: #F58942;
+  --ifm-color-primary-dark: #D45A0F;
+  --ifm-color-primary-light: #F7A063;
 
-  --ifm-footer-background-color: #0F172A;
-  --ifm-footer-link-color: #94A3B8;
+  --ifm-footer-background-color: #1A1410;
+  --ifm-footer-link-color: #B8A99A;
+
+  --border-fine: 1px solid rgba(201, 169, 98, 0.15);
 }
 
 /* ============================================
-   Typography
+   Typography - Heritage Elegance
    ============================================ */
 
 html,
@@ -157,7 +165,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* Normalize document height chain - Chrome/Safari consistency */
@@ -168,34 +178,50 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--color-text);
+  text-transform: none;
+}
+
+/* Elegant serif headings with refined weight */
+h1 {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-weight: 500;
+  letter-spacing: 0.015em;
+}
+
+/* Uppercase accent text for luxury feel */
+.uppercase-accent {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 /* ============================================
-   Navbar Customizations
+   Navbar - Heritage Fashion House Style
    ============================================ */
 
-/*
- * IMPORTANT: backdrop-filter removed to fix mobile menu visibility.
- * The blur effect creates a new stacking context that hides the mobile sidebar.
- * Using a solid/semi-transparent background color instead.
- */
 .navbar {
-  /* No backdrop-filter - this fixes the mobile menu issue */
+  border-bottom: var(--border-fine);
 }
 
 /* Full-width navbar layout */
 .navbar__inner {
   max-width: 100%;
   width: 100%;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
-/* Add spacing between nav items */
+/* Refined spacing between nav items */
 .navbar__items {
-  gap: 1.25rem;
+  gap: 2rem;
 }
 
 /* Fix mobile hamburger menu */
@@ -217,6 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Ensure mobile menu sidebar works properly */
 .navbar-sidebar {
   z-index: 1000;
+  background: var(--color-surface);
 }
 
 .navbar-sidebar__backdrop {
@@ -224,92 +251,103 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-sidebar__items {
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
-/* Mobile sidebar links should be larger and easier to tap */
+/* Mobile sidebar links */
 .navbar-sidebar .navbar__link {
-  font-size: 1.125rem;
-  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  padding: 0.875rem 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
-/* Larger, more prominent site title */
+/* Site title - Elegant serif */
 .navbar__title {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--color-brand) !important;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--color-primary) !important;
+  letter-spacing: 0.02em;
 }
 
-/* Larger nav links for better readability */
+/* Nav links - Refined uppercase */
 .navbar__link {
-  font-weight: 500;
-  font-size: 1.125rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
 }
 
 .navbar__link:hover {
   color: var(--color-brand);
 }
 
+/* Heritage CTA button - Refined, understated */
 .navbar-cta-button {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  background: var(--color-brand) !important;
   color: white !important;
-  padding: 0.5rem 1.25rem !important;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+  padding: 0.625rem 1.5rem !important;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
 }
 
 .navbar-cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+  background: var(--color-brand-dark) !important;
   color: white !important;
   text-decoration: none;
 }
 
 /* ============================================
-   Hero Section
+   Hero Section - Heritage Elegance
    ============================================ */
 
 .hero-section {
   position: relative;
-  min-height: 100vh; /* fallback */
-  min-height: 100svh; /* Chrome/Safari stable viewport */
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-/* Hero inner content - fluid spacing replaces hard breakpoints */
+/* Hero inner content */
 .hero-section .container,
 .heroInner {
-  padding-block: clamp(48px, 8vh, 96px);
-  width: min(1100px, 92vw);
+  padding-block: clamp(64px, 10vh, 120px);
+  width: min(1000px, 88vw);
   margin-inline: auto;
 }
 
-/* Hero Typography - Large, confident, editorial scale on desktop */
+/* Hero Typography - Elegant Serif Editorial */
 .hero-title {
-  /* Scales: 44px (mobile) → ~120px (large desktop) */
-  font-size: clamp(2.75rem, 6vw + 1rem, 7.5rem);
-  font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw + 0.5rem, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   margin: 0;
-  margin-bottom: clamp(1rem, 3vw, 2rem);
-  font-family: inherit;
-  word-spacing: 0.05em;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .hero-subtitle {
-  /* Proportionally scaled - secondary but clearly legible */
-  font-size: clamp(1.125rem, 1.8vw + 0.25rem, 1.75rem);
-  line-height: 1.5;
-  margin-top: 1rem;
-  max-width: 55ch;
-  font-family: inherit;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw + 0.25rem, 1.375rem);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  max-width: 50ch;
+  font-weight: 300;
+  letter-spacing: 0.02em;
 }
 
 /* ============================================
@@ -318,11 +356,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .at-a-glance {
   display: none;
-  background: var(--color-surface-warm);
-  padding: 1.5rem;
+  background: var(--color-surface-elevated);
+  padding: 2rem;
   margin: -2rem 1rem 2rem;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(232, 93, 4, 0.1);
+  border-radius: var(--radius-md);
+  border: var(--border-fine);
 }
 
 @media (max-width: 767px) {
@@ -334,50 +372,50 @@ h1, h2, h3, h4, h5, h6 {
 .at-a-glance__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   text-align: center;
 }
 
 .at-a-glance__item {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.375rem;
 }
 
 .at-a-glance__label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .at-a-glance__value {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: var(--color-brand);
 }
 
 /* ============================================
-   Feature Cards
+   Feature Cards - Heritage Style
    ============================================ */
 
 .feature-card {
   background: var(--color-surface-elevated);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: var(--radius-xl);
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  border: var(--border-fine);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.4s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-brand);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
 }
 
 [data-theme='dark'] .feature-card {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(201, 169, 98, 0.15);
 }
 
 [data-theme='dark'] .feature-card:hover {
@@ -385,27 +423,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card__icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-  color: var(--color-brand);
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.25rem;
+  color: var(--color-accent);
 }
 
 .feature-card__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
   color: var(--color-text);
+  letter-spacing: 0.01em;
 }
 
 .feature-card__description {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 /* ============================================
-   Section Styles
+   Section Styles - Heritage Elegance
    ============================================ */
 
 .section {
@@ -422,31 +463,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 3rem;
+  max-width: 650px;
+  margin: 0 auto 4rem;
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
   color: var(--color-text);
+  letter-spacing: 0.01em;
 }
 
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--color-text-muted);
+  line-height: 1.7;
+  font-weight: 300;
 }
 
-/* Section eyebrow label */
+/* Section eyebrow label - Refined uppercase */
 .section-eyebrow {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-brand);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
 }
 
 /* ============================================
@@ -474,79 +520,93 @@ h1, h2, h3, h4, h5, h6 {
 .pillar-card--nature::before { background: var(--color-nature); }
 
 /* ============================================
-   Buttons
+   Buttons - Heritage Refined Style
    ============================================ */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  min-height: 48px;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  min-height: 52px;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: var(--radius-lg);
-  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
   border: none;
 }
 
 .btn:focus-visible {
-  outline: 3px solid var(--color-brand);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
 }
 
+/* Primary - Heritage Orange */
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  background: var(--color-brand);
   color: white;
-  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+  background: var(--color-brand-dark);
   color: white;
   text-decoration: none;
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  background: var(--color-brand-dark);
 }
 
+/* Brand - Same as primary for heritage consistency */
 .btn-brand {
-  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-light) 100%);
+  background: var(--color-brand);
   color: white;
-  box-shadow: 0 4px 15px rgba(232, 93, 4, 0.3);
 }
 
 .btn-brand:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 93, 4, 0.4);
+  background: var(--color-brand-dark);
   color: white;
   text-decoration: none;
 }
 
+/* Secondary - Refined outline */
 .btn-secondary {
   background: transparent;
   color: var(--color-text);
-  border: 2px solid currentColor;
+  border: 1px solid var(--color-text);
 }
 
 .btn-secondary:hover {
   background: var(--color-text);
-  color: var(--color-text-inverse);
+  color: var(--color-surface);
   text-decoration: none;
 }
 
 .btn-secondary:active {
-  transform: translateY(0);
+  background: var(--color-primary);
+}
+
+/* Gold accent button */
+.btn-gold {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-gold:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
 /* ============================================
-   Sticky Mobile CTA
+   Sticky Mobile CTA - Heritage Style
    ============================================ */
 
 .sticky-cta {
@@ -555,11 +615,9 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border-top: var(--border-fine);
   z-index: 100;
   transform: translateY(100%);
   transition: transform 0.3s ease;
@@ -574,15 +632,14 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
   }
 
-  /* Add bottom padding to body when sticky CTA is present */
   body {
     padding-bottom: 80px;
   }
 }
 
 [data-theme='dark'] .sticky-cta {
-  background: rgba(15, 23, 42, 0.95);
-  border-top-color: rgba(255, 255, 255, 0.1);
+  background: var(--color-surface);
+  border-top-color: rgba(201, 169, 98, 0.15);
 }
 
 .sticky-cta__content {
