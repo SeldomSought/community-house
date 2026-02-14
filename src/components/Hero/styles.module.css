@@ -18,8 +18,10 @@
 
 @media (max-width: 767px) {
   .withBackground {
-    background-position: center 35%;
-    background-size: cover;
+    /* Show more of the 3-house composition by reducing height and using contain */
+    background-size: contain;
+    background-position: center top;
+    background-color: #3D3D38; /* Dark warm tone under the image overlay */
   }
 }
 
@@ -46,6 +48,19 @@
     transparent 0%,
     rgba(45, 45, 42, 0.15) 100%
   );
+}
+
+/* Mobile overlay - gradient from image to content area */
+@media (max-width: 767px) {
+  .overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(45, 45, 42, 0.4) 0%,
+      rgba(45, 45, 42, 0.6) 35%,
+      rgba(45, 45, 42, 0.85) 60%,
+      rgba(45, 45, 42, 0.95) 100%
+    );
+  }
 }
 
 .container {
@@ -252,14 +267,17 @@
 @media (max-width: 767px) {
   .hero {
     text-align: center;
-    justify-content: center;
-    min-height: 85vh;
-    min-height: 85svh;
+    justify-content: flex-end; /* Content at bottom */
+    min-height: auto;
+    /* Image takes ~42vw height (matching 2.38:1 ratio at full width) */
+    /* Content area below with padding */
+    padding-top: calc(42vw + 2rem);
+    padding-bottom: 3rem;
   }
 
   .container {
     width: 92vw;
-    padding-block: clamp(3rem, 8vh, 5rem);
+    padding-block: 0;
     padding-inline: 1rem;
   }
 
