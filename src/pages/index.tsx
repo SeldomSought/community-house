@@ -108,8 +108,8 @@ export default function Home(): JSX.Element {
         />
 
         <AtAGlance />
-        <Gallery />
         <FeaturesSection />
+        <Gallery />
         <ExploreSpaceSection />
         <RoadmapSection />
         <CTASection />

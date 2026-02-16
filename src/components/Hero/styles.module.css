@@ -229,14 +229,14 @@
   }
 
   .title {
-    font-size: clamp(4rem, 5vw + 1rem, 5.5rem);
-    margin-bottom: 1.75rem;
+    font-size: clamp(5rem, 6vw + 1rem, 7rem);
+    margin-bottom: 2rem;
   }
 
   .subtitle {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     line-height: 1.7;
-    margin-top: 1.75rem;
+    margin-top: 2rem;
   }
 
   .ctas {
@@ -255,11 +255,11 @@
 /* Large desktop */
 @media (min-width: 1440px) {
   .title {
-    font-size: 5.5rem;
+    font-size: 7rem;
   }
 
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
