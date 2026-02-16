@@ -370,6 +370,64 @@ p {
   text-decoration: none;
 }
 
+/* Desktop navbar expansion - larger, more spacious */
+@media (min-width: 1024px) {
+  :root {
+    --ifm-navbar-height: 5.5rem; /* 88px on desktop */
+  }
+
+  .navbar__inner {
+    padding: 0 var(--space-8);
+  }
+
+  .navbar__items {
+    gap: var(--space-8); /* More spacing between nav items */
+  }
+
+  .navbar__title {
+    font-size: 1.75rem; /* 28px brand title */
+  }
+
+  .navbar__link {
+    font-size: var(--text-lg); /* 18px nav links */
+  }
+
+  .navbar-cta-button {
+    padding: var(--space-3) var(--space-6) !important;
+    font-size: var(--text-lg);
+    min-height: 3rem; /* 48px touch target */
+  }
+}
+
+/* Large desktop - even more spacious */
+@media (min-width: 1440px) {
+  :root {
+    --ifm-navbar-height: 6rem; /* 96px on large screens */
+  }
+
+  .navbar__inner {
+    padding: 0 var(--space-10);
+  }
+
+  .navbar__items {
+    gap: var(--space-10);
+  }
+
+  .navbar__title {
+    font-size: 2rem; /* 32px */
+  }
+
+  .navbar__link {
+    font-size: var(--text-xl); /* 20px */
+  }
+
+  .navbar-cta-button {
+    padding: var(--space-4) var(--space-8) !important;
+    font-size: var(--text-lg);
+    min-height: 3.25rem; /* 52px */
+  }
+}
+
 /* ============================================
    Hero Section - Editorial structure
    ============================================ */
