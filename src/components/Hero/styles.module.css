@@ -246,9 +246,9 @@
 
   .ctaButton,
   .ctaButtonSecondary {
-    min-height: 56px;
-    padding: 1.125rem 2.25rem;
-    font-size: 1.0625rem;
+    min-height: 64px;
+    padding: 1.25rem 3rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -260,6 +260,13 @@
 
   .subtitle {
     font-size: 1.75rem;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    min-height: 72px;
+    padding: 1.5rem 3.5rem;
+    font-size: 1.375rem;
   }
 }
 
