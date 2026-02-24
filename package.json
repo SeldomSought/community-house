@@ -15,7 +15,8 @@
     "serve:gh": "DOCUSAURUS_BASE_URL=/community-house/ docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "gallery:build": "node scripts/generate-gallery.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",

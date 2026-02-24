@@ -232,6 +232,7 @@ const config: Config = {
         { to: '/property-tour', label: 'Tour', position: 'left' },
         { to: '/location', label: 'Location', position: 'left' },
         { to: '/membership', label: 'Membership', position: 'left' },
+        { to: '/gallery', label: 'Gallery', position: 'left' },
         { to: '/events', label: 'Events', position: 'left' },
         {
           to: '/apply',
