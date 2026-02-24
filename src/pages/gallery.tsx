@@ -76,6 +76,9 @@ export default function GalleryPage(): JSX.Element {
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
   const currentImage = lightboxIndex !== null ? filtered[lightboxIndex] : null;
+  // useBaseUrl is a hook — must be called unconditionally (not inside the
+  // lightbox conditional block) to satisfy React's Rules of Hooks.
+  const lightboxSrc = useBaseUrl(currentImage?.src ?? '/');
 
   return (
     <Layout title="Gallery" description="Photos from The Fellowship community">
@@ -254,7 +257,7 @@ export default function GalleryPage(): JSX.Element {
               }}
             >
               <img
-                src={useBaseUrl(currentImage.src)}
+                src={lightboxSrc}
                 alt={currentImage.alt}
                 style={{
                   maxWidth: '100%',
