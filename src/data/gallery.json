@@ -1,0 +1,98 @@
+[
+  {
+    "src": "/img/gallery/backyard.jpg",
+    "alt": "Backyard",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Backyard"
+  },
+  {
+    "src": "/img/gallery/bedroom.jpg",
+    "alt": "Bedroom",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Bedroom"
+  },
+  {
+    "src": "/img/gallery/conservatory.jpg",
+    "alt": "Conservatory",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Conservatory"
+  },
+  {
+    "src": "/img/gallery/garage-gym.jpg",
+    "alt": "Garage Gym",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Garage Gym"
+  },
+  {
+    "src": "/img/gallery/grilling.jpg",
+    "alt": "Grilling",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Grilling"
+  },
+  {
+    "src": "/img/gallery/housedinner.jpg",
+    "alt": "Housedinner",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Housedinner"
+  },
+  {
+    "src": "/img/gallery/moviescreen.jpg",
+    "alt": "Moviescreen",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Moviescreen"
+  },
+  {
+    "src": "/img/gallery/party1.jpg",
+    "alt": "Party1",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Party1"
+  },
+  {
+    "src": "/img/gallery/party2.jpg",
+    "alt": "Party2",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Party2"
+  },
+  {
+    "src": "/img/gallery/patio.jpg",
+    "alt": "Patio",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Patio"
+  },
+  {
+    "src": "/img/gallery/sunroom.jpg",
+    "alt": "Sunroom",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Sunroom"
+  },
+  {
+    "src": "/img/gallery/technicallyethical.jpg",
+    "alt": "Technicallyethical",
+    "tags": [
+      "Other"
+    ],
+    "caption": "Technicallyethical"
+  }
+]
