@@ -235,7 +235,7 @@ const config: Config = {
         {
           to: '/apply',
           label: 'Apply Now',
-          position: 'right',
+          position: 'left',
           className: 'navbar-cta-button',
         },
       ],
