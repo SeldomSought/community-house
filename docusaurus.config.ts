@@ -10,18 +10,17 @@ import type * as Preset from '@docusaurus/preset-classic';
 //
 // SINGLE SOURCE OF TRUTH:
 // - For local dev: baseUrl defaults to "/" (no prefix needed)
-// - For GitHub Pages: baseUrl is "/community-house/" (project site)
-// - For custom domain: set DOCUSAURUS_BASE_URL="/" and DOCUSAURUS_URL to your domain
+// - For custom domain: baseUrl is "/" (fellowshipatx.com)
 //
 // Environment variables (all optional):
-// - DOCUSAURUS_URL: Override the site URL (default: https://SeldomSought.github.io)
-// - DOCUSAURUS_BASE_URL: Override the base URL path (default: "/" for local, inferred for CI)
+// - DOCUSAURUS_URL: Override the site URL (default: https://fellowshipatx.com)
+// - DOCUSAURUS_BASE_URL: Override the base URL path (default: "/")
 // - GITHUB_ACTIONS: Set automatically by GitHub Actions
-// - GITHUB_REPOSITORY: Set automatically by GitHub Actions (e.g., "SeldomSought/community-house")
+// - GITHUB_REPOSITORY: Set automatically by GitHub Actions
 // =============================================================================
 
 const DEFAULTS = {
-  url: 'https://seldomsought.github.io',
+  url: 'https://fellowshipatx.com',
   repoName: 'community-house',
 } as const;
 
@@ -142,9 +141,9 @@ const config: Config = {
   tagline: 'Three houses, one community in Travis Heights, Austin',
   favicon: 'img/favicon.ico',
 
-  // GitHub Pages URL (update url to custom domain and baseUrl to '/' when configured)
-  url: 'https://SeldomSought.github.io',
-  baseUrl: '/community-house/',
+  // Custom domain
+  url: 'https://fellowshipatx.com',
+  baseUrl: '/',
 
   // GitHub pages deployment config
   organizationName: 'SeldomSought',
@@ -290,7 +289,7 @@ const config: Config = {
       id: 'announcement',
       // Use computed baseUrl for the link
       content:
-        'Now accepting applications — rooms starting at $750/month. <a href="/community-house/apply">Apply today</a>',
+        'Now accepting applications — rooms starting at $750/month. <a href="/apply">Apply today</a>',
       backgroundColor: '#16A34A',
       textColor: '#FFFFFF',
       isCloseable: true,
