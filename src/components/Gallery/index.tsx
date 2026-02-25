@@ -50,6 +50,9 @@ export default function Gallery(): JSX.Element {
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
   const currentImage = lightboxIndex !== null ? images[lightboxIndex] : null;
+  // Call useBaseUrl unconditionally — calling it inside {currentImage && ...}
+  // would violate Rules of Hooks and trigger React error #310.
+  const lightboxSrc = useBaseUrl(currentImage?.src ?? '/');
 
   return (
     <section className={styles.section} id="gallery">
@@ -117,7 +120,7 @@ export default function Gallery(): JSX.Element {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={useBaseUrl(currentImage.src)}
+              src={lightboxSrc}
               alt={currentImage.alt}
               className={styles.lightboxImage}
             />

@@ -251,6 +251,30 @@ p {
 }
 
 /* ============================================
+   Announcement Bar - larger, more prominent
+   ============================================ */
+
+div[class*='announcementBar'] {
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+div[class*='announcementBar'] a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  div[class*='announcementBar'] {
+    padding: var(--space-5) var(--space-6);
+    font-size: var(--text-xl);
+  }
+}
+
+/* ============================================
    Navbar - Clean editorial navigation
    ============================================ */
 
