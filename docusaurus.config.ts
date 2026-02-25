@@ -229,11 +229,9 @@ const config: Config = {
           position: 'left',
           label: 'Spaces',
         },
-        { to: '/property-tour', label: 'Tour', position: 'left' },
         { to: '/location', label: 'Location', position: 'left' },
         { to: '/membership', label: 'Membership', position: 'left' },
         { to: '/gallery', label: 'Gallery', position: 'left' },
-        { to: '/events', label: 'Events', position: 'left' },
         {
           to: '/apply',
           label: 'Apply Now',
@@ -249,7 +247,6 @@ const config: Config = {
           title: 'Explore',
           items: [
             { label: 'Spaces', to: '/spaces/' },
-            { label: 'Property Tour', to: '/property-tour' },
             { label: 'Location', to: '/location' },
             { label: 'Membership', to: '/membership' },
           ],
@@ -257,7 +254,6 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'Events', to: '/events' },
             { label: 'Apply', to: '/apply' },
           ],
         },

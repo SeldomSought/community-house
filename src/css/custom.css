@@ -251,12 +251,12 @@ p {
 }
 
 /* ============================================
-   Announcement Bar - larger, more prominent
+   Announcement Bar - prominent but compact
    ============================================ */
 
 div[class*='announcementBar'] {
-  padding: var(--space-4) var(--space-5);
-  font-size: var(--text-lg);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-base);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
@@ -269,8 +269,8 @@ div[class*='announcementBar'] a {
 
 @media (min-width: 1024px) {
   div[class*='announcementBar'] {
-    padding: var(--space-5) var(--space-6);
-    font-size: var(--text-xl);
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-lg);
   }
 }
 
