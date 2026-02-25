@@ -21,7 +21,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // =============================================================================
 
 const DEFAULTS = {
-  url: 'https://fellowshipatx.com',
+  url: 'https://seldomsought.github.io',
   repoName: 'community-house',
 } as const;
 
