@@ -386,6 +386,7 @@ div[class*='announcementBar'] a {
   font-size: var(--text-sm);
   transition: background 0.2s ease;
   border: none;
+  white-space: nowrap;
 }
 
 .navbar-cta-button:hover {
