@@ -404,6 +404,17 @@ div[class*='announcementBar'] a {
     padding: 0 var(--space-8);
   }
 
+  /* Left items: don't expand to fill all space — let nav links
+     cluster near the logo so the CTA can sit at the far right */
+  .navbar__items:not(.navbar__items--right) {
+    flex: 0 1 auto;
+  }
+
+  /* Right items: push CTA flush to the right edge */
+  .navbar__items--right {
+    margin-left: auto;
+  }
+
   .navbar__items {
     gap: var(--space-8); /* More spacing between nav items */
   }
