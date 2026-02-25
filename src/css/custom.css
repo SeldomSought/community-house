@@ -251,12 +251,12 @@ p {
 }
 
 /* ============================================
-   Announcement Bar - larger, more prominent
+   Announcement Bar - prominent but compact
    ============================================ */
 
 div[class*='announcementBar'] {
-  padding: var(--space-4) var(--space-5);
-  font-size: var(--text-lg);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-base);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
@@ -269,8 +269,8 @@ div[class*='announcementBar'] a {
 
 @media (min-width: 1024px) {
   div[class*='announcementBar'] {
-    padding: var(--space-5) var(--space-6);
-    font-size: var(--text-xl);
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-lg);
   }
 }
 
@@ -402,6 +402,17 @@ div[class*='announcementBar'] a {
 
   .navbar__inner {
     padding: 0 var(--space-8);
+  }
+
+  /* Left items: don't expand to fill all space — let nav links
+     cluster near the logo so the CTA can sit at the far right */
+  .navbar__items:not(.navbar__items--right) {
+    flex: 0 1 auto;
+  }
+
+  /* Right items: push CTA flush to the right edge */
+  .navbar__items--right {
+    margin-left: auto;
   }
 
   .navbar__items {
