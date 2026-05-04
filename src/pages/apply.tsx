@@ -355,8 +355,8 @@ export default function ApplyPage(): JSX.Element {
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
             We typically respond within 24-48 hours. For urgent inquiries,
             email us at{' '}
-            <a href="mailto:hello@communityhouse.example">
-              hello@communityhouse.example
+            <a href="mailto:hello@thefellowshipatx.com">
+              hello@thefellowshipatx.com
             </a>
           </p>
         </div>
