@@ -1,34 +1,58 @@
 import React, { useState, FormEvent } from 'react';
 import Layout from '@theme/Layout';
 
-// Configure your Formspree form ID here
-// Get one at https://formspree.io - it looks like: xrgvkpzn
 const FORMSPREE_FORM_ID = 'mzddgwra';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 interface FormData {
   name: string;
-  email: string;
-  linkedin: string;
-  membership: string;
+  age: string;
+  phone: string;
+  social: string;
+  'room-interest': string;
   'move-in': string;
-  about: string;
-  referral: string;
+  intention: string;
+  'why-coliving': string;
+  hobbies: string;
+  'shared-space': string;
+  'cleaning-style': string;
+  conflict: string;
+  stress: string;
+  'show-up': string;
+  contribution: string;
+  pets: string;
+  guests: string;
+  'work-situation': string;
+  'anything-else': string;
 }
+
+const emptyForm: FormData = {
+  name: '',
+  age: '',
+  phone: '',
+  social: '',
+  'room-interest': '',
+  'move-in': '',
+  intention: '',
+  'why-coliving': '',
+  hobbies: '',
+  'shared-space': '',
+  'cleaning-style': '',
+  conflict: '',
+  stress: '',
+  'show-up': '',
+  contribution: '',
+  pets: '',
+  guests: '',
+  'work-situation': '',
+  'anything-else': '',
+};
 
 export default function ApplyPage(): JSX.Element {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    linkedin: '',
-    membership: '',
-    'move-in': '',
-    about: '',
-    referral: '',
-  });
+  const [formData, setFormData] = useState<FormData>(emptyForm);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -41,15 +65,6 @@ export default function ApplyPage(): JSX.Element {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
-
-    // Check if Formspree is configured
-    if (FORMSPREE_FORM_ID === 'YOUR_FORM_ID') {
-      setStatus('error');
-      setErrorMessage(
-        'Form not configured. Please set up a Formspree form ID in the code.'
-      );
-      return;
-    }
 
     try {
       const response = await fetch(
@@ -66,22 +81,11 @@ export default function ApplyPage(): JSX.Element {
 
       if (response.ok) {
         setStatus('success');
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          linkedin: '',
-          membership: '',
-          'move-in': '',
-          about: '',
-          referral: '',
-        });
+        setFormData(emptyForm);
       } else {
         const data = await response.json();
         setStatus('error');
-        setErrorMessage(
-          data.error || 'Something went wrong. Please try again.'
-        );
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
       }
     } catch {
       setStatus('error');
@@ -89,7 +93,7 @@ export default function ApplyPage(): JSX.Element {
     }
   };
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.75rem 1rem',
     border: '1px solid rgba(128, 128, 128, 0.2)',
@@ -99,19 +103,75 @@ export default function ApplyPage(): JSX.Element {
     color: 'var(--color-text)',
   };
 
-  const labelStyle = {
+  const labelStyle: React.CSSProperties = {
     display: 'block',
     marginBottom: '0.5rem',
-    fontWeight: '500' as const,
+    fontWeight: '500',
   };
 
-  // Success state
+  const sectionStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.25rem',
+  };
+
+  const sectionHeadingStyle: React.CSSProperties = {
+    fontSize: '1.05rem',
+    fontWeight: '600',
+    paddingBottom: '0.5rem',
+    borderBottom: '1px solid rgba(128, 128, 128, 0.15)',
+    margin: '0 0 0.25rem',
+  };
+
+  const disabled = status === 'submitting';
+
+  function Field({
+    label,
+    required,
+    children,
+  }: {
+    label: string;
+    required?: boolean;
+    children: React.ReactNode;
+  }) {
+    return (
+      <div>
+        <label style={labelStyle}>
+          {label}
+          {required && ' *'}
+        </label>
+        {children}
+      </div>
+    );
+  }
+
+  function RadioGroup({ name, options }: { name: string; options: string[] }) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.25rem' }}>
+        {options.map((opt) => (
+          <label
+            key={opt}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer', fontWeight: 'normal' }}
+          >
+            <input
+              type="radio"
+              name={name}
+              value={opt}
+              checked={formData[name as keyof FormData] === opt}
+              onChange={handleChange}
+              required={!formData[name as keyof FormData]}
+              disabled={disabled}
+            />
+            {opt}
+          </label>
+        ))}
+      </div>
+    );
+  }
+
   if (status === 'success') {
     return (
-      <Layout
-        title="Application Submitted"
-        description="Thank you for your application."
-      >
+      <Layout title="Application Submitted" description="Thank you for your application.">
         <main className="container-narrow" style={{ padding: '4rem 1.5rem' }}>
           <div
             style={{
@@ -136,16 +196,7 @@ export default function ApplyPage(): JSX.Element {
                 justifyContent: 'center',
               }}
             >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#22c55e"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
@@ -153,9 +204,8 @@ export default function ApplyPage(): JSX.Element {
               Application Received!
             </h1>
             <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
-              Thank you for your interest in joining The Fellowship. We've
-              received your application and will be in touch within 24-48 hours
-              to schedule an introductory call.
+              Thank you for taking the time to share yourself with us. We read every answer
+              and will be in touch within 24–48 hours.
             </p>
             <a href="/" className="btn btn-primary">
               Return Home
@@ -167,30 +217,26 @@ export default function ApplyPage(): JSX.Element {
   }
 
   return (
-    <Layout
-      title="Apply"
-      description="Apply to join our coliving and coworking community."
-    >
+    <Layout title="Apply" description="Apply to join our coliving community.">
       <main className="container-narrow" style={{ padding: '4rem 1.5rem' }}>
         <div className="section-header">
-          <h1 className="section-title">Apply to Join</h1>
+          <h1 className="section-title">Fellowship Intake Form</h1>
           <p className="section-subtitle">
-            We'd love to meet you! Complete the form below to schedule an
-            introductory video call with our community manager.
+            Take your time with this — we read every answer. Honesty and
+            self-awareness go a long way here.
           </p>
         </div>
 
         <div
           style={{
-            maxWidth: '600px',
+            maxWidth: '680px',
             margin: '3rem auto',
-            padding: '2rem',
+            padding: '2.5rem',
             background: 'var(--ifm-background-surface-color)',
             borderRadius: 'var(--radius-xl)',
             border: '1px solid rgba(128, 128, 128, 0.1)',
           }}
         >
-          {/* Error message */}
           {status === 'error' && (
             <div
               style={{
@@ -208,156 +254,147 @@ export default function ApplyPage(): JSX.Element {
 
           <form
             onSubmit={handleSubmit}
-            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}
           >
-            <div>
-              <label htmlFor="name" style={labelStyle}>
-                Full Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              />
-            </div>
+            {/* Basics */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Basics</h2>
 
-            <div>
-              <label htmlFor="email" style={labelStyle}>
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="you@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              />
-            </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+                <Field label="Name" required>
+                  <input type="text" name="name" required placeholder="Your full name" value={formData.name} onChange={handleChange} disabled={disabled} style={inputStyle} />
+                </Field>
+                <Field label="Age" required>
+                  <input type="number" name="age" required placeholder="e.g. 27" value={formData.age} onChange={handleChange} disabled={disabled} style={inputStyle} min="18" max="99" />
+                </Field>
+              </div>
 
-            <div>
-              <label htmlFor="linkedin" style={labelStyle}>
-                LinkedIn or Personal Website
-              </label>
-              <input
-                type="url"
-                id="linkedin"
-                name="linkedin"
-                placeholder="https://linkedin.com/in/yourprofile"
-                value={formData.linkedin}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              />
-            </div>
+              <Field label="Phone" required>
+                <input type="tel" name="phone" required placeholder="(512) 000-0000" value={formData.phone} onChange={handleChange} disabled={disabled} style={inputStyle} />
+              </Field>
 
-            <div>
-              <label htmlFor="membership" style={labelStyle}>
-                Interested In *
-              </label>
-              <select
-                id="membership"
-                name="membership"
-                required
-                value={formData.membership}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              >
-                <option value="">Select an option</option>
-                <option value="coliving-shared">
-                  Coliving - Private Room (Shared Bath)
-                </option>
-                <option value="coliving-private">
-                  Coliving - Private Room (Private Bath)
-                </option>
-                <option value="coliving-premium">Coliving - Premium Suite</option>
-                <option value="coworking">Coworking Only</option>
-                <option value="tour">Just want a tour</option>
-              </select>
-            </div>
+              <Field label="Instagram or other social link">
+                <input type="text" name="social" placeholder="@handle or https://..." value={formData.social} onChange={handleChange} disabled={disabled} style={inputStyle} />
+              </Field>
 
-            <div>
-              <label htmlFor="move-in" style={labelStyle}>
-                Desired Move-in Date
-              </label>
-              <input
-                type="date"
-                id="move-in"
-                name="move-in"
-                value={formData['move-in']}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              />
-            </div>
+              <Field label="Which house / room are you interested in?" required>
+                <input type="text" name="room-interest" required placeholder="e.g. private room with en-suite" value={formData['room-interest']} onChange={handleChange} disabled={disabled} style={inputStyle} />
+              </Field>
 
-            <div>
-              <label htmlFor="about" style={labelStyle}>
-                Tell us about yourself *
-              </label>
-              <textarea
-                id="about"
-                name="about"
-                required
-                rows={4}
-                placeholder="What do you do? Why are you interested in coliving? What are you working on?"
-                value={formData.about}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={{
-                  ...inputStyle,
-                  resize: 'vertical' as const,
-                }}
-              />
-            </div>
+              <Field label="Ideal move-in date" required>
+                <input type="date" name="move-in" required value={formData['move-in']} onChange={handleChange} disabled={disabled} style={inputStyle} />
+              </Field>
+            </section>
 
-            <div>
-              <label htmlFor="referral" style={labelStyle}>
-                How did you hear about us?
-              </label>
-              <input
-                type="text"
-                id="referral"
-                name="referral"
-                placeholder="Friend, Twitter, Google, etc."
-                value={formData.referral}
-                onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={inputStyle}
-              />
-            </div>
+            {/* Values & Intentionality */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Values &amp; Intentionality</h2>
+
+              <Field label="What does 'living with intention' mean to you?" required>
+                <textarea name="intention" required rows={4} value={formData.intention} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+
+              <Field label="Why are you specifically looking for a coliving experience rather than a normal apartment?" required>
+                <textarea name="why-coliving" required rows={4} value={formData['why-coliving']} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+            </section>
+
+            {/* Wellness & Lifestyle */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Wellness &amp; Lifestyle</h2>
+
+              <Field label="What are 3 activities and/or hobbies you really enjoy and why?" required>
+                <textarea name="hobbies" required rows={5} placeholder={'1. \n2. \n3. '} value={formData.hobbies} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+            </section>
+
+            {/* Self-Awareness & Maturity */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Self-Awareness &amp; Maturity</h2>
+
+              <Field label="What's your relationship to shared space and mess? Be honest." required>
+                <textarea name="shared-space" required rows={4} value={formData['shared-space']} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+
+              <Field label="Practically, how do you keep up with cleaning?" required>
+                <RadioGroup
+                  name="cleaning-style"
+                  options={[
+                    'Clean-as-you-go',
+                    'Scheduled chores',
+                    'Hire it out',
+                    "I'll be honest, I struggle with it",
+                  ]}
+                />
+              </Field>
+
+              <Field label="What's your approach to dealing with conflict?" required>
+                <textarea name="conflict" required rows={4} value={formData.conflict} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+
+              <Field label="What are you like when you're stressed or having a hard week?" required>
+                <textarea name="stress" required rows={4} value={formData.stress} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+            </section>
+
+            {/* Community */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Community</h2>
+
+              <Field label="How do you like to show up in a shared home?" required>
+                <textarea name="show-up" required rows={3} placeholder="Hosting, cooking, organizing, quietly contributing, something else…" value={formData['show-up']} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+
+              <Field label="What would you bring to the house and the community here?" required>
+                <textarea name="contribution" required rows={5} placeholder="A skill, an energy, something you love to host or organize…" value={formData.contribution} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+            </section>
+
+            {/* Logistics */}
+            <section style={sectionStyle}>
+              <h2 style={sectionHeadingStyle}>Logistics</h2>
+
+              <Field label="Pets?" required>
+                <RadioGroup name="pets" options={['None', 'Cat', 'Dog', 'Other']} />
+              </Field>
+
+              <Field label="Will a partner or guest be around often?" required>
+                <RadioGroup name="guests" options={['Rarely', 'Sometimes', 'Frequently']} />
+              </Field>
+
+              <Field label="Work situation as it affects the house?" required>
+                <RadioGroup
+                  name="work-situation"
+                  options={[
+                    'Remote / WFH',
+                    'Hybrid',
+                    'In-office',
+                    'Variable',
+                    'Not currently working',
+                  ]}
+                />
+              </Field>
+
+              <Field label="Anything else we should know?">
+                <textarea name="anything-else" rows={4} value={formData['anything-else']} onChange={handleChange} disabled={disabled} style={{ ...inputStyle, resize: 'vertical' }} />
+              </Field>
+            </section>
 
             <button
               type="submit"
               className="btn btn-primary"
-              disabled={status === 'submitting'}
-              style={{
-                opacity: status === 'submitting' ? 0.7 : 1,
-                cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
-              }}
+              disabled={disabled}
+              style={{ opacity: disabled ? 0.7 : 1, cursor: disabled ? 'not-allowed' : 'pointer' }}
             >
-              {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
+              {disabled ? 'Submitting…' : 'Submit Application'}
             </button>
           </form>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
-            We typically respond within 24-48 hours. For urgent inquiries,
-            email us at{' '}
-            <a href="mailto:hello@communityhouse.example">
-              hello@communityhouse.example
-            </a>
+            We typically respond within 24–48 hours. Questions?{' '}
+            <a href="mailto:hello@fellowshipatx.com">hello@fellowshipatx.com</a>
           </p>
         </div>
       </main>
