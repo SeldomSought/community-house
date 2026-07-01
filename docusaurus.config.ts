@@ -139,7 +139,7 @@ validateConfig(siteUrl, baseUrl);
 const config: Config = {
   title: 'The Fellowship',
   tagline: 'Three houses, one community in Travis Heights, Austin',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Custom domain
   url: 'https://fellowshipatx.com',

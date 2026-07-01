@@ -29,8 +29,8 @@ concurrency:
 # Environment variables for Docusaurus configuration
 # These ensure the correct baseUrl is used for GitHub Pages deployment
 env:
-  DOCUSAURUS_URL: https://SeldomSought.github.io
-  DOCUSAURUS_BASE_URL: /community-house/
+  DOCUSAURUS_URL: https://fellowshipatx.com
+  DOCUSAURUS_BASE_URL: /
 
 jobs:
   build:
@@ -60,8 +60,8 @@ jobs:
           echo "Build completed. Checking output..."
           ls -la build/
           # Verify index.html exists and contains correct baseUrl
-          if grep -q 'href="/community-house/' build/index.html; then
-            echo "baseUrl correctly set to /community-house/"
+          if grep -q 'href="/' build/index.html; then
+            echo "baseUrl correctly set to /"
           else
             echo "WARNING: baseUrl may not be correctly configured"
             echo "Checking index.html for base tag..."

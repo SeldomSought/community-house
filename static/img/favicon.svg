@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fellowship Favicon — shield crest matching logo.svg -->
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield shape — solid fill for legibility at 16x16/32x32 -->
+  <path d="M16 2 L29 6 L29 18 C29 24 22 29 16 30 C10 29 3 24 3 18 L3 6 Z" fill="url(#g)"/>
+  <!-- F letterform — white, matching proportions of logo.svg -->
+  <path d="M11 8 L11 26 L14 26 L14 18 L21 18 L21 14 L14 14 L14 11 L22 11 L22 8 Z" fill="white"/>
+</svg>

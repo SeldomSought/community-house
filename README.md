@@ -255,7 +255,7 @@ The `docusaurus.config.ts` computes `url` and `baseUrl` from environment variabl
 | Environment | baseUrl | How it's set |
 |-------------|---------|--------------|
 | Local dev (`npm start`) | `/` | Default for local |
-| GitHub Actions | `/community-house/` | Auto-inferred from `GITHUB_REPOSITORY` |
+| GitHub Actions | `/` | Custom domain (fellowshipatx.com) |
 | Explicit override | Any value | Set `DOCUSAURUS_BASE_URL` env var |
 
 **Available npm scripts:**
@@ -263,7 +263,7 @@ The `docusaurus.config.ts` computes `url` and `baseUrl` from environment variabl
 ```bash
 npm run start        # Local dev (baseUrl="/")
 npm run build        # Respects environment (local="/", CI="/repo-name/")
-npm run build:gh     # Explicit GitHub Pages build (baseUrl="/community-house/")
+npm run build:gh     # Explicit GitHub Pages build (fellowshipatx.com)
 npm run serve:gh     # Serve with GitHub Pages baseUrl locally
 ```
 
@@ -277,8 +277,8 @@ npm run serve:gh     # Serve with GitHub Pages baseUrl locally
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `DOCUSAURUS_URL` | Full site URL | `https://SeldomSought.github.io` |
-| `DOCUSAURUS_BASE_URL` | Path prefix | `/` (local) or `/<repo>/` (CI) |
+| `DOCUSAURUS_URL` | Full site URL | `https://fellowshipatx.com` |
+| `DOCUSAURUS_BASE_URL` | Path prefix | `/` |
 
 ### Custom Domain
 
