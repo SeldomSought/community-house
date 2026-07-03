@@ -13,22 +13,42 @@ interface FormData {
   linkedin: string;
   membership: string;
   'move-in': string;
-  about: string;
+  'why-coliving': string;
+  hobbies: string;
+  'shared-space': string;
+  'cleaning-style': string;
+  conflict: string;
+  'show-up': string;
+  contribution: string;
+  pets: string;
+  'work-situation': string;
+  'anything-else': string;
   referral: string;
 }
+
+const emptyForm: FormData = {
+  name: '',
+  email: '',
+  linkedin: '',
+  membership: '',
+  'move-in': '',
+  'why-coliving': '',
+  hobbies: '',
+  'shared-space': '',
+  'cleaning-style': '',
+  conflict: '',
+  'show-up': '',
+  contribution: '',
+  pets: '',
+  'work-situation': '',
+  'anything-else': '',
+  referral: '',
+};
 
 export default function ApplyPage(): JSX.Element {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    linkedin: '',
-    membership: '',
-    'move-in': '',
-    about: '',
-    referral: '',
-  });
+  const [formData, setFormData] = useState<FormData>(emptyForm);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -41,15 +61,6 @@ export default function ApplyPage(): JSX.Element {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
-
-    // Check if Formspree is configured
-    if (FORMSPREE_FORM_ID === 'YOUR_FORM_ID') {
-      setStatus('error');
-      setErrorMessage(
-        'Form not configured. Please set up a Formspree form ID in the code.'
-      );
-      return;
-    }
 
     try {
       const response = await fetch(
@@ -66,16 +77,7 @@ export default function ApplyPage(): JSX.Element {
 
       if (response.ok) {
         setStatus('success');
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          linkedin: '',
-          membership: '',
-          'move-in': '',
-          about: '',
-          referral: '',
-        });
+        setFormData(emptyForm);
       } else {
         const data = await response.json();
         setStatus('error');
@@ -89,7 +91,7 @@ export default function ApplyPage(): JSX.Element {
     }
   };
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.75rem 1rem',
     border: '1px solid rgba(128, 128, 128, 0.2)',
@@ -99,11 +101,53 @@ export default function ApplyPage(): JSX.Element {
     color: 'var(--color-text)',
   };
 
-  const labelStyle = {
+  const labelStyle: React.CSSProperties = {
     display: 'block',
     marginBottom: '0.5rem',
-    fontWeight: '500' as const,
+    fontWeight: '500',
+    lineHeight: '1.4',
   };
+
+  const hintStyle: React.CSSProperties = {
+    display: 'block',
+    marginBottom: '0.6rem',
+    fontSize: '0.85rem',
+    color: 'var(--color-text-muted)',
+    lineHeight: '1.4',
+  };
+
+  const isSubmitting = status === 'submitting';
+
+  function RadioGroup({ name, options }: { name: string; options: string[] }) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginTop: '0.1rem' }}>
+        {options.map((opt) => (
+          <label
+            key={opt}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              fontWeight: 'normal',
+              fontSize: '0.975rem',
+            }}
+          >
+            <input
+              type="radio"
+              name={name}
+              value={opt}
+              checked={formData[name as keyof FormData] === opt}
+              onChange={handleChange}
+              required={!formData[name as keyof FormData]}
+              disabled={isSubmitting}
+            />
+            {opt}
+          </label>
+        ))}
+      </div>
+    );
+  }
 
   // Success state
   if (status === 'success') {
@@ -154,7 +198,7 @@ export default function ApplyPage(): JSX.Element {
             </h1>
             <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
               Thank you for your interest in joining The Fellowship. We've
-              received your application and will be in touch within 24-48 hours
+              received your application and will be in touch within 24–48 hours
               to schedule an introductory call.
             </p>
             <a href="/" className="btn btn-primary">
@@ -175,8 +219,8 @@ export default function ApplyPage(): JSX.Element {
         <div className="section-header">
           <h1 className="section-title">Apply to Join</h1>
           <p className="section-subtitle">
-            We'd love to meet you! Complete the form below to schedule an
-            introductory video call with our community manager.
+            We'd love to meet you! Complete the form below and we'll be in touch
+            within 24–48 hours.
           </p>
         </div>
 
@@ -190,7 +234,6 @@ export default function ApplyPage(): JSX.Element {
             border: '1px solid rgba(128, 128, 128, 0.1)',
           }}
         >
-          {/* Error message */}
           {status === 'error' && (
             <div
               style={{
@@ -210,6 +253,7 @@ export default function ApplyPage(): JSX.Element {
             onSubmit={handleSubmit}
             style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
           >
+            {/* ── Basics ── */}
             <div>
               <label htmlFor="name" style={labelStyle}>
                 Full Name *
@@ -222,7 +266,7 @@ export default function ApplyPage(): JSX.Element {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               />
             </div>
@@ -239,7 +283,7 @@ export default function ApplyPage(): JSX.Element {
                 placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               />
             </div>
@@ -255,7 +299,7 @@ export default function ApplyPage(): JSX.Element {
                 placeholder="https://linkedin.com/in/yourprofile"
                 value={formData.linkedin}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               />
             </div>
@@ -270,7 +314,7 @@ export default function ApplyPage(): JSX.Element {
                 required
                 value={formData.membership}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               >
                 <option value="">Select an option</option>
@@ -296,28 +340,174 @@ export default function ApplyPage(): JSX.Element {
                 name="move-in"
                 value={formData['move-in']}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               />
             </div>
 
+            {/* ── About you ── */}
             <div>
-              <label htmlFor="about" style={labelStyle}>
-                Tell us about yourself *
+              <label htmlFor="why-coliving" style={labelStyle}>
+                Why are you specifically looking for a coliving experience rather
+                than a normal apartment? *
               </label>
               <textarea
-                id="about"
-                name="about"
+                id="why-coliving"
+                name="why-coliving"
                 required
                 rows={4}
-                placeholder="What do you do? Why are you interested in coliving? What are you working on?"
-                value={formData.about}
+                value={formData['why-coliving']}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
-                style={{
-                  ...inputStyle,
-                  resize: 'vertical' as const,
-                }}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="hobbies" style={labelStyle}>
+                What are 3 activities and/or hobbies you really enjoy and why? *
+              </label>
+              <textarea
+                id="hobbies"
+                name="hobbies"
+                required
+                rows={5}
+                placeholder={'1. \n2. \n3. '}
+                value={formData.hobbies}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            {/* ── Living together ── */}
+            <div>
+              <label htmlFor="shared-space" style={labelStyle}>
+                What's your relationship to shared space and mess? Be honest. *
+              </label>
+              <textarea
+                id="shared-space"
+                name="shared-space"
+                required
+                rows={4}
+                value={formData['shared-space']}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            <div>
+              <label style={labelStyle}>
+                Practically, how do you keep up with cleaning? *
+              </label>
+              <span style={hintStyle}>
+                Are you a clean-as-you-go person, a scheduled-chores person, a
+                hire-it-out person, or "I'll be honest, I struggle with it"?
+              </span>
+              <RadioGroup
+                name="cleaning-style"
+                options={[
+                  'Clean-as-you-go',
+                  'Scheduled chores',
+                  'Hire it out',
+                  "I'll be honest, I struggle with it",
+                ]}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="conflict" style={labelStyle}>
+                What's your approach to dealing with conflict? *
+              </label>
+              <textarea
+                id="conflict"
+                name="conflict"
+                required
+                rows={4}
+                value={formData.conflict}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="show-up" style={labelStyle}>
+                How do you like to show up in a shared home? *
+              </label>
+              <span style={hintStyle}>
+                Hosting, cooking, organizing, quietly contributing, something else?
+              </span>
+              <textarea
+                id="show-up"
+                name="show-up"
+                required
+                rows={3}
+                value={formData['show-up']}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="contribution" style={labelStyle}>
+                What would you bring to the house and the community here? *
+              </label>
+              <span style={hintStyle}>
+                Could be a skill, an energy, something you love to host or
+                organize. We're especially looking for people who actively make
+                the community better by being part of it.
+              </span>
+              <textarea
+                id="contribution"
+                name="contribution"
+                required
+                rows={5}
+                value={formData.contribution}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+            </div>
+
+            {/* ── Logistics ── */}
+            <div>
+              <label style={labelStyle}>Do you have any pets? *</label>
+              <RadioGroup
+                name="pets"
+                options={['No pets', 'Cat', 'Dog', 'Other']}
+              />
+            </div>
+
+            <div>
+              <label style={labelStyle}>
+                Work situation as it affects the house? *
+              </label>
+              <RadioGroup
+                name="work-situation"
+                options={[
+                  'Remote / WFH',
+                  'Hybrid',
+                  'In-office',
+                  'Not currently working',
+                ]}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="anything-else" style={labelStyle}>
+                Anything else we should know?
+              </label>
+              <textarea
+                id="anything-else"
+                name="anything-else"
+                rows={4}
+                value={formData['anything-else']}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                style={{ ...inputStyle, resize: 'vertical' }}
               />
             </div>
 
@@ -329,10 +519,10 @@ export default function ApplyPage(): JSX.Element {
                 type="text"
                 id="referral"
                 name="referral"
-                placeholder="Friend, Twitter, Google, etc."
+                placeholder="Friend, Instagram, Google, etc."
                 value={formData.referral}
                 onChange={handleChange}
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 style={inputStyle}
               />
             </div>
@@ -340,23 +530,23 @@ export default function ApplyPage(): JSX.Element {
             <button
               type="submit"
               className="btn btn-primary"
-              disabled={status === 'submitting'}
+              disabled={isSubmitting}
               style={{
-                opacity: status === 'submitting' ? 0.7 : 1,
-                cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.7 : 1,
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
               }}
             >
-              {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </form>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
-            We typically respond within 24-48 hours. For urgent inquiries,
+            We typically respond within 24–48 hours. For urgent inquiries,
             email us at{' '}
-            <a href="mailto:hello@communityhouse.example">
-              hello@communityhouse.example
+            <a href="mailto:hello@fellowshipatx.com">
+              hello@fellowshipatx.com
             </a>
           </p>
         </div>
