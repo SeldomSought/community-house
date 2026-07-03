@@ -72,6 +72,22 @@
     "caption": "Party2"
   },
   {
+    "src": "/img/gallery/firepit-night.jpg",
+    "alt": "Friends gathered around the fire pit under string lights at night",
+    "tags": [
+      "Community"
+    ],
+    "caption": "Fire pit nights"
+  },
+  {
+    "src": "/img/gallery/living-room-party.jpg",
+    "alt": "Group hanging out in the living room at a house party",
+    "tags": [
+      "Community"
+    ],
+    "caption": "Living room hangouts"
+  },
+  {
     "src": "/img/gallery/patio.jpg",
     "alt": "Patio",
     "tags": [
