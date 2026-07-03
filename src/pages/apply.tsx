@@ -293,10 +293,10 @@ export default function ApplyPage(): JSX.Element {
                 LinkedIn or Personal Website
               </label>
               <input
-                type="url"
+                type="text"
                 id="linkedin"
                 name="linkedin"
-                placeholder="https://linkedin.com/in/yourprofile"
+                placeholder="linkedin.com/in/yourprofile or yoursite.com"
                 value={formData.linkedin}
                 onChange={handleChange}
                 disabled={isSubmitting}
@@ -306,7 +306,7 @@ export default function ApplyPage(): JSX.Element {
 
             <div>
               <label htmlFor="membership" style={labelStyle}>
-                Interested In *
+                Which room are you interested in? *
               </label>
               <select
                 id="membership"
@@ -317,16 +317,10 @@ export default function ApplyPage(): JSX.Element {
                 disabled={isSubmitting}
                 style={inputStyle}
               >
-                <option value="">Select an option</option>
-                <option value="coliving-shared">
-                  Coliving - Private Room (Shared Bath)
-                </option>
-                <option value="coliving-private">
-                  Coliving - Private Room (Private Bath)
-                </option>
-                <option value="coliving-premium">Coliving - Premium Suite</option>
-                <option value="coworking">Coworking Only</option>
-                <option value="tour">Just want a tour</option>
+                <option value="">Select a room</option>
+                <option value="cozy-room">Cozy Room — $750/mo</option>
+                <option value="medium-room">Medium Sized Room — $950/mo</option>
+                <option value="en-suite">En Suite — $1,250/mo</option>
               </select>
             </div>
 
