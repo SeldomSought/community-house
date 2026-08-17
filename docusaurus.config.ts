@@ -269,7 +269,7 @@ const config: Config = {
             },
             {
               label: 'Email Us',
-              href: 'mailto:hello@thefellowshipatx.com',
+              href: 'mailto:house@fellowshipatx.com',
             },
           ],
         },
