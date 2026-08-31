@@ -16,7 +16,7 @@ const glanceItems: GlanceItem[] = [
       </svg>
     ),
     label: 'Starting at',
-    value: '$750/mo',
+    value: '$850/mo',
   },
   {
     icon: (

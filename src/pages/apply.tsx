@@ -318,7 +318,7 @@ export default function ApplyPage(): JSX.Element {
                 style={inputStyle}
               >
                 <option value="">Select a room</option>
-                <option value="cozy-room">Cozy Room — $750/mo</option>
+                <option value="cozy-room">Cozy Room — $850/mo</option>
                 <option value="medium-room">Medium Sized Room — $950/mo</option>
                 <option value="en-suite">En Suite — $1,250/mo</option>
               </select>
