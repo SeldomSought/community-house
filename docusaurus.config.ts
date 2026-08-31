@@ -264,10 +264,6 @@ const config: Config = {
               href: 'https://instagram.com/thefellowshipatx',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/thefellowshipatx',
-            },
-            {
               label: 'Email Us',
               href: 'mailto:house@fellowshipatx.com',
             },
@@ -289,7 +285,7 @@ const config: Config = {
       id: 'announcement',
       // Use computed baseUrl for the link
       content:
-        'Now accepting applications — rooms starting at $750/month. <a href="/apply">Apply today</a>',
+        'Now accepting applications — rooms starting at $850/month. <a href="/apply">Apply today</a>',
       backgroundColor: '#16A34A',
       textColor: '#FFFFFF',
       isCloseable: true,
