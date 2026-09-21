@@ -110,5 +110,93 @@
       "Other"
     ],
     "caption": "Technicallyethical"
+  },
+  {
+    "src": "/img/gallery/study-lounge-9512.webp",
+    "alt": "Study with a white desk, rust-colored sofa, patterned rug, and open closet",
+    "tags": [
+      "Coworking"
+    ],
+    "caption": "Study & lounge"
+  },
+  {
+    "src": "/img/gallery/living-room-9513.webp",
+    "alt": "Living room with a gray sofa, colorful rug, abstract artwork, and a large window",
+    "tags": [
+      "Living spaces"
+    ],
+    "caption": "Living room"
+  },
+  {
+    "src": "/img/gallery/galley-kitchen-9515.webp",
+    "alt": "Galley kitchen with white cabinets, stainless steel appliances, and a view into the adjoining room",
+    "tags": [
+      "Kitchens & dining"
+    ],
+    "caption": "Galley kitchen"
+  },
+  {
+    "src": "/img/gallery/coworking-room-9516.webp",
+    "alt": "Shared workspace with several desks and office chairs around a sunlit window",
+    "tags": [
+      "Coworking"
+    ],
+    "caption": "Coworking room"
+  },
+  {
+    "src": "/img/gallery/flex-room-window-9519.webp",
+    "alt": "Unfurnished room with wall shelves, a ceiling fan, and a wide window",
+    "tags": [
+      "Rooms"
+    ],
+    "caption": "Flex room — window view"
+  },
+  {
+    "src": "/img/gallery/flex-room-closet-9520.webp",
+    "alt": "Reverse view of the unfurnished room showing the closet, glass-paneled doorway, and ceiling fan",
+    "tags": [
+      "Rooms"
+    ],
+    "caption": "Flex room — closet view"
+  },
+  {
+    "src": "/img/gallery/conservatory-seating-9523.webp",
+    "alt": "Conservatory seating area with a brown sofa, green ottoman, guitar, and tall arched window",
+    "tags": [
+      "Living spaces"
+    ],
+    "caption": "Conservatory seating"
+  },
+  {
+    "src": "/img/gallery/conservatory-loft-9524.webp",
+    "alt": "Conservatory with a green sofa, upright piano, wooden stairs, and an open loft above",
+    "tags": [
+      "Living spaces"
+    ],
+    "caption": "Conservatory & loft"
+  },
+  {
+    "src": "/img/gallery/bedroom-9536.webp",
+    "alt": "Bedroom with green bedding, bookshelves, and a keyboard beneath the window",
+    "tags": [
+      "Rooms"
+    ],
+    "caption": "Bedroom & reading nook"
+  },
+  {
+    "src": "/img/gallery/kitchen-dining-9538.webp",
+    "alt": "Shared kitchen and dining room with a wooden island, long dining table, and china cabinet",
+    "tags": [
+      "Kitchens & dining"
+    ],
+    "caption": "Kitchen & dining room"
+  },
+  {
+    "src": "/img/gallery/dining-nook-9539.webp",
+    "alt": "Wooden dining table and chairs beside a white kitchen, viewed from the adjoining living room",
+    "tags": [
+      "Kitchens & dining"
+    ],
+    "caption": "Dining nook"
   }
 ]
