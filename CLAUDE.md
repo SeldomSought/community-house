@@ -57,7 +57,8 @@ Use conventional commits:
 | Edit location info | `src/pages/location.mdx` |
 | Add blog post | `blog/YYYY-MM-DD-title.mdx` |
 | Add room documentation | `docs/spaces/room-name.mdx` |
-| Change colors/theme | `tailwind.config.js` |
+| Change colors/theme | `src/css/custom.css` tokens (see `DESIGN.md`); mirror in `tailwind.config.js` |
+| Design language, colour meanings, voice | `DESIGN.md` |
 | Change site metadata | `docusaurus.config.ts` |
 | Edit CSS animations | `src/css/custom.css` |
 | Edit property tour rooms | `src/data/rooms.ts` |

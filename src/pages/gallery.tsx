@@ -206,6 +206,11 @@ function GalleryThumbnail({
       <span className="atlas-figure__caption">
         <span aria-hidden="true">{String(number).padStart(2, '0')}</span>
         {image.caption}
+        {image.tags[0] && image.tags[0] !== 'Other' && (
+          <span className="woven-label" data-tint={image.tags[0]}>
+            {image.tags[0]}
+          </span>
+        )}
       </span>
     </button>
   );

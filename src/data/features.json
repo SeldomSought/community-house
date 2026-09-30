@@ -105,62 +105,86 @@
     {
       "title": "Three Houses, One Community",
       "description": "Think of a mansion with three wings and a lot more privacy. Twelve bedrooms, three kitchens, a few living rooms, a conservatory, a loft, and over half an acre outside.",
-      "icon": "/img/icons/neighborhood.svg"
+      "icon": "/img/icons/neighborhood.svg",
+      "where": "All three houses",
+      "house": "all"
     },
     {
       "title": "1-5 Gbps Fiber Internet",
       "description": "Fiber runs through all three houses. Work, stream, take calls from the backyard. It keeps up.",
-      "icon": "/img/icons/wifi-ethernet.svg"
+      "icon": "/img/icons/wifi-ethernet.svg",
+      "where": "All three houses",
+      "house": "all"
     },
     {
       "title": "The Conservatory",
       "description": "A big room with glass walls. People work in it, play music in it, throw dinners in it, or just sit there because the light is good.",
-      "icon": "/img/icons/coworking-space.svg"
+      "icon": "/img/icons/coworking-space.svg",
+      "where": "West House",
+      "house": "west"
     },
     {
       "title": "Hot Tub & Cold Plunge",
       "description": "The hot tub is at one end of the property and the cold plunge is at the other. Go back and forth if you're into that.",
-      "icon": "/img/icons/outdoor-deck.svg"
+      "icon": "/img/icons/outdoor-deck.svg",
+      "where": "West & East House",
+      "house": "west-east"
     },
     {
       "title": "Theatre Room",
       "description": "A real projector and screen. Movie nights, watch parties, and the occasional karaoke night.",
-      "icon": "/img/icons/community-events.svg"
+      "icon": "/img/icons/community-events.svg",
+      "where": "West House",
+      "house": "west"
     },
     {
       "title": "Shared Self-Driving Tesla",
       "description": "The house shares a self-driving Tesla for errands, airport runs, and days out in Austin. You might not need your own car.",
-      "icon": "/img/icons/parking.svg"
+      "icon": "/img/icons/parking.svg",
+      "where": "Shared",
+      "house": "all"
     },
     {
       "title": "Barbell Gym",
       "description": "A full barbell setup on-site. No membership, no drive. Walk out the door and lift.",
-      "icon": "/img/icons/coworking-space.svg"
+      "icon": "/img/icons/coworking-space.svg",
+      "where": "East House",
+      "house": "east"
     },
     {
       "title": "Backyard Chickens",
       "description": "The chickens live in a mobile coop out back and lay most days. Breakfast mostly takes care of itself.",
-      "icon": "/img/icons/kitchen.svg"
+      "icon": "/img/icons/kitchen.svg",
+      "where": "Main House",
+      "house": "main"
     },
     {
       "title": "Half Acre Outdoor Space",
       "description": "A huge yard with fire pits, a built-in propane grill, and room for a proper party. On a normal night it's just quiet out there.",
-      "icon": "/img/icons/outdoor-deck.svg"
+      "icon": "/img/icons/outdoor-deck.svg",
+      "where": "The grounds",
+      "house": "grounds"
     },
     {
       "title": "Guest Loft",
       "description": "A loft kept free for visitors, so your friends and family can stay the weekend without anyone giving up a couch.",
-      "icon": "/img/icons/bedrooms.svg"
+      "icon": "/img/icons/bedrooms.svg",
+      "where": "West House",
+      "house": "west"
     },
     {
       "title": "Woodwork Shed",
       "description": "Tools and room to make things. Furniture, art, repairs, whatever you've been meaning to build.",
-      "icon": "/img/icons/coworking-space.svg"
+      "icon": "/img/icons/coworking-space.svg",
+      "where": "The grounds",
+      "house": "grounds"
     },
     {
       "title": "Prime Location",
       "description": "Downtown, Town Lake, South Congress and East Austin are all 3 to 10 minutes by car. Easy by bike or scooter too.",
-      "icon": "/img/icons/neighborhood.svg"
+      "icon": "/img/icons/neighborhood.svg",
+      "where": "Travis Heights",
+      "house": "area"
     }
   ]
 }

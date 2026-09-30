@@ -7,6 +7,10 @@ export interface Feature {
   title: string;
   description: string;
   icon: string;
+  /** Where on the property this lives, printed as a woven label. */
+  where?: string;
+  /** Key for the label's ink: west | main | east | west-east | grounds | all | area */
+  house?: string;
 }
 
 interface FeatureCardProps extends Feature {
@@ -17,12 +21,15 @@ export default function FeatureCard({
   title,
   description,
   icon,
+  where,
+  house,
   index = 0,
 }: FeatureCardProps): JSX.Element {
   const iconUrl = useBaseUrl(icon);
   return (
     <article
       className={clsx('feature-card', styles.card)}
+      data-house={house}
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className={styles.iconWrapper}>
@@ -42,6 +49,11 @@ export default function FeatureCard({
       <p className={clsx('feature-card__description', styles.description)}>
         {description}
       </p>
+      {where && (
+        <span className={clsx('woven-label', styles.where)} data-house={house}>
+          {where}
+        </span>
+      )}
     </article>
   );
 }

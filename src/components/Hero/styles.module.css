@@ -133,6 +133,57 @@
   animation: inkIn 1.4s var(--ease) .4s forwards;
 }
 
+/* ── the loupe ────────────────────────────────────
+   From a distance the plate is an engraving. Up close, a lens shows
+   the photograph in colour: Chemin's "from far, a pretty pattern;
+   close up, something else". Fine pointers only. */
+.plate { --lx: 50%; --ly: 50%; --lr: 0px; cursor: default; }
+.plate[data-loupe='on'] { --lr: clamp(90px, 9vw, 150px); cursor: none; }
+
+.plateColour {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 92%, transparent 100%);
+  mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 92%, transparent 100%);
+}
+.loupeRim {
+  position: absolute;
+  left: var(--lx);
+  top: var(--ly);
+  width: calc(var(--lr) * 2);
+  height: calc(var(--lr) * 2);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid var(--paper);
+  outline: 1px solid rgba(var(--rust-rgb), .75);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(243, 238, 227, .35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s var(--ease), width .3s var(--ease), height .3s var(--ease);
+}
+.plate[data-loupe='on'] .loupeRim { opacity: 1; }
+
+.plateHint {
+  margin: 10px auto 0;
+  text-align: center;
+  font: italic 500 1rem/1.3 var(--serif);
+  color: var(--ink-soft);
+}
+@media (hover: none), (pointer: coarse) {
+  .plateColour, .loupeRim, .plateHint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loupeRim { transition: none; }
+}
+
+.calendar em { font-family: var(--serif); font-size: 1.05em; letter-spacing: 0; color: var(--rust); }
+
 @keyframes inkIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
@@ -154,5 +205,5 @@
     margin-top: 12px;
     aspect-ratio: 4 / 3;
   }
-  .plateImage { object-position: 50% 40%; }
+  .plateImage, .plateColour { object-position: 50% 40%; }
 }
