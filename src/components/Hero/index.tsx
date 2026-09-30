@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
+import Vignette from '@site/src/components/Vignette';
 import styles from './styles.module.css';
 
 interface HeroProps {
@@ -166,6 +167,11 @@ export default function Hero({
             </Link>
           )}
         </div>
+
+        {/* marginalia: loose drawings in the margins of the opening */}
+        <Vignette name="peony" size={132} className={clsx(styles.margin, styles.marginPeony, 'vignette-draw')} />
+        <Vignette name="bloom" size={96} className={clsx(styles.margin, styles.marginBloom, 'vignette-draw')} />
+        <Vignette name="chicken" size={84} className={clsx(styles.margin, styles.marginHen, 'vignette-draw')} />
 
         <div className={styles.compass} aria-hidden="true">
           <svg viewBox="0 0 80 90">

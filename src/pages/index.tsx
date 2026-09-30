@@ -7,18 +7,23 @@ import PropertyMap from '@site/src/components/PropertyMap';
 import AtAGlance from '@site/src/components/AtAGlance';
 import StickyCTA from '@site/src/components/StickyCTA';
 import Gallery from '@site/src/components/Gallery';
+import SectionPlate from '@site/src/components/SectionPlate';
+import Vignette from '@site/src/components/Vignette';
 import featuresData from '@site/src/data/features.json';
 
 function FeaturesSection(): JSX.Element {
   return (
     <section className="section" id="features">
       <div className="container-wide">
-        <div className="section-header">
-          <h2 className="section-title">What's here</h2>
-          <p className="section-subtitle">
-            The short list of what you get here, not counting the housemates.
-          </p>
-        </div>
+        <SectionPlate
+          number="I"
+          month="Floréal"
+          gloss="the month of flowers"
+          vignette="peony"
+          accent="peony"
+          title={<>What's <em>here</em></>}
+          subtitle="The short list of what you get here, not counting the housemates."
+        />
 
         <FeatureGrid
           features={featuresData.features}
@@ -33,12 +38,15 @@ function ExploreSpaceSection(): JSX.Element {
   return (
     <section className="section" id="explore-space">
       <div className="container-wide">
-        <div className="section-header">
-          <h2 className="section-title">How the land lays out</h2>
-          <p className="section-subtitle">
-            Three houses on half an acre. Each one has its own personality and its own share of the good stuff.
-          </p>
-        </div>
+        <SectionPlate
+          number="III"
+          month="Prairial"
+          gloss="the month of meadows"
+          vignette="yard"
+          accent="leaf"
+          title={<>How the land <em>lays out</em></>}
+          subtitle="Three houses on half an acre. Each one has its own personality and its own share of the good stuff."
+        />
         <PropertyMap />
       </div>
     </section>
@@ -48,13 +56,17 @@ function ExploreSpaceSection(): JSX.Element {
 function CTASection(): JSX.Element {
   return (
     <section className="cta-section">
-      <h2 className="section-title" style={{ color: 'inherit' }}>
-        Come live here
-      </h2>
-      <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>
-        Fill out the application and we'll set up a call. It's mostly just us getting to know you.
-      </p>
-      <Link to="/apply" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
+      <Vignette name="peony" size={120} className="cta-flourish cta-flourish--left" />
+      <Vignette name="bloom" size={110} className="cta-flourish cta-flourish--right" />
+      <SectionPlate
+        number="V"
+        month="Vendémiaire"
+        gloss="the harvest, and the new year"
+        vignette="key"
+        title={<>Come <em>live</em> here</>}
+        subtitle="Fill out the application and we'll set up a call. It's mostly just us getting to know you."
+      />
+      <Link to="/apply" className="btn btn-primary">
         Start an application
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
@@ -72,8 +84,13 @@ function CTASection(): JSX.Element {
 
 function RoadmapSection(): JSX.Element {
   return (
-    <section className="section" style={{ textAlign: 'center' }}>
+    <section className="section roadmap" style={{ textAlign: 'center' }}>
       <div className="container-narrow">
+        <Vignette name="seed" size={72} className="roadmap__seed vignette-draw" />
+        <p className="roadmap__kicker">
+          Plate IV <span aria-hidden="true">&middot;</span> <strong>Germinal</strong>{' '}
+          <em>seeds sprouting</em>
+        </p>
         <p className="roadmap-note">
           Still on the list: a sauna, a courtyard garden, and solar.
         </p>

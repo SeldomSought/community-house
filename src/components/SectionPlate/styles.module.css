@@ -1,0 +1,79 @@
+.plate {
+  --accent: var(--rust);
+  --accent-rgb: var(--rust-rgb);
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto clamp(2.75rem, 5vw, 4.25rem);
+  text-align: center;
+}
+.plate[data-accent='verdigris'] { --accent: var(--verdigris); --accent-rgb: var(--verdigris-rgb); }
+.plate[data-accent='plum']      { --accent: var(--plum);      --accent-rgb: var(--plum-rgb); }
+.plate[data-accent='ochre']     { --accent: var(--ochre);     --accent-rgb: var(--ochre-rgb); }
+.plate[data-accent='peony']     { --accent: var(--peony);     --accent-rgb: var(--peony-rgb); }
+.plate[data-accent='leaf']      { --accent: var(--leaf);      --accent-rgb: var(--leaf-rgb); }
+.plate[data-accent='ink']       { --accent: var(--ink);       --accent-rgb: var(--ink-rgb); }
+
+.drawing {
+  margin: 0 auto 10px;
+  color: var(--accent);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  max-width: none;
+  margin: 0 auto 18px;
+}
+.number {
+  font: 500 var(--t-micro)/1 var(--sans);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rule {
+  align-self: center;
+  width: 28px;
+  height: 1px;
+  background: rgba(var(--accent-rgb), .6);
+}
+.month {
+  font: 500 var(--t-micro)/1 var(--sans);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.gloss {
+  font: italic 500 1.0625rem/1 var(--serif);
+  color: var(--accent);
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: var(--t-section);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.035em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.title em { color: var(--accent); font-weight: 400; }
+
+.subtitle {
+  max-width: 38ch;
+  margin: 0 auto;
+  font-size: var(--t-lede);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+/* inverted on the night chart */
+:global(.cta-section) .number { color: var(--night-ink-soft); }
+:global(.cta-section) .title { color: var(--night-ink); }
+:global(.cta-section) .subtitle { color: var(--night-ink-soft); }
+:global(.cta-section) .plate { --accent: #e8c983; --accent-rgb: 232, 201, 131; }
+:global(.cta-section) .drawing { color: var(--night-ink); }

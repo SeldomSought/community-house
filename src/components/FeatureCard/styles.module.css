@@ -101,3 +101,12 @@
 
 /* woven label sits at the foot of the plate */
 .where { margin-top: 1.1rem; }
+
+/* hand-drawn vignette, lined in the plate's ink */
+.drawing {
+  margin: -6px 0 14px -6px;
+  color: var(--card-ink);
+  transition: transform .5s var(--ease);
+  transform-origin: 40% 70%;
+}
+.card:hover .drawing { transform: rotate(-3deg) scale(1.04); }

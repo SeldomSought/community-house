@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Vignette from '@site/src/components/Vignette';
 import styles from './styles.module.css';
 
 export interface Feature {
@@ -11,6 +12,8 @@ export interface Feature {
   where?: string;
   /** Key for the label's ink: west | main | east | west-east | grounds | all | area */
   house?: string;
+  /** Name of a hand-drawn vignette (src/components/Vignette); falls back to icon. */
+  vignette?: string;
 }
 
 interface FeatureCardProps extends Feature {
@@ -23,6 +26,7 @@ export default function FeatureCard({
   icon,
   where,
   house,
+  vignette,
   index = 0,
 }: FeatureCardProps): JSX.Element {
   const iconUrl = useBaseUrl(icon);
@@ -32,17 +36,21 @@ export default function FeatureCard({
       data-house={house}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className={styles.iconWrapper}>
-        {/* drawn as a mask so the icon takes the card's ink colour */}
-        <span
-          className={styles.icon}
-          aria-hidden="true"
-          style={{
-            WebkitMaskImage: `url(${iconUrl})`,
-            maskImage: `url(${iconUrl})`,
-          }}
-        />
-      </div>
+      {vignette ? (
+        <Vignette name={vignette} className={styles.drawing} size={96} />
+      ) : (
+        <div className={styles.iconWrapper}>
+          {/* drawn as a mask so the icon takes the card's ink colour */}
+          <span
+            className={styles.icon}
+            aria-hidden="true"
+            style={{
+              WebkitMaskImage: `url(${iconUrl})`,
+              maskImage: `url(${iconUrl})`,
+            }}
+          />
+        </div>
+      )}
       <h3 className={clsx('feature-card__title', styles.title)}>
         {title}
       </h3>
