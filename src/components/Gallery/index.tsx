@@ -1,10 +1,7 @@
-import clsx from 'clsx';
 import React, { useState, useCallback, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import galleryData from '@site/src/data/gallery.json';
-import SectionPlate from '@site/src/components/SectionPlate';
-import Vignette from '@site/src/components/Vignette';
 import styles from './styles.module.css';
 
 interface GalleryImage {
@@ -60,17 +57,14 @@ export default function Gallery(): JSX.Element {
   return (
     <section className={styles.section} id="gallery">
       <div className={styles.container}>
-        <SectionPlate
-          number="II"
-          month="Thermidor"
-          gloss="the month of summer heat"
-          vignette="bloom"
-          accent="ochre"
-          title={<>The <em>scrapbook</em></>}
-          subtitle="Real photos of the place. A few were taken mid-party."
-        />
+        <div className="section-header">
+          <h2 className="section-title">Gallery</h2>
+          <p className="section-subtitle">
+            Real photos of the place. A few were taken mid-party.
+          </p>
+        </div>
 
-        <div className={clsx(styles.grid, 'collage')}>
+        <div className={styles.grid}>
           {images.map((image, index) => (
             <GalleryThumb
               key={image.src}
@@ -79,19 +73,10 @@ export default function Gallery(): JSX.Element {
               onClick={() => openLightbox(index)}
             />
           ))}
-          {galleryData.length > MAX_PREVIEW && (
-            <Link to="/gallery" className="collage-note">
-              <Vignette name="wind" size={58} className="collage-note__drawing" />
-              <span className="collage-note__count">{galleryData.length} photos in all</span>
-              <span className="collage-note__link">
-                See the whole scrapbook <span aria-hidden="true">→</span>
-              </span>
-            </Link>
-          )}
         </div>
 
         {galleryData.length > MAX_PREVIEW && (
-          <div className={clsx(styles.more, 'collage-more')}>
+          <div className={styles.more}>
             <Link to="/gallery" className="btn btn-secondary">
               See all the photos
             </Link>
@@ -179,11 +164,6 @@ function GalleryThumb({
       <span className="atlas-figure__caption">
         <span aria-hidden="true">{String(number).padStart(2, '0')}</span>
         {image.caption}
-        {image.tags[0] && image.tags[0] !== 'Other' && (
-          <span className="woven-label" data-tint={image.tags[0]}>
-            {image.tags[0]}
-          </span>
-        )}
       </span>
     </button>
   );

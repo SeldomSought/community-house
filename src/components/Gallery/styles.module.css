@@ -15,10 +15,18 @@
   padding: 0 var(--gutter);
 }
 
-/* the preview is a collage: prints cut out, overlapped and taped down,
-   after Chemin's cut-paper layering. Placement lives in custom.css
-   (.collage) so it can be tuned without touching the component. */
-.grid { position: relative; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 14px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 22px;
+  }
+}
 
 .more {
   display: flex;

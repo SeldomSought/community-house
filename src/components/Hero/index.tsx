@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
-import Vignette from '@site/src/components/Vignette';
 import styles from './styles.module.css';
 
 interface HeroProps {
@@ -19,59 +18,10 @@ interface HeroProps {
   backgroundImage?: string;
 }
 
-/* ── French Republican calendar ──────────────────────
-   Christophe Chemin built his Prada prints on the Revolutionary
-   calendar, whose months are named for what the land is doing.
-   The edition line shows today's date in it. The new year is taken
-   as 22 September (the autumn equinox, give or take a day). */
-const MONTHS: [string, string][] = [
-  ['Vendémiaire', 'the grape harvest'],
-  ['Brumaire', 'mist'],
-  ['Frimaire', 'frost'],
-  ['Nivôse', 'snow'],
-  ['Pluviôse', 'rain'],
-  ['Ventôse', 'wind'],
-  ['Germinal', 'seeds sprouting'],
-  ['Floréal', 'flowers'],
-  ['Prairial', 'meadows'],
-  ['Messidor', 'the harvest'],
-  ['Thermidor', 'summer heat'],
-  ['Fructidor', 'fruit'],
-];
-
-function toRoman(n: number): string {
-  const table: [number, string][] = [
-    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'],
-    [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],
-  ];
-  let out = '';
-  for (const [value, numeral] of table) {
-    while (n >= value) {
-      out += numeral;
-      n -= value;
-    }
-  }
-  return out;
-}
-
-function republicanDate(now: Date): { label: string; gloss: string } {
-  const y = now.getFullYear();
-  const startThisYear = new Date(y, 8, 22);
-  const start = now >= startThisYear ? startThisYear : new Date(y - 1, 8, 22);
-  const day = Math.floor((now.getTime() - start.getTime()) / 86400000);
-  const year = toRoman(start.getFullYear() - 1791);
-  if (day >= 360) {
-    return { label: `Jour complémentaire ${day - 359}, an ${year}`, gloss: 'the days between years' };
-  }
-  const [month, gloss] = MONTHS[Math.floor(day / 30)];
-  return { label: `${(day % 30) + 1} ${month}, an ${year}`, gloss };
-}
-
 /**
  * Atlas-style opening: centred display type on paper, with the aerial
- * photograph printed beneath it as an engraved plate in cobalt ink.
- * On devices with a fine pointer, a loupe follows the cursor and shows
- * the real colour photograph underneath the engraving.
+ * photograph printed beneath it as an engraved "plate" in cobalt ink.
+ * The photograph returns to full colour on hover (desktop).
  */
 export default function Hero({
   title,
@@ -82,31 +32,6 @@ export default function Hero({
 }: HeroProps): JSX.Element {
   const bgUrl = useBaseUrl(backgroundImage);
   const words = title.split(' ');
-
-  // Rendered after mount so the server build and the visitor's clock agree.
-  const [date, setDate] = useState<{ label: string; gloss: string } | null>(null);
-  useEffect(() => setDate(republicanDate(new Date())), []);
-
-  // Loupe: CSS variables updated once per animation frame.
-  const plateRef = useRef<HTMLDivElement>(null);
-  const frame = useRef<number | null>(null);
-  const onMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType !== 'mouse') return;
-    const el = plateRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    if (frame.current) cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => {
-      el.style.setProperty('--lx', `${x}px`);
-      el.style.setProperty('--ly', `${y}px`);
-      el.dataset.loupe = 'on';
-    });
-  }, []);
-  const onLeave = useCallback(() => {
-    if (plateRef.current) plateRef.current.dataset.loupe = 'off';
-  }, []);
 
   return (
     <section className={clsx('hero-section', styles.hero)}>
@@ -125,18 +50,9 @@ export default function Hero({
       </svg>
 
       <div className={styles.opening}>
-        <div className={styles.edition}>
-          <span aria-hidden="true">The Fellowship / Travis Heights, Austin</span>
-          {date ? (
-            <span
-              className={styles.calendar}
-              title="Today's date in the French Republican calendar"
-            >
-              {date.label} <em>· {date.gloss}</em>
-            </span>
-          ) : (
-            <span aria-hidden="true">Three houses &nbsp;·&nbsp; Twelve rooms</span>
-          )}
+        <div className={styles.edition} aria-hidden="true">
+          <span>The Fellowship / Travis Heights, Austin</span>
+          <span>Three houses &nbsp;·&nbsp; Twelve rooms</span>
         </div>
 
         <h1 className={clsx('hero-title', styles.title)}>
@@ -168,11 +84,6 @@ export default function Hero({
           )}
         </div>
 
-        {/* marginalia: loose drawings in the margins of the opening */}
-        <Vignette name="peony" size={132} className={clsx(styles.margin, styles.marginPeony, 'vignette-draw')} />
-        <Vignette name="bloom" size={96} className={clsx(styles.margin, styles.marginBloom, 'vignette-draw')} />
-        <Vignette name="chicken" size={84} className={clsx(styles.margin, styles.marginHen, 'vignette-draw')} />
-
         <div className={styles.compass} aria-hidden="true">
           <svg viewBox="0 0 80 90">
             <path d="M40 4 L42 38 64 26 47 45 72 47 47 50 61 72 42 57 40 86 37 56 18 69 32 50 8 47 33 43 21 24 37 37Z" />
@@ -182,13 +93,7 @@ export default function Hero({
         </div>
       </div>
 
-      <div
-        ref={plateRef}
-        className={styles.plate}
-        data-loupe="off"
-        onPointerMove={onMove}
-        onPointerLeave={onLeave}
-      >
+      <div className={styles.plate}>
         <img
           className={styles.plateImage}
           src={bgUrl}
@@ -198,21 +103,7 @@ export default function Hero({
           fetchPriority="high"
           decoding="async"
         />
-        {/* the same photograph in colour, revealed through the loupe */}
-        <img
-          className={styles.plateColour}
-          src={bgUrl}
-          width="2048"
-          height="860"
-          alt=""
-          aria-hidden="true"
-          decoding="async"
-        />
-        <span className={styles.loupeRim} aria-hidden="true" />
       </div>
-      <p className={styles.plateHint} aria-hidden="true">
-        Hold your cursor over the picture to see it in color.
-      </p>
     </section>
   );
 }

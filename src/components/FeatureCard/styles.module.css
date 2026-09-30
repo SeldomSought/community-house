@@ -18,9 +18,6 @@
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   counter-increment: specimen;
   --card-ink: var(--ink);
   --card-rgb: var(--ink-rgb);
@@ -35,14 +32,10 @@
   animation: inkIn .7s var(--ease) forwards;
   transition: background .3s var(--ease) !important;
 }
-/* each plate is inked by where the thing lives, matching its woven label
-   and the house colours on the map: West verdigris, Main rust, East plum,
-   the grounds ochre, the whole property cobalt */
-.card[data-house='west']      { --card-ink: var(--verdigris); --card-rgb: var(--verdigris-rgb); }
-.card[data-house='main']      { --card-ink: var(--rust);      --card-rgb: var(--rust-rgb); }
-.card[data-house='east'],
-.card[data-house='west-east'] { --card-ink: var(--plum);      --card-rgb: var(--plum-rgb); }
-.card[data-house='grounds']   { --card-ink: var(--ochre);     --card-rgb: var(--ochre-rgb); }
+/* four inks in rotation, like hand-tinted plates */
+.card:nth-child(4n + 2) { --card-ink: var(--verdigris); --card-rgb: var(--verdigris-rgb); }
+.card:nth-child(4n + 3) { --card-ink: var(--rust);      --card-rgb: var(--rust-rgb); }
+.card:nth-child(4n + 4) { --card-ink: var(--plum);      --card-rgb: var(--plum-rgb); }
 .card:hover { background: rgba(var(--card-rgb), .045) !important; }
 
 .card::before {
@@ -98,15 +91,3 @@
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
 }
-
-/* woven label sits at the foot of the plate */
-.where { margin-top: 1.1rem; }
-
-/* hand-drawn vignette, lined in the plate's ink */
-.drawing {
-  margin: -6px 0 14px -6px;
-  color: var(--card-ink);
-  transition: transform .5s var(--ease);
-  transform-origin: 40% 70%;
-}
-.card:hover .drawing { transform: rotate(-3deg) scale(1.04); }
