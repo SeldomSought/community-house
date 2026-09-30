@@ -1,5 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
+import clsx from 'clsx';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import galleryData from '@site/src/data/gallery.json';
 import styles from './styles.module.css';
@@ -11,7 +12,7 @@ interface GalleryImage {
   caption: string;
 }
 
-const MAX_PREVIEW = 8; // Show at most 8 on homepage
+const MAX_PREVIEW = 12; // Photos in the homepage scroller
 
 export default function Gallery(): JSX.Element {
   const images = (galleryData as GalleryImage[]).slice(0, MAX_PREVIEW);
@@ -49,6 +50,33 @@ export default function Gallery(): JSX.Element {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
+  // ── scroller state ──
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const updateScroll = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setProgress(max > 0 ? el.scrollLeft / max : 0);
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft >= max - 4);
+  }, []);
+
+  useEffect(() => {
+    updateScroll();
+    window.addEventListener('resize', updateScroll);
+    return () => window.removeEventListener('resize', updateScroll);
+  }, [updateScroll]);
+
+  const scrollByPage = useCallback((dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' });
+  }, []);
+
   const currentImage = lightboxIndex !== null ? images[lightboxIndex] : null;
   // Call useBaseUrl unconditionally. Calling it inside {currentImage && ...}
   // would violate Rules of Hooks and trigger React error #310.
@@ -64,24 +92,56 @@ export default function Gallery(): JSX.Element {
           </p>
         </div>
 
-        <div className={styles.grid}>
-          {images.map((image, index) => (
-            <GalleryThumb
-              key={image.src}
-              image={image}
-              number={index + 1}
-              onClick={() => openLightbox(index)}
-            />
-          ))}
-        </div>
+      </div>
 
-        {galleryData.length > MAX_PREVIEW && (
-          <div className={styles.more}>
-            <Link to="/gallery" className="btn btn-secondary">
-              See all the photos
-            </Link>
+      {/* one full-width row of photos, scrolled sideways */}
+      <div
+        ref={trackRef}
+        className={styles.track}
+        onScroll={updateScroll}
+        tabIndex={0}
+        role="region"
+        aria-label="Photos of The Fellowship. Scroll sideways or use the arrow buttons."
+      >
+        {images.map((image, index) => (
+          <GalleryThumb
+            key={image.src}
+            image={image}
+            number={index + 1}
+            onClick={() => openLightbox(index)}
+          />
+        ))}
+      </div>
+
+      <div className={styles.container}>
+        <div className={styles.controls}>
+          <div className={styles.progress} aria-hidden="true">
+            <span style={{ transform: `scaleX(${Math.max(progress, 0.04)})` }} />
           </div>
-        )}
+          <div className={styles.arrows}>
+            <button
+              className={styles.arrow}
+              onClick={() => scrollByPage(-1)}
+              disabled={atStart}
+              aria-label="Scroll photos back"
+            >
+              &#8592;
+            </button>
+            <button
+              className={styles.arrow}
+              onClick={() => scrollByPage(1)}
+              disabled={atEnd}
+              aria-label="Scroll photos forward"
+            >
+              &#8594;
+            </button>
+          </div>
+          {galleryData.length > MAX_PREVIEW && (
+            <Link to="/gallery" className="btn btn-secondary">
+              See all {galleryData.length} photos
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Lightbox Modal */}
@@ -154,7 +214,7 @@ function GalleryThumb({
 }) {
   return (
     <button
-      className="atlas-figure"
+      className={clsx('atlas-figure', styles.slide)}
       onClick={onClick}
       aria-label={`View ${image.caption}`}
     >

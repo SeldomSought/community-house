@@ -1,12 +1,16 @@
-/* Homepage gallery preview. Figure, caption and lightbox styles are
-   shared with the /gallery page and live in src/css/custom.css
-   (.atlas-figure, .atlas-lightbox). */
+/* Homepage photos: one full-width row, scrolled sideways.
+   Figure, caption and lightbox styles are shared with the /gallery page
+   and live in src/css/custom.css (.atlas-figure, .atlas-lightbox). */
 
 .section {
+  --photo-h: clamp(280px, 40vw, 540px);
+  /* left edge of the scroller lines up with the page content */
+  --inset: max(var(--gutter), calc((100vw - 90rem) / 2 + var(--gutter)));
   padding: var(--section-padding) 0;
   background: var(--color-surface-muted);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
+  overflow: hidden;
 }
 
 .container {
@@ -15,21 +19,81 @@
   padding: 0 var(--gutter);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px 14px;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px 22px;
-  }
-}
-
-.more {
+/* ── the row ─────────────────────────────────────── */
+.track {
   display: flex;
+  gap: clamp(14px, 1.6vw, 24px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--inset);
+  padding: 0 var(--inset) 6px;
+  scrollbar-width: none;
+}
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+
+/* each photo keeps its own shape at a shared height */
+.slide {
+  flex: 0 0 auto;
+  width: auto !important;
+  scroll-snap-align: start;
+}
+.slide :global(.atlas-figure__frame) {
+  height: var(--photo-h);
+  aspect-ratio: auto;
+  width: auto;
+}
+.slide :global(.atlas-figure__frame) img {
+  width: auto;
+  height: 100%;
+  min-width: calc(var(--photo-h) * .66);
+  max-width: min(84vw, calc(var(--photo-h) * 1.6));
+  object-fit: cover;
+}
+.slide :global(.atlas-figure__caption) { max-width: min(84vw, calc(var(--photo-h) * 1.6)); }
+
+/* ── controls under the row ──────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.progress {
+  flex: 1;
+  height: 1px;
+  background: var(--hairline);
+  overflow: hidden;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--rust);
+  transform-origin: left center;
+  transition: transform .2s linear;
+}
+
+.arrows { display: flex; gap: 8px; }
+.arrow {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: clamp(2.25rem, 4vw, 3rem);
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  color: var(--ink);
+  font: 400 1.125rem/1 var(--sans);
+  cursor: pointer;
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.arrow:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.arrow:disabled { opacity: .35; cursor: default; }
+
+@media (max-width: 620px) {
+  .section { --photo-h: 300px; }
+  .arrows { display: none; }
+  .controls { gap: 20px; }
 }
