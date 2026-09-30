@@ -150,9 +150,12 @@
   .subtitle { font-size: 1.25rem; }
   .ctas { flex-direction: column; gap: 18px; }
   .ctaButton { width: 100%; max-width: 300px; }
+  /* keep the full panorama so all three houses show; the fade is
+     lighter because the image is short at this width */
   .plate {
-    margin-top: 12px;
-    aspect-ratio: 4 / 3;
+    margin-top: 28px;
+    aspect-ratio: 2048 / 860;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 92%, transparent 100%);
   }
-  .plateImage { object-position: 50% 40%; }
 }
