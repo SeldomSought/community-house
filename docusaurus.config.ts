@@ -138,7 +138,7 @@ validateConfig(siteUrl, baseUrl);
 
 const config: Config = {
   title: 'The Fellowship',
-  tagline: 'Three houses, one community in Travis Heights, Austin',
+  tagline: 'Three houses and one big backyard in Travis Heights, Austin',
   favicon: 'img/favicon.svg',
 
   // Custom domain
@@ -172,7 +172,7 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           blogTitle: 'Community Updates',
-          blogDescription: 'News, events, and updates from our community',
+          blogDescription: 'What has been going on around the houses',
           postsPerPage: 10,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -286,7 +286,7 @@ const config: Config = {
       id: 'announcement',
       // Use computed baseUrl for the link
       content:
-        'Now accepting applications — rooms starting at $850/month. <a href="/apply">Apply today</a>',
+        'We have rooms open right now, starting at $850 a month. <a href="/apply">Apply here</a>',
       backgroundColor: '#173A77',
       textColor: '#F3EEE3',
       isCloseable: true,

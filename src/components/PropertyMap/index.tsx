@@ -52,7 +52,7 @@ const houses: HouseData[] = [
     name: 'East House',
     features: [
       { name: 'Barbell Gym', icon: '🏋️' },
-      { name: 'Plunge Cold Plunge', icon: '🧊' },
+      { name: 'Cold Plunge', icon: '🧊' },
     ],
     labelPosition: {
       top: '15%',

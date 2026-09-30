@@ -189,15 +189,14 @@ export default function ApplyPage(): JSX.Element {
               </svg>
             </div>
             <h1 className="section-title" style={{ marginBottom: '1rem' }}>
-              Application Received!
+              Got it, thank you
             </h1>
             <p style={{ color: 'var(--ink-soft)', margin: '0 auto 2rem', fontSize: 'var(--t-lede)' }}>
-              Thank you for your interest in joining The Fellowship. We've
-              received your application and will be in touch within 24–48 hours
-              to schedule an introductory call.
+              Your application came through. Someone from the house will read it
+              properly and get in touch within a day or two to set up a call.
             </p>
             <a href="/" className="btn btn-primary">
-              Return Home
+              Back to the homepage
             </a>
           </div>
         </main>
@@ -214,8 +213,8 @@ export default function ApplyPage(): JSX.Element {
         <div className="section-header">
           <h1 className="section-title">Apply to Join</h1>
           <p className="section-subtitle">
-            We'd love to meet you! Complete the form below and we'll be in touch
-            within 24–48 hours.
+            Tell us a bit about yourself. There are no wrong answers, but honest
+            ones help. We usually get back to people within a day or two.
           </p>
         </div>
 
@@ -306,9 +305,9 @@ export default function ApplyPage(): JSX.Element {
                 style={inputStyle}
               >
                 <option value="">Select a room</option>
-                <option value="cozy-room">Cozy Room — $850/mo</option>
-                <option value="medium-room">Medium Sized Room — $950/mo</option>
-                <option value="en-suite">En Suite — $1,250/mo</option>
+                <option value="cozy-room">Cozy Room, $850/mo</option>
+                <option value="medium-room">Medium Sized Room, $950/mo</option>
+                <option value="en-suite">En Suite, $1,250/mo</option>
               </select>
             </div>
 
@@ -525,8 +524,8 @@ export default function ApplyPage(): JSX.Element {
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
           <p style={{ color: 'var(--ink-soft)', fontStyle: 'italic', margin: '0 auto' }}>
-            We typically respond within 24–48 hours. For urgent inquiries,
-            email us at{' '}
+            We usually reply within a day or two. If it can't wait, email us
+            at{' '}
             <a href="mailto:house@fellowshipatx.com">
               house@fellowshipatx.com
             </a>

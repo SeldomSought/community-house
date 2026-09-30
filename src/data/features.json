@@ -8,7 +8,7 @@
       "features": [
         {
           "title": "Barbell Gym",
-          "description": "Full barbell gym setup on-site. No memberships, no commute—just walk outside and lift.",
+          "description": "Full barbell gym setup on-site. No membership and no commute. You just walk outside and lift.",
           "icon": "/img/icons/coworking-space.svg"
         },
         {
@@ -104,62 +104,62 @@
   "features": [
     {
       "title": "Three Houses, One Community",
-      "description": "Like renting a mansion with three wings. 12 bedrooms, 3 kitchens, multiple living rooms, a conservatory, loft, and more than half an acre of land.",
+      "description": "Think of a mansion with three wings and a lot more privacy. Twelve bedrooms, three kitchens, a few living rooms, a conservatory, a loft, and over half an acre outside.",
       "icon": "/img/icons/neighborhood.svg"
     },
     {
       "title": "1-5 Gbps Fiber Internet",
-      "description": "Blazing fast fiber throughout all three houses. Work remotely, stream, or video call without interruption.",
+      "description": "Fiber runs through all three houses. Work, stream, take calls from the backyard. It keeps up.",
       "icon": "/img/icons/wifi-ethernet.svg"
     },
     {
       "title": "The Conservatory",
-      "description": "A spacious glass-walled room perfect for gathering, working, music practice, or just enjoying the natural light.",
+      "description": "A big room with glass walls. People work in it, play music in it, throw dinners in it, or just sit there because the light is good.",
       "icon": "/img/icons/coworking-space.svg"
     },
     {
       "title": "Hot Tub & Cold Plunge",
-      "description": "Relax in the hot tub or invigorate yourself with a cold plunge. Recovery and wellness built into daily life.",
+      "description": "The hot tub is at one end of the property and the cold plunge is at the other. Go back and forth if you're into that.",
       "icon": "/img/icons/outdoor-deck.svg"
     },
     {
       "title": "Theatre Room",
-      "description": "Theatre-quality projector and screen for movie nights, watch parties, and karaoke sessions.",
+      "description": "A real projector and screen. Movie nights, watch parties, and the occasional karaoke night.",
       "icon": "/img/icons/community-events.svg"
     },
     {
       "title": "Shared Self-Driving Tesla",
-      "description": "Community Tesla available for errands, exploring Austin, or trips to the airport. Car-free living made easy.",
+      "description": "The house shares a self-driving Tesla for errands, airport runs, and days out in Austin. You might not need your own car.",
       "icon": "/img/icons/parking.svg"
     },
     {
       "title": "Barbell Gym",
-      "description": "Full barbell gym setup on-site. No memberships, no commute—just walk outside and lift.",
+      "description": "A full barbell setup on-site. No membership, no drive. Walk out the door and lift.",
       "icon": "/img/icons/coworking-space.svg"
     },
     {
       "title": "Backyard Chickens",
-      "description": "Fresh eggs daily from our backyard flock in their mobile coop. Farm-fresh breakfast steps from your door.",
+      "description": "The chickens live in a mobile coop out back and lay most days. Breakfast mostly takes care of itself.",
       "icon": "/img/icons/kitchen.svg"
     },
     {
       "title": "Half Acre Outdoor Space",
-      "description": "Enormous backyard with fire pits, built-in propane grill, and space to host parties. Serene, quiet, natural surroundings.",
+      "description": "A huge yard with fire pits, a built-in propane grill, and room for a proper party. On a normal night it's just quiet out there.",
       "icon": "/img/icons/outdoor-deck.svg"
     },
     {
       "title": "Guest Loft",
-      "description": "Dedicated loft space for hosting visitors. Your friends and family can stay without disrupting your housemates.",
+      "description": "A loft kept free for visitors, so your friends and family can stay the weekend without anyone giving up a couch.",
       "icon": "/img/icons/bedrooms.svg"
     },
     {
       "title": "Woodwork Shed",
-      "description": "Space and tools for woodworking projects. Build furniture, art, or whatever you can imagine.",
+      "description": "Tools and room to make things. Furniture, art, repairs, whatever you've been meaning to build.",
       "icon": "/img/icons/coworking-space.svg"
     },
     {
       "title": "Prime Location",
-      "description": "3-10 minutes to downtown, Town Lake waterfront, South Congress, and East Austin by car. Easy access by bike or scooter.",
+      "description": "Downtown, Town Lake, South Congress and East Austin are all 3 to 10 minutes by car. Easy by bike or scooter too.",
       "icon": "/img/icons/neighborhood.svg"
     }
   ]

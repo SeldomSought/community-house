@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════
-   Hero — the atlas opening
+   Hero: the atlas opening
    Paper ground, centred display type, then the aerial
    photograph printed as a plate in cobalt ink.
 ══════════════════════════════════════════════════ */
@@ -49,8 +49,8 @@
   opacity: 0;
   animation: inkIn .9s var(--ease) forwards;
 }
-/* the final word is set in italic — the atlas's only emphasis */
-.wordWrapper:last-child { margin-right: 0; font-style: italic; }
+/* the final word is set in italic: the atlas's only emphasis */
+.wordWrapper:last-child { margin-right: 0; font-style: italic; color: var(--rust); }
 
 .subtitle {
   max-width: 40ch;
@@ -91,7 +91,8 @@
   border-bottom: 1px solid var(--hairline-strong);
   transition: border-color .25s var(--ease);
 }
-.inkLink:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--ink); }
+.inkLink:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--rust); }
+.inkLink span { color: var(--rust); }
 .inkLink span { transition: transform .25s var(--ease); }
 .inkLink:hover span { transform: translate(2px, -2px); }
 
@@ -103,11 +104,12 @@
   transform: rotate(10deg);
   color: var(--ink-soft);
 }
-.compass svg { display: block; fill: none; stroke: var(--ink); stroke-width: .7; opacity: .7; }
+.compass svg { display: block; fill: none; stroke: var(--rust); stroke-width: .7; opacity: .8; }
 .compass span {
   display: block;
   margin-top: 2px;
   font: italic 500 15px/1 var(--serif);
+  color: var(--rust);
   transform: rotate(-10deg);
 }
 

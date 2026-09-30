@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* ══════════════════════════════════════════════════════
-   The Fellowship — atlas edition
+   The Fellowship: atlas edition
    Borrowed from the SeldomSought atlas: engraved cobalt ink
    on laid paper, Cormorant Garamond for voice, DM Sans for
    wayfinding. Hairlines instead of shadows, frames instead
@@ -28,6 +28,17 @@
   --hairline-strong: rgba(var(--ink-rgb), .55);
   --veil:            rgba(243, 238, 227, .96);
   --grain-opacity:   .085;
+  /* secondary inks: hand-tinted washes on the atlas. Cobalt stays the
+     voice; these only mark, number and warm. All ≥ 5:1 on paper. */
+  --rust:            #9a4222;   /* warmth, emphasis, ornament */
+  --rust-rgb:        154, 66, 34;
+  --verdigris:       #2c5f50;   /* the land, outdoors */
+  --verdigris-rgb:   44, 95, 80;
+  --ochre:           #80601a;
+  --ochre-rgb:       128, 96, 26;
+  --plum:            #5e3657;
+  --plum-rgb:        94, 54, 87;
+  --night-gold:      rgba(214, 176, 98, .45);
   /* night chart, for the call-to-action plate and lightboxes */
   --night:           #0e2146;
   --night-raised:    #132a56;
@@ -76,7 +87,7 @@
   --color-accent:           var(--ink);
   --color-surface:          var(--paper);
   --color-surface-elevated: var(--paper-raised);
-  --color-surface-muted:    #ede6d7;
+  --color-surface-muted:    #ebe7d8;
   --color-surface-warm:     #ebe3d2;
   --color-text:             var(--ink);
   --color-text-secondary:   var(--ink-soft);
@@ -193,7 +204,7 @@ body::before {
   opacity: var(--grain-opacity);
 }
 
-::selection { background: var(--ink); color: var(--paper); }
+::selection { background: rgba(var(--rust-rgb), .85); color: var(--paper); }
 
 #__docusaurus, .main-wrapper { min-height: 100%; }
 
@@ -232,7 +243,7 @@ button, input, select, textarea, label { font-family: var(--sans); }
 .text-small { font-size: var(--t-note); line-height: 1.5; }
 
 /* ══════════════════════════════════════════════════
-   ANNOUNCEMENT BAR — a printed notice strip
+   ANNOUNCEMENT BAR: a printed notice strip
 ══════════════════════════════════════════════════ */
 div[class*='announcementBar'] {
   background: var(--ink) !important;
@@ -251,7 +262,7 @@ div[class*='announcementBarContent'] { padding: 9px 12px; }
 div[class*='announcementBar'] button { color: var(--paper); }
 
 /* ══════════════════════════════════════════════════
-   NAVBAR — the site header, printed on paper
+   NAVBAR: the site header, printed on paper
 ══════════════════════════════════════════════════ */
 .navbar {
   background: var(--paper);
@@ -289,10 +300,10 @@ div[class*='announcementBar'] button { color: var(--paper); }
   position: absolute;
   left: 0; right: 0; bottom: -7px;
   height: 1px;
-  background: var(--ink);
+  background: var(--rust);
 }
 
-/* "Apply Now" — a small engraved cartouche, not a pill */
+/* "Apply Now": a small engraved cartouche, not a pill */
 .navbar-cta-button {
   display: inline-flex;
   align-items: center;
@@ -308,7 +319,8 @@ div[class*='announcementBar'] button { color: var(--paper); }
   transition: background .25s var(--ease), color .25s var(--ease);
 }
 .navbar-cta-button:hover {
-  background: var(--ink) !important;
+  background: var(--rust) !important;
+  border-color: var(--rust);
   color: var(--paper) !important;
   text-decoration: none;
 }
@@ -357,7 +369,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
 }
 
 /* ══════════════════════════════════════════════════
-   SECTIONS — plates in a folio
+   SECTIONS: plates in a folio
 ══════════════════════════════════════════════════ */
 .section { padding: var(--section-padding) 0; position: relative; }
 .section--alt  { background: var(--color-surface-muted); }
@@ -378,7 +390,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
   background:
     linear-gradient(var(--hairline-strong), var(--hairline-strong)) left center / 22px 1px no-repeat,
     linear-gradient(var(--hairline-strong), var(--hairline-strong)) right center / 22px 1px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 .8 11.2 6 6 11.2.8 6Z' fill='none' stroke='%23173a77' stroke-width='1'/%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%23173a77'/%3E%3C/svg%3E") center / 11px 11px no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 .8 11.2 6 6 11.2.8 6Z' fill='none' stroke='%239a4222' stroke-width='1'/%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%239a4222'/%3E%3C/svg%3E") center / 11px 11px no-repeat;
   opacity: .8;
 }
 .section-title {
@@ -406,7 +418,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
 .at-a-glance { display: none; }
 
 /* ══════════════════════════════════════════════════
-   FEATURE CARDS — specimens in a frame
+   FEATURE CARDS: specimens in a frame
 ══════════════════════════════════════════════════ */
 .feature-card {
   position: relative;
@@ -445,7 +457,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--ink);
 }
 
-/* Rooms & Pricing — a card for each room */
+/* Rooms & Pricing: a card for each room */
 .room-card { text-align: center; display: flex; flex-direction: column; }
 .room-card__label {
   font: 500 var(--t-micro)/1.3 var(--sans);
@@ -474,20 +486,28 @@ div[class*='announcementBar'] button { color: var(--paper); }
 }
 .room-card__list li:last-child { border-bottom: 1px solid var(--hairline); }
 .room-card .btn { width: 100%; margin-top: 24px; }
+.room-card { --room-ink: var(--verdigris); --room-rgb: var(--verdigris-rgb); }
+.room-card--featured { --room-ink: var(--rust); --room-rgb: var(--rust-rgb); }
+.room-card:nth-child(3) { --room-ink: var(--plum); --room-rgb: var(--plum-rgb); }
+.room-card { border-top: 2px solid var(--room-ink) !important; }
+.room-card .room-card__label { color: var(--room-ink); }
+.room-card .room-card__terms { color: var(--room-ink); }
+.room-card__list li { border-top-color: rgba(var(--room-rgb), .25) !important; }
+.room-card__list li:last-child { border-bottom-color: rgba(var(--room-rgb), .25) !important; }
 .room-card--featured {
-  border-color: var(--ink);
-  outline: 1px solid var(--hairline-strong);
+  background: rgba(var(--rust-rgb), .045) !important;
+  border-color: var(--rust);
+  outline: 1px solid rgba(var(--rust-rgb), .45);
   outline-offset: 3px;
 }
-.room-card--featured .room-card__label { color: var(--ink); }
 
 .page-cta { text-align: center; margin-top: 2rem; }
 .page-cta p { margin: 0 auto 1.25rem; font-style: italic; color: var(--ink-soft); }
 
 /* ══════════════════════════════════════════════════
    BUTTONS
-   .btn-primary — an engraved cartouche (double hairline)
-   .btn-secondary — an underlined ink link with a mark
+   .btn-primary: an engraved cartouche (double hairline)
+   .btn-secondary: an underlined ink link with a mark
 ══════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
@@ -519,7 +539,9 @@ div[class*='announcementBar'] button { color: var(--paper); }
 .btn-primary:hover,
 .btn-brand:hover,
 .btn-primary:active {
-  background: var(--color-brand-hover);
+  background: var(--rust);
+  border-color: var(--rust);
+  outline-color: rgba(var(--rust-rgb), .5);
   color: var(--paper);
 }
 
@@ -531,7 +553,8 @@ div[class*='announcementBar'] button { color: var(--paper); }
   border-bottom: 1px solid var(--hairline-strong);
 }
 .btn-secondary::after { content: '→'; font-family: var(--sans); transition: transform .25s var(--ease); }
-.btn-secondary:hover { border-bottom-color: var(--ink); color: var(--ink); }
+.btn-secondary:hover { border-bottom-color: var(--rust); color: var(--ink); }
+.btn-secondary::after { color: var(--rust); }
 .btn-secondary:hover::after { transform: translateX(3px); }
 
 .btn:disabled { opacity: .6; cursor: not-allowed; }
@@ -542,7 +565,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
 .sticky-cta { display: none; }
 
 /* ══════════════════════════════════════════════════
-   CTA SECTION — the night chart
+   CTA SECTION: the night chart
 ══════════════════════════════════════════════════ */
 .cta-section {
   position: relative;
@@ -560,10 +583,18 @@ div[class*='announcementBar'] button { color: var(--paper); }
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(239, 231, 214, .28);
+  border: 1px solid var(--night-gold);
   pointer-events: none;
 }
 .cta-section .section-title { color: var(--night-ink); }
+.cta-section .section-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin: 22px auto 0;
+  background: var(--night-gold);
+}
 .cta-section .section-subtitle { color: var(--night-ink-soft) !important; }
 .cta-section .btn-primary {
   background: var(--night-ink);
@@ -571,7 +602,7 @@ div[class*='announcementBar'] button { color: var(--paper); }
   border-color: var(--night-ink);
   outline-color: rgba(239, 231, 214, .45);
 }
-.cta-section .btn-primary:hover { background: #fff8ea; color: var(--night); }
+.cta-section .btn-primary:hover { background: #e8c983; border-color: #e8c983; color: var(--night); }
 
 /* ══════════════════════════════════════════════════
    EVENTS / TESTIMONIALS (legacy global classes)
@@ -621,21 +652,25 @@ main > .container { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp
   margin-bottom: 1.25rem;
 }
 :is(.markdown, [class*='mdxPageWrapper'] article) h3 { font-size: 1.5rem; margin-bottom: .75rem; }
+:is(.markdown, [class*='mdxPageWrapper'] article) strong { color: var(--ink); }
+:is(.markdown, [class*='mdxPageWrapper'] article) blockquote { border-left-color: var(--rust) !important; }
 :is(.markdown, [class*='mdxPageWrapper'] article) p, .markdown li { line-height: 1.5; }
 :is(.markdown, [class*='mdxPageWrapper'] article) ul { padding-left: 1.4rem; }
 :is(.markdown, [class*='mdxPageWrapper'] article) ul li { list-style: none; position: relative; margin-bottom: .35rem; }
 :is(.markdown, [class*='mdxPageWrapper'] article) ul li::before {
-  content: '—';
+  content: '';
   position: absolute;
   left: -1.4rem;
-  color: var(--ink-soft);
-  font-weight: 400;
+  top: .78em;
+  width: 11px;
+  height: 1px;
+  background: var(--rust);
 }
 :is(.markdown, [class*='mdxPageWrapper'] article) .room-card__list { padding-left: 0; }
 :is(.markdown, [class*='mdxPageWrapper'] article) .room-card__list li { margin-bottom: 0; }
 :is(.markdown, [class*='mdxPageWrapper'] article) .room-card__list li::before { content: none; }
-:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.btn) { text-decoration: underline; text-decoration-color: var(--hairline-strong); }
-:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.btn):hover { text-decoration-color: var(--ink); }
+:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.btn) { text-decoration: underline; text-decoration-color: rgba(var(--rust-rgb), .5); }
+:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.btn):hover { text-decoration-color: var(--rust); }
 
 /* horizontal rules print as an engraved divider */
 :is(.markdown, [class*='mdxPageWrapper'] article) hr {
@@ -646,7 +681,7 @@ main > .container { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp
   background:
     linear-gradient(var(--hairline-strong), var(--hairline-strong)) left center / 44% 1px no-repeat,
     linear-gradient(var(--hairline-strong), var(--hairline-strong)) right center / 44% 1px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 .8 11.2 6 6 11.2.8 6Z' fill='none' stroke='%23173a77' stroke-width='1'/%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%23173a77'/%3E%3C/svg%3E") center / 11px 11px no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 .8 11.2 6 6 11.2.8 6Z' fill='none' stroke='%239a4222' stroke-width='1'/%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%239a4222'/%3E%3C/svg%3E") center / 11px 11px no-repeat;
 }
 
 :is(.markdown, [class*='mdxPageWrapper'] article) blockquote {
@@ -660,7 +695,7 @@ main > .container { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp
 :is(.markdown, [class*='mdxPageWrapper'] article) table th { font-weight: 500; text-transform: uppercase; letter-spacing: .1em; font-size: var(--t-micro); }
 :is(.markdown, [class*='mdxPageWrapper'] article) img { border: 1px solid var(--hairline); }
 
-/* docs chrome — wayfinding in sans */
+/* docs chrome: wayfinding in sans */
 .theme-doc-sidebar-container { border-right: 1px solid var(--hairline) !important; }
 .menu { font-family: var(--sans); padding: 1.25rem .75rem !important; }
 .menu__link {
@@ -670,21 +705,21 @@ main > .container { padding-top: clamp(2.5rem, 6vw, 5rem); padding-bottom: clamp
   border-radius: 0;
   border-left: 1px solid transparent;
 }
-.menu__link--active { border-left-color: var(--ink); }
+.menu__link--active { border-left-color: var(--rust); }
 .menu__link--active:not(.menu__link--sublist) { background: transparent; }
 .menu__caret:before, .menu__link--sublist-caret:after { filter: none; }
 .breadcrumbs { font-family: var(--sans); font-size: var(--t-small); }
 .breadcrumbs__link { border-radius: 0; background: none !important; padding-inline: 0; }
 .breadcrumbs__item:not(:last-child)::after { opacity: .5; }
 .table-of-contents { font-family: var(--sans); font-size: var(--t-small); }
-.table-of-contents__link--active { color: var(--ink); font-weight: 500; }
+.table-of-contents__link--active { color: var(--rust); font-weight: 500; }
 .pagination-nav__link {
   border: 1px solid var(--hairline);
   border-radius: 0;
   background: var(--paper-raised);
   transition: border-color .25s var(--ease);
 }
-.pagination-nav__link:hover { border-color: var(--ink); }
+.pagination-nav__link:hover { border-color: var(--rust); }
 .pagination-nav__sublabel {
   font: 500 var(--t-micro)/1.3 var(--sans);
   letter-spacing: var(--track-caps);
@@ -731,7 +766,7 @@ article header h2 a { letter-spacing: -.03em; }
   transition: color .2s var(--ease), border-color .2s var(--ease);
 }
 .gallery-tag:hover { color: var(--ink); border-bottom-color: var(--hairline-strong); }
-.gallery-tag[aria-pressed='true'] { color: var(--ink); border-bottom-color: var(--ink); }
+.gallery-tag[aria-pressed='true'] { color: var(--rust); border-bottom-color: var(--rust); }
 .gallery-search {
   min-width: 200px;
   min-height: 40px;
@@ -744,7 +779,7 @@ article header h2 a { letter-spacing: -.03em; }
   outline: none;
 }
 .gallery-search::placeholder { color: var(--ink-soft); opacity: .8; }
-.gallery-search:focus { border-bottom-color: var(--ink); }
+.gallery-search:focus { border-bottom-color: var(--rust); }
 .gallery-page__empty { text-align: center; padding: 3rem 0; font-style: italic; color: var(--ink-soft); }
 .gallery-page__grid {
   display: grid;
@@ -785,7 +820,7 @@ article header h2 a { letter-spacing: -.03em; }
   transition: transform .6s var(--ease), filter .6s var(--ease);
 }
 .atlas-figure:hover .atlas-figure__frame,
-.atlas-figure:focus-visible .atlas-figure__frame { border-color: var(--hairline-strong); outline-color: var(--hairline); }
+.atlas-figure:focus-visible .atlas-figure__frame { border-color: rgba(var(--rust-rgb), .6); outline-color: rgba(var(--rust-rgb), .3); }
 .atlas-figure:hover img { transform: scale(1.03); filter: none; }
 .atlas-figure__caption {
   display: flex;
@@ -801,12 +836,12 @@ article header h2 a { letter-spacing: -.03em; }
   flex-shrink: 0;
   font: normal 500 var(--t-micro)/1 var(--sans);
   letter-spacing: .08em;
-  color: var(--ink-soft);
+  color: var(--rust);
   font-variant-numeric: tabular-nums;
 }
 .atlas-figure:focus-visible { outline: none; }
 
-/* lightbox — the night chart */
+/* lightbox: the night chart */
 .atlas-lightbox {
   position: fixed;
   inset: 0;
@@ -845,7 +880,7 @@ article header h2 a { letter-spacing: -.03em; }
   margin-left: 14px;
   font: normal 500 var(--t-micro)/1 var(--sans);
   letter-spacing: .12em;
-  color: var(--night-ink-soft);
+  color: #e8c983;
 }
 .atlas-lightbox__btn {
   position: absolute;
@@ -894,12 +929,12 @@ article header h2 a { letter-spacing: -.03em; }
 }
 .atlas-form-card input:focus,
 .atlas-form-card select:focus,
-.atlas-form-card textarea:focus { border-color: var(--ink) !important; outline: 1px solid var(--ink); outline-offset: 0; }
+.atlas-form-card textarea:focus { border-color: var(--verdigris) !important; outline: 1px solid var(--verdigris); outline-offset: 0; }
 .atlas-form-card input[type='radio'],
-.atlas-form-card input[type='checkbox'] { accent-color: var(--ink); width: 16px; height: 16px; }
+.atlas-form-card input[type='checkbox'] { accent-color: var(--verdigris); width: 16px; height: 16px; }
 
 /* ══════════════════════════════════════════════════
-   FOOTER — the colophon
+   FOOTER: the colophon
 ══════════════════════════════════════════════════ */
 .footer {
   padding: clamp(3rem, 6vw, 5rem) var(--gutter) 2rem;
@@ -921,7 +956,7 @@ article header h2 a { letter-spacing: -.03em; }
   font: 500 1.125rem/1.35 var(--serif);
   color: var(--ink);
 }
-.footer__link-item:hover { color: var(--ink) !important; text-decoration: underline; }
+.footer__link-item:hover { color: var(--rust) !important; text-decoration: underline; }
 .footer__link-item svg { opacity: .5; }
 .footer__bottom {
   margin-top: clamp(2rem, 5vw, 3.5rem);

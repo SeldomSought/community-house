@@ -22,22 +22,24 @@
 
 .staticOverlay { position: absolute; inset: 0; pointer-events: none; }
 
-.houseLabel { position: absolute; transform: translateX(-50%); }
+.houseLabel { position: absolute; transform: translateX(-50%); --house-ink: var(--verdigris); }
+.houseLabel:nth-child(2) { --house-ink: var(--rust); }
+.houseLabel:nth-child(3) { --house-ink: var(--plum); }
 
 /* house names as map cartouches: paper plate, double hairline */
 .houseLabelName {
   display: inline-block;
   padding: 7px 14px 8px;
   background: var(--veil);
-  border: 1px solid var(--hairline-strong);
+  border: 1px solid var(--house-ink);
   outline: 1px solid var(--veil);
   outline-offset: 2px;
   font: italic 500 1.125rem/1 var(--serif);
-  color: var(--ink);
+  color: var(--house-ink);
   white-space: nowrap;
 }
 
-/* legend below the plate — three ruled columns */
+/* legend below the plate: three ruled columns */
 .amenitiesLegend {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -47,9 +49,14 @@
 }
 
 .houseCard {
+  --house-ink: var(--verdigris);
   padding: 1.25rem clamp(1rem, 2vw, 1.75rem) .5rem;
   background: none;
+  border-top: 2px solid var(--house-ink);
+  margin-top: -1px;
 }
+.houseCard:nth-child(2) { --house-ink: var(--rust); }
+.houseCard:nth-child(3) { --house-ink: var(--plum); }
 .houseCard + .houseCard { border-left: 1px solid var(--hairline); }
 .houseCard:first-child { padding-left: 0; }
 
@@ -58,7 +65,7 @@
   padding: 0;
   font: 500 1.5rem/1.1 var(--serif);
   letter-spacing: -.015em;
-  color: var(--ink);
+  color: var(--house-ink);
   border: 0;
 }
 
@@ -74,12 +81,15 @@
   color: var(--ink);
 }
 
-/* emoji markers are replaced by an engraved dash */
+/* emoji markers are replaced by a short engraved rule in the house's ink */
 .featureIcon { display: none; }
 .featureItem::before {
-  content: '—';
+  content: '';
   flex-shrink: 0;
-  color: var(--ink-soft);
+  width: 12px;
+  height: 1px;
+  transform: translateY(-.3em);
+  background: var(--house-ink);
 }
 
 @media (max-width: 1024px) {

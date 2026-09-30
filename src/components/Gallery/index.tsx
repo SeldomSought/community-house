@@ -50,7 +50,7 @@ export default function Gallery(): JSX.Element {
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
   const currentImage = lightboxIndex !== null ? images[lightboxIndex] : null;
-  // Call useBaseUrl unconditionally — calling it inside {currentImage && ...}
+  // Call useBaseUrl unconditionally. Calling it inside {currentImage && ...}
   // would violate Rules of Hooks and trigger React error #310.
   const lightboxSrc = useBaseUrl(currentImage?.src ?? '/');
 
@@ -60,7 +60,7 @@ export default function Gallery(): JSX.Element {
         <div className="section-header">
           <h2 className="section-title">Gallery</h2>
           <p className="section-subtitle">
-            A glimpse of life at The Fellowship.
+            Real photos of the place. A few were taken mid-party.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function Gallery(): JSX.Element {
         {galleryData.length > MAX_PREVIEW && (
           <div className={styles.more}>
             <Link to="/gallery" className="btn btn-secondary">
-              View all photos
+              See all the photos
             </Link>
           </div>
         )}

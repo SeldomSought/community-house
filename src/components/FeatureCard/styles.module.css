@@ -1,4 +1,4 @@
-/* Feature grid — a numbered index of specimens.
+/* Feature grid: a numbered index of specimens.
    Numbering ("No. 01") is generated here in CSS, so features.json
    stays the single source of content. */
 .grid {
@@ -19,6 +19,8 @@
 
 .card {
   counter-increment: specimen;
+  --card-ink: var(--ink);
+  --card-rgb: var(--ink-rgb);
   /* override the framed-card look: in a grid the cells share rules */
   border: 0 !important;
   border-right: 1px solid var(--hairline) !important;
@@ -30,7 +32,11 @@
   animation: inkIn .7s var(--ease) forwards;
   transition: background .3s var(--ease) !important;
 }
-.card:hover { background: var(--paper-raised) !important; }
+/* four inks in rotation, like hand-tinted plates */
+.card:nth-child(4n + 2) { --card-ink: var(--verdigris); --card-rgb: var(--verdigris-rgb); }
+.card:nth-child(4n + 3) { --card-ink: var(--rust);      --card-rgb: var(--rust-rgb); }
+.card:nth-child(4n + 4) { --card-ink: var(--plum);      --card-rgb: var(--plum-rgb); }
+.card:hover { background: rgba(var(--card-rgb), .045) !important; }
 
 .card::before {
   content: 'No. ' counter(specimen, decimal-leading-zero);
@@ -39,7 +45,7 @@
   right: clamp(20px, 2.4vw, 32px);
   font: 500 var(--t-micro)/1 var(--sans);
   letter-spacing: .08em;
-  color: var(--ink-soft);
+  color: var(--card-ink);
   font-variant-numeric: tabular-nums;
 }
 
@@ -54,9 +60,16 @@
 }
 
 .icon {
+  display: block;
   width: 34px;
   height: 34px;
-  opacity: .9;
+  background-color: var(--card-ink);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: left center;
+  mask-position: left center;
   transition: transform .4s var(--ease);
 }
 .card:hover .icon { transform: rotate(-4deg); }

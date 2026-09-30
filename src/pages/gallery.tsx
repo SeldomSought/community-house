@@ -76,18 +76,18 @@ export default function GalleryPage(): JSX.Element {
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
   const currentImage = lightboxIndex !== null ? filtered[lightboxIndex] : null;
-  // Call useBaseUrl unconditionally — calling it inside {currentImage && ...}
+  // Call useBaseUrl unconditionally. Calling it inside {currentImage && ...}
   // would violate Rules of Hooks and trigger React error #310.
   const lightboxSrc = useBaseUrl(currentImage?.src ?? '/');
 
   return (
-    <Layout title="Gallery" description="Photos from The Fellowship community">
+    <Layout title="Gallery" description="Photos of the houses, the yard, and the people who live at The Fellowship.">
       <main className="gallery-page">
         <div className="gallery-page__inner">
           {/* Header */}
           <div className="gallery-page__header section-header">
             <h1>Gallery</h1>
-            <p>A glimpse of life at The Fellowship.</p>
+            <p>Real photos of the place. A few were taken mid-party.</p>
           </div>
 
           {/* Filters + Search */}
