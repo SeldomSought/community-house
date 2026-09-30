@@ -93,27 +93,31 @@ export default function ApplyPage(): JSX.Element {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    padding: '0.75rem 1rem',
-    border: '1px solid rgba(128, 128, 128, 0.2)',
-    borderRadius: 'var(--radius-md)',
-    fontSize: '1rem',
-    background: 'var(--ifm-background-color)',
-    color: 'var(--color-text)',
+    padding: '0.7rem 0.85rem',
+    border: '1px solid var(--hairline-strong)',
+    borderRadius: 0,
+    fontSize: '1.125rem',
+    background: 'var(--paper)',
+    color: 'var(--ink)',
   };
 
   const labelStyle: React.CSSProperties = {
     display: 'block',
-    marginBottom: '0.5rem',
-    fontWeight: '500',
-    lineHeight: '1.4',
+    marginBottom: '0.55rem',
+    fontFamily: 'var(--serif)',
+    fontSize: '1.25rem',
+    fontWeight: 500,
+    lineHeight: '1.25',
+    letterSpacing: '-0.01em',
   };
 
   const hintStyle: React.CSSProperties = {
     display: 'block',
     marginBottom: '0.6rem',
-    fontSize: '0.85rem',
-    color: 'var(--color-text-muted)',
-    lineHeight: '1.4',
+    fontFamily: 'var(--sans)',
+    fontSize: '0.875rem',
+    color: 'var(--ink-soft)',
+    lineHeight: '1.45',
   };
 
   const isSubmitting = status === 'submitting';
@@ -130,7 +134,8 @@ export default function ApplyPage(): JSX.Element {
               gap: '0.65rem',
               cursor: isSubmitting ? 'not-allowed' : 'pointer',
               fontWeight: 'normal',
-              fontSize: '0.975rem',
+              fontFamily: 'var(--serif)',
+              fontSize: '1.125rem',
             }}
           >
             <input
@@ -156,24 +161,14 @@ export default function ApplyPage(): JSX.Element {
         title="Application Submitted"
         description="Thank you for your application."
       >
-        <main className="container-narrow" style={{ padding: '4rem 1.5rem' }}>
-          <div
-            style={{
-              maxWidth: '600px',
-              margin: '0 auto',
-              textAlign: 'center',
-              padding: '3rem 2rem',
-              background: 'var(--ifm-background-surface-color)',
-              borderRadius: 'var(--radius-xl)',
-              border: '1px solid rgba(34, 197, 94, 0.3)',
-            }}
-          >
+        <main className="container-narrow" style={{ padding: 'clamp(3rem, 7vw, 6rem) var(--gutter)' }}>
+          <div className="atlas-form-card" style={{ textAlign: 'center' }}>
             <div
               style={{
                 width: '64px',
                 height: '64px',
                 margin: '0 auto 1.5rem',
-                background: 'rgba(34, 197, 94, 0.1)',
+                border: '1px solid var(--ink)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -185,8 +180,8 @@ export default function ApplyPage(): JSX.Element {
                 height="32"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#22c55e"
-                strokeWidth="2"
+                stroke="currentColor"
+                strokeWidth="1.25"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -196,7 +191,7 @@ export default function ApplyPage(): JSX.Element {
             <h1 className="section-title" style={{ marginBottom: '1rem' }}>
               Application Received!
             </h1>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--ink-soft)', margin: '0 auto 2rem', fontSize: 'var(--t-lede)' }}>
               Thank you for your interest in joining The Fellowship. We've
               received your application and will be in touch within 24–48 hours
               to schedule an introductory call.
@@ -215,7 +210,7 @@ export default function ApplyPage(): JSX.Element {
       title="Apply"
       description="Apply to join our coliving and coworking community."
     >
-      <main className="container-narrow" style={{ padding: '4rem 1.5rem' }}>
+      <main className="container-narrow" style={{ padding: 'clamp(3rem, 7vw, 6rem) var(--gutter)' }}>
         <div className="section-header">
           <h1 className="section-title">Apply to Join</h1>
           <p className="section-subtitle">
@@ -224,25 +219,18 @@ export default function ApplyPage(): JSX.Element {
           </p>
         </div>
 
-        <div
-          style={{
-            maxWidth: '600px',
-            margin: '3rem auto',
-            padding: '2rem',
-            background: 'var(--ifm-background-surface-color)',
-            borderRadius: 'var(--radius-xl)',
-            border: '1px solid rgba(128, 128, 128, 0.1)',
-          }}
-        >
+        <div className="atlas-form-card">
           {status === 'error' && (
             <div
               style={{
                 padding: '1rem',
                 marginBottom: '1.5rem',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                borderRadius: 'var(--radius-md)',
-                color: '#dc2626',
+                background: 'rgba(142, 44, 34, 0.06)',
+                border: '1px solid rgba(142, 44, 34, 0.45)',
+                borderRadius: 0,
+                fontFamily: 'var(--sans)',
+                fontSize: '0.9375rem',
+                color: 'var(--color-error)',
               }}
             >
               {errorMessage}
@@ -536,7 +524,7 @@ export default function ApplyPage(): JSX.Element {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
+          <p style={{ color: 'var(--ink-soft)', fontStyle: 'italic', margin: '0 auto' }}>
             We typically respond within 24–48 hours. For urgent inquiries,
             email us at{' '}
             <a href="mailto:house@fellowshipatx.com">

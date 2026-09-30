@@ -14,43 +14,43 @@ The Fellowship has three rooms currently available, ranging from $850 to $1,250 
 ## Available Rooms
 
 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-my-8">
-  <div className="feature-card" style={{textAlign: 'center'}}>
-    <span style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Cozy Room</span>
-    <h3 style={{fontSize: '2.5rem', fontWeight: '700', margin: '0.5rem 0'}}>$850</h3>
-    <p style={{color: 'var(--color-text-muted)', marginBottom: '1.5rem'}}>per month + utilities</p>
-    <ul style={{textAlign: 'left', listStyle: 'none', padding: 0, margin: 0}}>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Private bedroom</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Shared bathroom</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>All amenities included</li>
-      <li style={{padding: '0.5rem 0'}}>Partial furnishings available</li>
+  <div className="feature-card room-card">
+    <span className="room-card__label">Cozy Room</span>
+    <h3 className="room-card__price">$850</h3>
+    <p className="room-card__terms">per month + utilities</p>
+    <ul className="room-card__list">
+      <li>Private bedroom</li>
+      <li>Shared bathroom</li>
+      <li>All amenities included</li>
+      <li>Partial furnishings available</li>
     </ul>
-    <Link to="/apply" className="btn btn-primary" style={{width: '100%', marginTop: '1.5rem'}}>Schedule Tour</Link>
+    <Link to="/apply" className="btn btn-primary">Schedule Tour</Link>
   </div>
 
-  <div className="feature-card" style={{textAlign: 'center', border: '2px solid var(--color-accent)'}}>
-    <span style={{fontSize: '0.875rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600'}}>Medium Sized Room</span>
-    <h3 style={{fontSize: '2.5rem', fontWeight: '700', margin: '0.5rem 0'}}>$950</h3>
-    <p style={{color: 'var(--color-text-muted)', marginBottom: '1.5rem'}}>per month + utilities</p>
-    <ul style={{textAlign: 'left', listStyle: 'none', padding: 0, margin: 0}}>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Private bedroom</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Balcony access</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Shared bathroom</li>
-      <li style={{padding: '0.5rem 0'}}>All amenities included</li>
+  <div className="feature-card room-card room-card--featured">
+    <span className="room-card__label">Medium Sized Room</span>
+    <h3 className="room-card__price">$950</h3>
+    <p className="room-card__terms">per month + utilities</p>
+    <ul className="room-card__list">
+      <li>Private bedroom</li>
+      <li>Balcony access</li>
+      <li>Shared bathroom</li>
+      <li>All amenities included</li>
     </ul>
-    <Link to="/apply" className="btn btn-primary" style={{width: '100%', marginTop: '1.5rem'}}>Schedule Tour</Link>
+    <Link to="/apply" className="btn btn-primary">Schedule Tour</Link>
   </div>
 
-  <div className="feature-card" style={{textAlign: 'center'}}>
-    <span style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em'}}>En Suite</span>
-    <h3 style={{fontSize: '2.5rem', fontWeight: '700', margin: '0.5rem 0'}}>$1,250</h3>
-    <p style={{color: 'var(--color-text-muted)', marginBottom: '1.5rem'}}>per month + utilities</p>
-    <ul style={{textAlign: 'left', listStyle: 'none', padding: 0, margin: 0}}>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Large private bedroom</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>Private en suite bathroom</li>
-      <li style={{padding: '0.5rem 0', borderBottom: '1px solid rgba(128,128,128,0.1)'}}>All amenities included</li>
-      <li style={{padding: '0.5rem 0'}}>Partial furnishings available</li>
+  <div className="feature-card room-card">
+    <span className="room-card__label">En Suite</span>
+    <h3 className="room-card__price">$1,250</h3>
+    <p className="room-card__terms">per month + utilities</p>
+    <ul className="room-card__list">
+      <li>Large private bedroom</li>
+      <li>Private en suite bathroom</li>
+      <li>All amenities included</li>
+      <li>Partial furnishings available</li>
     </ul>
-    <Link to="/apply" className="btn btn-primary" style={{width: '100%', marginTop: '1.5rem'}}>Schedule Tour</Link>
+    <Link to="/apply" className="btn btn-primary">Schedule Tour</Link>
   </div>
 </div>
 
@@ -109,8 +109,8 @@ Travis Heights, Austin — serene and quiet while close to everything:
 
 ## Ready for a Tour?
 
-<div style={{textAlign: 'center', marginTop: '2rem'}}>
-  <p style={{color: 'var(--color-text-muted)', marginBottom: '1rem'}}>
+<div className="page-cta">
+  <p>
     Message us to schedule a tour and meet the community.
   </p>
   <Link to="/apply" className="btn btn-primary">

@@ -277,7 +277,8 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     colorMode: {
-      defaultMode: 'dark',
+      // The atlas aesthetic is printed on paper: light mode only.
+      defaultMode: 'light',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
@@ -286,8 +287,8 @@ const config: Config = {
       // Use computed baseUrl for the link
       content:
         'Now accepting applications — rooms starting at $850/month. <a href="/apply">Apply today</a>',
-      backgroundColor: '#16A34A',
-      textColor: '#FFFFFF',
+      backgroundColor: '#173A77',
+      textColor: '#F3EEE3',
       isCloseable: true,
     },
   } satisfies Preset.ThemeConfig,

@@ -2,8 +2,8 @@
   <!-- Fellowship Favicon — shield crest matching logo.svg -->
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#16A34A"/>
-      <stop offset="100%" stop-color="#2563EB"/>
+      <stop offset="0%" stop-color="#173A77"/>
+      <stop offset="100%" stop-color="#173A77"/>
     </linearGradient>
   </defs>
   <!-- Shield shape — solid fill for legibility at 16x16/32x32 -->

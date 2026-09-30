@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Every Tailwind utility in the MDX pages is written with this prefix
+  // (tw-grid, md:tw-grid-cols-3 …). Without it none of them were generated.
+  prefix: 'tw-',
   corePlugins: {
     preflight: false, // Disable Tailwind's reset to avoid conflicts with Docusaurus
   },
@@ -12,32 +15,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Editorial color palette - warm stone tones
+        // Atlas palette — cobalt ink on laid paper (mirrors src/css/custom.css)
         brand: {
-          DEFAULT: '#D4642A',
-          hover: '#B85420',
-          subtle: 'rgba(212, 100, 42, 0.08)',
+          DEFAULT: '#173A77',
+          hover: '#0F2A5A',
+          subtle: 'rgba(23, 58, 119, 0.06)',
         },
         surface: {
-          DEFAULT: '#FAFAF8',
-          elevated: '#FFFFFF',
-          muted: '#F5F4F1',
-          warm: '#F0EDE8',
+          DEFAULT: '#F3EEE3',
+          elevated: '#F8F4EB',
+          muted: '#EDE6D7',
+          warm: '#EBE3D2',
+          night: '#0E2146',
         },
         text: {
-          DEFAULT: '#2D2D2A',
-          secondary: '#5C5C57',
-          muted: '#8A8A85',
-          inverse: '#FAFAF8',
+          DEFAULT: '#173A77',
+          secondary: '#3F5480',
+          muted: '#3F5480',
+          inverse: '#F3EEE3',
         },
         border: {
-          DEFAULT: 'rgba(45, 45, 42, 0.1)',
-          strong: 'rgba(45, 45, 42, 0.2)',
+          DEFAULT: 'rgba(23, 58, 119, 0.22)',
+          strong: 'rgba(23, 58, 119, 0.55)',
         },
       },
       fontFamily: {
-        heading: ['Source Serif 4', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Cormorant Garamond', 'Baskerville', 'Georgia', 'serif'],
+        body: ['Cormorant Garamond', 'Baskerville', 'Georgia', 'serif'],
+        ui: ['DM Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       fontSize: {
@@ -74,15 +79,17 @@ module.exports = {
         'max': '80rem',
       },
       borderRadius: {
-        'sm': '0.25rem',
-        'md': '0.5rem',
-        'lg': '0.75rem',
-        'xl': '1rem',
+        // square corners throughout — frames, not pills
+        'sm': '0',
+        'md': '0',
+        'lg': '0',
+        'xl': '0',
       },
       boxShadow: {
-        'sm': '0 1px 2px rgba(45, 45, 42, 0.04)',
-        'md': '0 4px 12px rgba(45, 45, 42, 0.06)',
-        'lg': '0 8px 24px rgba(45, 45, 42, 0.08)',
+        // hairlines instead of shadows
+        'sm': 'none',
+        'md': 'none',
+        'lg': 'none',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',

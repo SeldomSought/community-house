@@ -57,9 +57,9 @@ export default function Gallery(): JSX.Element {
   return (
     <section className={styles.section} id="gallery">
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>Gallery</h2>
-          <p className={styles.subtitle}>
+        <div className="section-header">
+          <h2 className="section-title">Gallery</h2>
+          <p className="section-subtitle">
             A glimpse of life at The Fellowship.
           </p>
         </div>
@@ -69,13 +69,14 @@ export default function Gallery(): JSX.Element {
             <GalleryThumb
               key={image.src}
               image={image}
+              number={index + 1}
               onClick={() => openLightbox(index)}
             />
           ))}
         </div>
 
         {galleryData.length > MAX_PREVIEW && (
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <div className={styles.more}>
             <Link to="/gallery" className="btn btn-secondary">
               View all photos
             </Link>
@@ -86,18 +87,18 @@ export default function Gallery(): JSX.Element {
       {/* Lightbox Modal */}
       {currentImage && (
         <div
-          className={styles.lightbox}
+          className="atlas-lightbox"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
           aria-label="Image lightbox"
         >
           <button
-            className={styles.closeButton}
+            className="atlas-lightbox__btn atlas-lightbox__btn--close"
             onClick={closeLightbox}
             aria-label="Close lightbox"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" aria-hidden="true">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -106,8 +107,7 @@ export default function Gallery(): JSX.Element {
           {/* Prev */}
           {images.length > 1 && (
             <button
-              className={styles.navButton}
-              style={{ left: '1rem' }}
+              className="atlas-lightbox__btn atlas-lightbox__btn--prev"
               onClick={(e) => { e.stopPropagation(); goPrev(); }}
               aria-label="Previous image"
             >
@@ -116,22 +116,21 @@ export default function Gallery(): JSX.Element {
           )}
 
           <div
-            className={styles.lightboxContent}
+            className="atlas-lightbox__figure"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={lightboxSrc}
               alt={currentImage.alt}
-              className={styles.lightboxImage}
+
             />
-            <p className={styles.lightboxCaption}>{currentImage.caption}</p>
+            <p className="atlas-lightbox__caption">{currentImage.caption}</p>
           </div>
 
           {/* Next */}
           {images.length > 1 && (
             <button
-              className={styles.navButton}
-              style={{ right: '1rem' }}
+              className="atlas-lightbox__btn atlas-lightbox__btn--next"
               onClick={(e) => { e.stopPropagation(); goNext(); }}
               aria-label="Next image"
             >
@@ -144,22 +143,28 @@ export default function Gallery(): JSX.Element {
   );
 }
 
-function GalleryThumb({ image, onClick }: { image: GalleryImage; onClick: () => void }) {
+function GalleryThumb({
+  image,
+  number,
+  onClick,
+}: {
+  image: GalleryImage;
+  number: number;
+  onClick: () => void;
+}) {
   return (
     <button
-      className={styles.imageButton}
+      className="atlas-figure"
       onClick={onClick}
       aria-label={`View ${image.caption}`}
     >
-      <img
-        src={useBaseUrl(image.src)}
-        alt={image.alt}
-        className={styles.image}
-        loading="lazy"
-      />
-      <div className={styles.imageOverlay}>
-        <span className={styles.imageTitle}>{image.caption}</span>
-      </div>
+      <span className="atlas-figure__frame">
+        <img src={useBaseUrl(image.src)} alt={image.alt} loading="lazy" />
+      </span>
+      <span className="atlas-figure__caption">
+        <span aria-hidden="true">{String(number).padStart(2, '0')}</span>
+        {image.caption}
+      </span>
     </button>
   );
 }

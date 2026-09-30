@@ -75,11 +75,7 @@ function RoadmapSection(): JSX.Element {
   return (
     <section className="section" style={{ textAlign: 'center' }}>
       <div className="container-narrow">
-        <p style={{
-          fontSize: '1rem',
-          color: 'var(--color-text-muted)',
-          fontStyle: 'italic'
-        }}>
+        <p className="roadmap-note">
           Coming soon: sauna, courtyard garden, solar power, and more.
         </p>
       </div>

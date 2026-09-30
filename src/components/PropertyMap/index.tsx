@@ -42,7 +42,8 @@ const houses: HouseData[] = [
       { name: 'Coworking Space', icon: '💻' },
     ],
     labelPosition: {
-      top: '10%',
+      // sits above the title baked into the aerial image
+      top: '3%',
       left: '42%',
     },
   },
