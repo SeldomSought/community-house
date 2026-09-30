@@ -1,313 +1,158 @@
+/* ══════════════════════════════════════════════════
+   Hero: the atlas opening
+   Paper ground, centred display type, then the aerial
+   photograph printed as a plate in cobalt ink.
+══════════════════════════════════════════════════ */
+
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  display: block;
+  min-height: 0;
   overflow: hidden;
-  background: var(--ifm-background-color);
+  background: var(--paper);
+  text-align: center;
 }
 
-/* Hero with background image */
-.withBackground {
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
-}
+.filterDefs { position: absolute; width: 0; height: 0; pointer-events: none; }
 
-@media (max-width: 767px) {
-  .withBackground {
-    /* Show more of the 3-house composition by reducing height and using contain */
-    background-size: contain;
-    background-position: center top;
-    background-color: #3D3D38; /* Dark warm tone under the image overlay */
-  }
-}
-
-/* Overlay - warm, not dark/dramatic */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(45, 45, 42, 0.55) 0%,
-    rgba(45, 45, 42, 0.45) 50%,
-    rgba(45, 45, 42, 0.6) 100%
-  );
-  z-index: 1;
-}
-
-/* Subtle vignette - softer */
-.overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    rgba(45, 45, 42, 0.15) 100%
-  );
-}
-
-/* Mobile overlay - gradient from image to content area */
-@media (max-width: 767px) {
-  .overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(45, 45, 42, 0.4) 0%,
-      rgba(45, 45, 42, 0.6) 35%,
-      rgba(45, 45, 42, 0.85) 60%,
-      rgba(45, 45, 42, 0.95) 100%
-    );
-  }
-}
-
-.container {
-  padding-block: clamp(4rem, 10vh, 8rem);
-  width: min(80rem, 92vw);
-  margin-inline: auto;
-  padding-inline: clamp(1.5rem, 5vw, 4rem);
+.opening {
   position: relative;
-  z-index: 10;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 26px var(--gutter) 0;
 }
 
-.content {
-  max-width: 40rem; /* ~640px content width for readability */
+.edition {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font: 500 var(--t-micro)/1.5 var(--sans);
+  letter-spacing: .08em;
+  color: var(--ink-soft);
 }
 
-/* Serif title - editorial, clear */
 .title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 4vw + 1.5rem, 5rem);
+  margin: clamp(56px, 8vw, 104px) auto 0;
+  max-width: 11ch;
+  font-family: var(--serif);
+  font-size: var(--t-display);
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  margin: 0;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  color: #FFFFFF;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  line-height: .96;
+  letter-spacing: -.044em;
+  color: var(--ink);
 }
 
 .wordWrapper {
   display: inline-block;
+  margin-right: .24em;
   opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-  white-space: nowrap;
-  margin-right: 0.3em; /* Ensure space between words */
+  animation: inkIn .9s var(--ease) forwards;
 }
+/* the final word is set in italic: the atlas's only emphasis */
+.wordWrapper:last-child { margin-right: 0; font-style: italic; color: var(--rust); }
 
-.wordWrapper:last-child {
-  white-space: normal;
-  margin-right: 0;
-}
-
-/* Subtitle - readable, good measure */
 .subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 1.25vw + 0.5rem, 1.375rem);
-  line-height: 1.65;
-  margin-top: 1.5rem;
-  max-width: 52ch;
-  font-weight: 400;
+  max-width: 40ch;
+  margin: 30px auto 0;
+  text-wrap: pretty;
+  font-family: var(--serif);
+  font-size: var(--t-lede);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
   opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.2s;
-  color: rgba(255, 255, 255, 0.92);
+  animation: inkIn .9s var(--ease) .35s forwards;
 }
 
 .ctas {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 2.75rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.4s;
-}
-
-/* CTA buttons - properly sized for desktop */
-.ctaButton {
-  min-height: 52px;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-}
-
-.ctaButtonSecondary {
-  min-height: 52px;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.5rem;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.ctaButtonSecondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-/* Scroll indicator */
-.scrollIndicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-  animation-delay: 1s;
-  z-index: 10;
-}
-
-.scrollMouse {
-  width: 22px;
-  height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 11px;
-  display: flex;
   justify-content: center;
-  padding-top: 7px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px 40px;
+  margin-top: 36px;
+  opacity: 0;
+  animation: inkIn .9s var(--ease) .5s forwards;
 }
 
-.scrollWheel {
-  width: 2px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 1px;
-  animation: scrollWheel 2s ease-in-out infinite;
+.ctaButton span { font-family: var(--sans); transition: transform .25s var(--ease); }
+.ctaButton:hover span { transform: translateX(3px); }
+
+.inkLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  font: 500 var(--t-ui)/1.4 var(--sans);
+  letter-spacing: .01em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline-strong);
+  transition: border-color .25s var(--ease);
+}
+.inkLink:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--rust); }
+.inkLink span { color: var(--rust); }
+.inkLink span { transition: transform .25s var(--ease); }
+.inkLink:hover span { transform: translate(2px, -2px); }
+
+.compass {
+  position: absolute;
+  right: 9%;
+  top: 150px;
+  width: 58px;
+  transform: rotate(10deg);
+  color: var(--ink-soft);
+}
+.compass svg { display: block; fill: none; stroke: var(--rust); stroke-width: .7; opacity: .8; }
+.compass span {
+  display: block;
+  margin-top: 2px;
+  font: italic 500 15px/1 var(--serif);
+  color: var(--rust);
+  transform: rotate(-10deg);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ── the plate ───────────────────────────────────── */
+.plate {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  margin: clamp(28px, 4vw, 64px) auto 0;
+  aspect-ratio: 2048 / 860;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 86%, transparent 100%);
+}
+.plateImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url('#fellowship-ink');
+  opacity: 0;
+  animation: inkIn 1.4s var(--ease) .4s forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes inkIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
 
-@keyframes scrollWheel {
-  0%, 100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 0.3;
-    transform: translateY(6px);
-  }
+/* ── responsive ──────────────────────────────────── */
+@media (max-width: 996px) {
+  .compass { display: none; }
 }
 
-/* Desktop - larger screens get proper scaling */
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 85vh;
-    min-height: 85svh;
+@media (max-width: 620px) {
+  .edition { justify-content: center; font-size: 11px; letter-spacing: .06em; }
+  .edition span:last-child { display: none; }
+  .title { margin-top: 48px; }
+  .subtitle { font-size: 1.25rem; }
+  .ctas { flex-direction: column; gap: 18px; }
+  .ctaButton { width: 100%; max-width: 300px; }
+  .plate {
+    margin-top: 12px;
+    aspect-ratio: 4 / 3;
   }
-
-  .container {
-    padding-block: clamp(6rem, 12vh, 10rem);
-  }
-
-  .content {
-    max-width: 42rem; /* ~672px */
-  }
-
-  .title {
-    font-size: clamp(5rem, 6vw + 1rem, 7rem);
-    margin-bottom: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-    line-height: 1.7;
-    margin-top: 2rem;
-  }
-
-  .ctas {
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .ctaButton,
-  .ctaButtonSecondary {
-    min-height: 64px;
-    padding: 1.25rem 3rem;
-    font-size: 1.25rem;
-  }
-}
-
-/* Large desktop */
-@media (min-width: 1440px) {
-  .title {
-    font-size: 7rem;
-  }
-
-  .subtitle {
-    font-size: 1.75rem;
-  }
-
-  .ctaButton,
-  .ctaButtonSecondary {
-    min-height: 72px;
-    padding: 1.5rem 3.5rem;
-    font-size: 1.375rem;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 767px) {
-  .hero {
-    text-align: center;
-    justify-content: flex-end; /* Content at bottom */
-    min-height: auto;
-    /* Image takes ~42vw height (matching 2.38:1 ratio at full width) */
-    /* Content area below with padding */
-    padding-top: calc(42vw + 2rem);
-    padding-bottom: 3rem;
-  }
-
-  .container {
-    width: 92vw;
-    padding-block: 0;
-    padding-inline: 1rem;
-  }
-
-  .content {
-    max-width: 100%;
-  }
-
-  .ctas {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .ctaButton,
-  .ctaButtonSecondary {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9375rem;
-  }
-
-  .scrollIndicator {
-    bottom: 1.25rem;
-  }
+  .plateImage { object-position: 50% 40%; }
 }

@@ -26,12 +26,14 @@ export default function FeatureCard({
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className={styles.iconWrapper}>
-        <img
-          src={iconUrl}
-          alt=""
+        {/* drawn as a mask so the icon takes the card's ink colour */}
+        <span
           className={styles.icon}
-          loading="lazy"
           aria-hidden="true"
+          style={{
+            WebkitMaskImage: `url(${iconUrl})`,
+            maskImage: `url(${iconUrl})`,
+          }}
         />
       </div>
       <h3 className={clsx('feature-card__title', styles.title)}>

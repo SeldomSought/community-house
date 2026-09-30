@@ -18,6 +18,11 @@ interface HeroProps {
   backgroundImage?: string;
 }
 
+/**
+ * Atlas-style opening: centred display type on paper, with the aerial
+ * photograph printed beneath it as an engraved "plate" in cobalt ink.
+ * The photograph returns to full colour on hover (desktop).
+ */
 export default function Hero({
   title,
   subtitle,
@@ -26,75 +31,78 @@ export default function Hero({
   backgroundImage = '/img/home/hero-banner.png',
 }: HeroProps): JSX.Element {
   const bgUrl = useBaseUrl(backgroundImage);
+  const words = title.split(' ');
 
   return (
-    <section
-      className={clsx('hero-section', styles.hero, styles.withBackground)}
-      style={{ backgroundImage: `url(${bgUrl})` }}
-    >
-      {/* Dark overlay for text readability */}
-      <div className={styles.overlay} aria-hidden="true" />
+    <section className={clsx('hero-section', styles.hero)}>
+      {/* Recolours photography into the site's ink. Luminance → ink density. */}
+      <svg className={styles.filterDefs} aria-hidden="true" width="0" height="0">
+        <defs>
+          <filter id="fellowship-ink" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 .0902  0 0 0 0 .2275  0 0 0 0 .4667  -.465 -.915 -.17 0 1.25"
+              result="ink"
+            />
+            <feComposite in="ink" in2="SourceGraphic" operator="in" />
+          </filter>
+        </defs>
+      </svg>
 
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <h1 className={clsx('hero-title', styles.title)}>
-            {title.split(' ').map((word, i) => (
-              <span
-                key={i}
-                className={styles.wordWrapper}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                {word}
-              </span>
-            ))}
-          </h1>
+      <div className={styles.opening}>
+        <div className={styles.edition} aria-hidden="true">
+          <span>The Fellowship / Travis Heights, Austin</span>
+          <span>Three houses &nbsp;·&nbsp; Twelve rooms</span>
+        </div>
 
-          <p className={clsx('hero-subtitle', styles.subtitle)}>
-            {subtitle}
-          </p>
+        <h1 className={clsx('hero-title', styles.title)}>
+          {words.map((word, i) => (
+            <span
+              key={i}
+              className={styles.wordWrapper}
+              style={{ animationDelay: `${i * 90}ms` }}
+            >
+              {word}
+            </span>
+          ))}
+        </h1>
 
-          <div className={styles.ctas}>
-            {primaryCta && (
-              <Link
-                to={primaryCta.to}
-                className={clsx('btn btn-primary', styles.ctaButton)}
-              >
-                {primaryCta.label}
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            )}
+        <p className={clsx('hero-subtitle', styles.subtitle)}>{subtitle}</p>
 
-            {secondaryCta && (
-              <Link
-                to={secondaryCta.to}
-                className={clsx('btn', styles.ctaButtonSecondary)}
-              >
-                {secondaryCta.label}
-              </Link>
-            )}
-          </div>
+        <div className={styles.ctas}>
+          {primaryCta && (
+            <Link to={primaryCta.to} className={clsx('btn btn-primary', styles.ctaButton)}>
+              {primaryCta.label}
+              <span aria-hidden="true">→</span>
+            </Link>
+          )}
+          {secondaryCta && (
+            <Link to={secondaryCta.to} className={styles.inkLink}>
+              {secondaryCta.label}
+              <span aria-hidden="true">↗</span>
+            </Link>
+          )}
+        </div>
+
+        <div className={styles.compass} aria-hidden="true">
+          <svg viewBox="0 0 80 90">
+            <path d="M40 4 L42 38 64 26 47 45 72 47 47 50 61 72 42 57 40 86 37 56 18 69 32 50 8 47 33 43 21 24 37 37Z" />
+            <path d="M40 4 V86 M8 47 H72" />
+          </svg>
+          <span>N</span>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className={styles.scrollIndicator} aria-hidden="true">
-        <div className={styles.scrollMouse}>
-          <div className={styles.scrollWheel} />
-        </div>
+      <div className={styles.plate}>
+        <img
+          className={styles.plateImage}
+          src={bgUrl}
+          width="2048"
+          height="860"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
       </div>
     </section>
   );

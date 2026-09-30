@@ -14,10 +14,9 @@ function FeaturesSection(): JSX.Element {
     <section className="section" id="features">
       <div className="container-wide">
         <div className="section-header">
-          <h2 className="section-title">All Amenities</h2>
+          <h2 className="section-title">What's here</h2>
           <p className="section-subtitle">
-            Everything you need for productive work and comfortable living,
-            all under one roof.
+            The short list of what you get here, not counting the housemates.
           </p>
         </div>
 
@@ -35,9 +34,9 @@ function ExploreSpaceSection(): JSX.Element {
     <section className="section" id="explore-space">
       <div className="container-wide">
         <div className="section-header">
-          <h2 className="section-title">Explore Our Space</h2>
+          <h2 className="section-title">How the land lays out</h2>
           <p className="section-subtitle">
-            Three houses on half an acre in Travis Heights. Each house has its own character and amenities.
+            Three houses on half an acre. Each one has its own personality and its own share of the good stuff.
           </p>
         </div>
         <PropertyMap />
@@ -50,13 +49,13 @@ function CTASection(): JSX.Element {
   return (
     <section className="cta-section">
       <h2 className="section-title" style={{ color: 'inherit' }}>
-        Join The Fellowship
+        Come live here
       </h2>
       <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>
-        Apply to join our community. We'll schedule a call to get to know you.
+        Fill out the application and we'll set up a call. It's mostly just us getting to know you.
       </p>
       <Link to="/apply" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
-        Apply Now
+        Start an application
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
             d="M4 10h12m0 0l-4-4m4 4l-4 4"
@@ -75,12 +74,8 @@ function RoadmapSection(): JSX.Element {
   return (
     <section className="section" style={{ textAlign: 'center' }}>
       <div className="container-narrow">
-        <p style={{
-          fontSize: '1rem',
-          color: 'var(--color-text-muted)',
-          fontStyle: 'italic'
-        }}>
-          Coming soon: sauna, courtyard garden, solar power, and more.
+        <p className="roadmap-note">
+          Still on the list: a sauna, a courtyard garden, and solar.
         </p>
       </div>
     </section>
@@ -91,18 +86,18 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="Home"
-      description="A wellness-focused coliving community in Travis Heights, Austin. Movement, recovery, focus, community, and nature—all under one roof."
+      description="Coliving in Travis Heights, Austin. Three houses that share half an acre of backyard, with twelve rooms starting at $850 a month."
     >
       <main>
         <Hero
-          title="Live with intention."
-          subtitle="The Fellowship is a wellness-focused coliving community in Travis Heights, Austin. Three houses, twelve rooms, half an acre of land—designed around movement, recovery, focus, community, and nature. Rooms from $850/month."
+          title="Three houses, one backyard."
+          subtitle="The Fellowship is three houses in Travis Heights that share half an acre of yard. We set it up around how we actually like to live: lift in the morning, get real work done, sit in the hot tub or the cold plunge, cook for each other at night. Twelve rooms. From $850 a month."
           primaryCta={{
-            label: 'View Rooms',
+            label: 'See the rooms',
             to: '/membership',
           }}
           secondaryCta={{
-            label: 'Schedule a Tour',
+            label: 'Come see it in person',
             to: '/apply',
           }}
         />

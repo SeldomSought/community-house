@@ -1,73 +1,93 @@
+/* Feature grid: a numbered index of specimens.
+   Numbering ("No. 01") is generated here in CSS, so features.json
+   stays the single source of content. */
 .grid {
   display: grid;
-  gap: 1.5rem;
-  padding: 0 1rem;
+  gap: 0;
+  padding: 0;
+  counter-reset: specimen;
+  border-top: 1px solid var(--hairline-strong);
+  border-left: 1px solid var(--hairline);
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
+  .grid { grid-template-columns: 1fr !important; }
 }
-
 @media (min-width: 769px) and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+  .grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 .card {
+  counter-increment: specimen;
+  --card-ink: var(--ink);
+  --card-rgb: var(--ink-rgb);
+  /* override the framed-card look: in a grid the cells share rules */
+  border: 0 !important;
+  border-right: 1px solid var(--hairline) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  outline: 0 !important;
+  background: transparent !important;
+  padding: clamp(24px, 2.6vw, 36px) clamp(20px, 2.4vw, 32px) clamp(28px, 3vw, 40px) !important;
   opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
+  animation: inkIn .7s var(--ease) forwards;
+  transition: background .3s var(--ease) !important;
+}
+/* four inks in rotation, like hand-tinted plates */
+.card:nth-child(4n + 2) { --card-ink: var(--verdigris); --card-rgb: var(--verdigris-rgb); }
+.card:nth-child(4n + 3) { --card-ink: var(--rust);      --card-rgb: var(--rust-rgb); }
+.card:nth-child(4n + 4) { --card-ink: var(--plum);      --card-rgb: var(--plum-rgb); }
+.card:hover { background: rgba(var(--card-rgb), .045) !important; }
+
+.card::before {
+  content: 'No. ' counter(specimen, decimal-leading-zero);
+  position: absolute;
+  top: clamp(24px, 2.6vw, 36px);
+  right: clamp(20px, 2.4vw, 32px);
+  font: 500 var(--t-micro)/1 var(--sans);
+  letter-spacing: .08em;
+  color: var(--card-ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .iconWrapper {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(232, 93, 4, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%);
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.card:hover .iconWrapper {
-  background: linear-gradient(135deg, var(--color-brand, #E85D04) 0%, var(--color-brand-light, #F97316) 100%);
-  transform: scale(1.1) rotate(-5deg);
+  justify-content: flex-start;
+  margin-bottom: 1.25rem;
+  background: none;
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
-  transition: filter 0.3s ease;
+  display: block;
+  width: 34px;
+  height: 34px;
+  background-color: var(--card-ink);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  transition: transform .4s var(--ease);
 }
-
-.card:hover .icon {
-  filter: brightness(0) invert(1);
-}
+.card:hover .icon { transform: rotate(-4deg); }
 
 .title {
-  margin: 0 0 0.5rem;
-  font-size: 1.125rem;
-  font-weight: 600;
+  margin: 0 0 .5rem;
+  font-size: clamp(1.35rem, 1.2rem + .5vw, 1.625rem);
+  font-weight: 500;
 }
 
 .description {
   margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes inkIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }

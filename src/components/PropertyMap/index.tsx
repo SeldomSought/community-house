@@ -42,7 +42,8 @@ const houses: HouseData[] = [
       { name: 'Coworking Space', icon: '💻' },
     ],
     labelPosition: {
-      top: '10%',
+      // sits above the title baked into the aerial image
+      top: '3%',
       left: '42%',
     },
   },
@@ -51,7 +52,7 @@ const houses: HouseData[] = [
     name: 'East House',
     features: [
       { name: 'Barbell Gym', icon: '🏋️' },
-      { name: 'Plunge Cold Plunge', icon: '🧊' },
+      { name: 'Cold Plunge', icon: '🧊' },
     ],
     labelPosition: {
       top: '15%',

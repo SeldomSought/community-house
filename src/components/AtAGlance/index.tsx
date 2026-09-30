@@ -46,7 +46,7 @@ export default function AtAGlance(): JSX.Element {
   return (
     <section className={styles.atAGlance}>
       <div className={styles.container}>
-        <p className={styles.tagline}>Live with intention. Thrive together.</p>
+        <p className={styles.tagline}>The quick version</p>
         <div className={styles.grid}>
           {glanceItems.map((item, index) => (
             <div key={index} className={styles.item}>
