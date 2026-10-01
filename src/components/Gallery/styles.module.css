@@ -3,7 +3,7 @@
    and live in src/css/custom.css (.atlas-figure, .atlas-lightbox). */
 
 .section {
-  --photo-h: clamp(280px, 40vw, 540px);
+  --photo-h: clamp(280px, 30vw, 440px);
   /* left edge of the scroller lines up with the page content */
   --inset: max(var(--gutter), calc((100vw - 90rem) / 2 + var(--gutter)));
   padding: var(--section-padding) 0;

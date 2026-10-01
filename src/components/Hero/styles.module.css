@@ -144,7 +144,7 @@
 }
 
 @media (max-width: 620px) {
-  .edition { justify-content: center; font-size: 11px; letter-spacing: .06em; }
+  .edition { justify-content: center; font-size: 12px; letter-spacing: .05em; }
   .edition span:last-child { display: none; }
   .title { margin-top: 48px; }
   .subtitle { font-size: 1.25rem; }

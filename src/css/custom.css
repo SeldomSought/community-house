@@ -75,7 +75,7 @@
   --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
   --space-5: 1.5rem; --space-6: 2rem; --space-8: 3rem; --space-10: 4rem;
   --space-12: 5rem; --space-16: 6rem; --space-20: 8rem;
-  --section-padding: clamp(4rem, 9vw, 7.5rem);
+  --section-padding: clamp(3.25rem, 9vw, 7.5rem);
   --section-gap: var(--space-8);
   --content-narrow: 40rem; --content-medium: 48rem; --content-wide: 72rem; --content-max: 90rem;
 
@@ -330,7 +330,9 @@ div[class*='announcementBar'] button { color: var(--paper); }
   .navbar__items:not(.navbar__items--right) { flex: 0 1 auto; }
   .navbar__items--right { margin-left: auto; }
   /* push the CTA to the far edge of the header */
-  .navbar__items:not(.navbar__items--right) .navbar-cta-button { margin-left: clamp(8px, 2vw, 32px); }
+  /* the left group fills the bar so Apply Now can sit at the far right */
+  .navbar__items:not(.navbar__items--right) { flex: 1 1 auto; }
+  .navbar__items:not(.navbar__items--right) .navbar-cta-button { margin-left: auto; }
 }
 
 .navbar__toggle {
@@ -502,7 +504,9 @@ div[class*='announcementBar'] button { color: var(--paper); }
 }
 
 .page-cta { text-align: center; margin-top: 2rem; }
-.page-cta p { margin: 0 auto 1.25rem; font-style: italic; color: var(--ink-soft); }
+.page-cta > p { margin: 0 auto 1.25rem; font-style: italic; color: var(--ink-soft); }
+/* MDX wraps multi-line link text in <p>; keep it inline inside buttons */
+.btn p { margin: 0; font: inherit; color: inherit; max-width: none; }
 
 /* ══════════════════════════════════════════════════
    BUTTONS
@@ -782,8 +786,9 @@ article header h2 a { letter-spacing: -.03em; }
 .gallery-search:focus { border-bottom-color: var(--rust); }
 .gallery-page__empty { text-align: center; padding: 3rem 0; font-style: italic; color: var(--ink-soft); }
 .gallery-page__grid {
+  --cols-min: 280px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--cols-min), 100%), 1fr));
   gap: clamp(14px, 1.6vw, 24px);
 }
 
@@ -977,6 +982,7 @@ article header h2 a { letter-spacing: -.03em; }
 .container-wide   { max-width: var(--content-max);    margin: 0 auto; padding: 0 var(--gutter); }
 .container-content{ max-width: var(--content-wide);   margin: 0 auto; padding: 0 var(--gutter); }
 
+.roadmap { padding: clamp(2rem, 4vw, 3rem) 0 clamp(2.5rem, 5vw, 4rem) !important; }
 .roadmap-note { font-size: var(--t-lede); font-style: italic; color: var(--ink-soft); margin: 0 auto; text-wrap: balance; }
 
 .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
@@ -1027,3 +1033,43 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 @media print {
   body::before, .navbar, .footer, .sticky-cta { display: none; }
 }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE POLISH
+══════════════════════════════════════════════════ */
+
+/* MDX pages (Rooms & Pricing, Location, About): wider text column on
+   desktop so the room cards have room, proper gutters on phones */
+@media (min-width: 997px) {
+  [class*='mdxPageWrapper'] > .col--8 { flex: 0 0 74%; max-width: 74%; }
+  [class*='mdxPageWrapper'] > .col--2 { flex: 0 0 22%; max-width: 22%; margin-left: auto; }
+}
+@media (max-width: 996px) {
+  main.container[class*='margin-vert'] { padding-inline: var(--gutter); margin-top: 0 !important; }
+  .main-wrapper > .container, main > .container { padding-top: clamp(1.75rem, 6vw, 3rem); }
+}
+
+/* gallery page: two photos per row on phones */
+@media (max-width: 620px) {
+  .gallery-page__grid { --cols-min: 140px; gap: 18px 12px; }
+  .gallery-page__grid .atlas-figure__caption { font-size: .95rem; gap: 6px; }
+}
+
+/* footer: link groups side by side on phones, and clear of the
+   sticky Apply bar */
+@media (max-width: 996px) {
+  .footer .footer__links { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem 1rem; margin: 0; }
+  .footer .footer__links > .col { max-width: none; padding: 0; margin: 0; }
+}
+@media (max-width: 767px) {
+  .footer { padding-bottom: 104px; }
+}
+
+/* bigger tap targets on touch screens */
+@media (max-width: 996px) {
+  div[class*='announcementBarContent'] a { display: inline-block; padding: 6px 2px; margin: -6px 0; }
+  .breadcrumbs__link { display: inline-flex; align-items: center; min-height: 40px; min-width: 32px; }
+  .gallery-tag { min-width: 44px; min-height: 44px; }
+  .atlas-form-card label:has(input[type='radio']) { min-height: 40px; }
+}
+
