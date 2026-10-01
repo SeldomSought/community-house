@@ -72,7 +72,7 @@ function CTASection(): JSX.Element {
 
 function RoadmapSection(): JSX.Element {
   return (
-    <section className="section" style={{ textAlign: 'center' }}>
+    <section className="section roadmap" style={{ textAlign: 'center' }}>
       <div className="container-narrow">
         <p className="roadmap-note">
           Still on the list: a sauna, a courtyard garden, and solar.
