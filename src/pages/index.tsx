@@ -91,7 +91,7 @@ export default function Home(): JSX.Element {
       <main>
         <Hero
           title="Three houses, one backyard."
-          subtitle="The Fellowship is three houses in Travis Heights that share half an acre of yard. We set it up around how we actually like to live: lift in the morning, get real work done, sit in the hot tub or the cold plunge, cook for each other at night. Twelve rooms. From $850 a month."
+          subtitle="The Fellowship is three houses in Travis Heights that share half an acre of yard. Twelve private rooms, a barbell gym, a hot tub and cold plunge, and fiber internet, a few minutes from downtown. Rooms from $850 a month."
           primaryCta={{
             label: 'See the rooms',
             to: '/membership',
