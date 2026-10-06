@@ -167,7 +167,6 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           path: 'docs',
           routeBasePath: 'spaces',
-          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -178,7 +177,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/SeldomSought/community-house/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
