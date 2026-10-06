@@ -23,9 +23,10 @@ const houses: HouseData[] = [
     name: 'West House',
     features: [
       { name: 'Conservatory', icon: '🌿' },
-      { name: 'Hot Tub', icon: '♨️' },
-      { name: 'Guest Loft', icon: '🛏️' },
+      { name: 'Sunroom', icon: '☀️' },
+      { name: 'Hot Tub & Cold Plunge', icon: '♨️' },
       { name: 'Theatre Room', icon: '🎬' },
+      { name: 'Guest Loft', icon: '🛏️' },
     ],
     labelPosition: {
       top: '15%',
@@ -36,8 +37,9 @@ const houses: HouseData[] = [
     id: 'center',
     name: 'Main House',
     features: [
+      { name: 'Living Room & Balcony', icon: '🛋️' },
       { name: 'Outdoor Propane Grill', icon: '🔥' },
-      { name: 'Fire Pit', icon: '🪵' },
+      { name: 'Backyard', icon: '🌳' },
       { name: 'Backyard Chickens', icon: '🐔' },
       { name: 'Coworking Space', icon: '💻' },
     ],
@@ -51,8 +53,10 @@ const houses: HouseData[] = [
     id: 'right',
     name: 'East House',
     features: [
+      { name: 'Bedrooms', icon: '🛏️' },
+      { name: 'Kitchen', icon: '🍳' },
+      { name: 'Coworking Space', icon: '💻' },
       { name: 'Barbell Gym', icon: '🏋️' },
-      { name: 'Cold Plunge', icon: '🧊' },
     ],
     labelPosition: {
       top: '15%',
